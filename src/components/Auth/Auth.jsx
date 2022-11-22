@@ -65,7 +65,7 @@ export default function Auth() {
           <CssBaseline />
           <Box
             sx={{
-           
+           mb:8,
               display: "flex",
               flexDirection: {
                 xs: "column",
@@ -250,6 +250,7 @@ export default function Auth() {
                 display: "flex",
                 flexDirection: "column",
                 width: { xs: "90%", sm: "70%", md: "35%" },
+                
               }}
             >
               <Typography
