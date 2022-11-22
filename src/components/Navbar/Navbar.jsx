@@ -23,7 +23,10 @@ function Navbar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const navigate = useNavigate();
-  const { email, handleLogout } = useAuth();
+  const {
+    user: { email },
+    handleLogout,
+  } = useAuth();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
