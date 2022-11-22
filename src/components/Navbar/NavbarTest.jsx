@@ -7,22 +7,29 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { useAuth } from "../../contexts/AuthContexts";
 import { Link } from "react-router-dom";
+import images from "../../images/fila.png";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import PersonIcon from "@mui/icons-material/Person";
+import LocalMallIcon from "@mui/icons-material/LocalMall";
+import { useAuth } from "../../contexts/AuthContexts";
 import { navbarContext } from "../../contexts/NavabarContexts";
+import { Input, InputAdornment } from "@mui/material";
+import NavbarHover from "./NavbarHover";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["New", "Shoes", "Men", "Women", "Tennis", "work", "WareHouse"];
 
 function Navbar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const { setHover } = React.useContext(navbarContext);
+    const { setHover, searchState, setSearchState, hover } =
+        React.useContext(navbarContext);
+    const { email, handleLogout } = useAuth();
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -38,10 +45,20 @@ function Navbar() {
         setAnchorElUser(null);
     };
 
-    const { email, handleLogout } = useAuth();
+    const hoverNav = () => {
+        setHover(true);
+        setSearchState(false);
+    };
+    const openSearch = () => {
+        setHover(false);
+        setSearchState(!searchState);
+    };
 
     return (
-        <AppBar position="static">
+        <AppBar
+            position="static"
+            sx={{ backgroundColor: "white", boxShadow: "none" }}
+        >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon
@@ -58,11 +75,16 @@ function Navbar() {
                             fontFamily: "monospace",
                             fontWeight: 700,
                             letterSpacing: ".3rem",
-                            color: "inherit",
+                            color: "black",
                             textDecoration: "none",
                         }}
                     >
-                        LOGO
+                        <img
+                            sx={{ width: "55px" }}
+                            width="75"
+                            src={images}
+                            alt=""
+                        />
                     </Typography>
 
                     <Box
@@ -77,7 +99,7 @@ function Navbar() {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
+                            color="black"
                         >
                             <MenuIcon />
                         </IconButton>
@@ -125,12 +147,17 @@ function Navbar() {
                             flexGrow: 1,
                             fontFamily: "monospace",
                             fontWeight: 700,
-                            letterSpacing: ".3rem",
-                            color: "inherit",
+                            letterSpacing: ".6rem",
+                            color: "black",
                             textDecoration: "none",
                         }}
                     >
-                        LOGO
+                        <img
+                            sx={{ width: "55px" }}
+                            width="75"
+                            src={images}
+                            alt=""
+                        />
                     </Typography>
                     <Box
                         sx={{
@@ -142,8 +169,12 @@ function Navbar() {
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                onMouseEnter={() => setHover(true)}
-                                sx={{ my: 2, color: "white", display: "block" }}
+                                onMouseEnter={hoverNav}
+                                sx={{
+                                    my: 2,
+                                    color: "black",
+                                    display: "block",
+                                }}
                             >
                                 {page}
                             </Button>
@@ -151,17 +182,30 @@ function Navbar() {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
+                        <Tooltip>
+                            <IconButton
+                                onClick={openSearch}
+                                sx={{ p: 0, width: "40px" }}
+                            >
+                                <SearchOutlinedIcon />
+                            </IconButton>
+                        </Tooltip>
+
                         <Tooltip title="Open settings">
                             <IconButton
                                 onClick={handleOpenUserMenu}
-                                sx={{ p: 0 }}
+                                sx={{ p: 0, width: "40px" }}
                             >
-                                <Avatar
-                                    alt="Remy Sharp"
-                                    src="/static/images/avatar/2.jpg"
-                                />
+                                <PersonIcon />
                             </IconButton>
                         </Tooltip>
+
+                        <Tooltip title="Open settings">
+                            <IconButton sx={{ p: 0, width: "40px" }}>
+                                <LocalMallIcon />
+                            </IconButton>
+                        </Tooltip>
+
                         <Menu
                             sx={{ mt: "45px" }}
                             id="menu-appbar"
@@ -185,10 +229,10 @@ function Navbar() {
                                     </Typography>
                                 </MenuItem>
                             ) : (
-                                <Link to="/auth" onClick={handleLogout}>
-                                    <MenuItem>
+                                <Link to="/auth">
+                                    <MenuItem onClick={handleLogout}>
                                         <Typography textAlign="center">
-                                            Logout
+                                            login
                                         </Typography>
                                     </MenuItem>
                                 </Link>
@@ -197,6 +241,28 @@ function Navbar() {
                     </Box>
                 </Toolbar>
             </Container>
+            {searchState && (
+                <Input
+                    id="standard-adornment-amount"
+                    sx={{
+                        width: "90%",
+                        margin: "auto",
+                        marginBottom: "20px",
+                        fontSize: "25px",
+                    }}
+                    placeholder="Search"
+                    endAdornment={
+                        <InputAdornment
+                            sx={{ cursor: " pointer" }}
+                            position="start"
+                            onClick={() => setSearchState(false)}
+                        >
+                            X
+                        </InputAdornment>
+                    }
+                />
+            )}
+            {hover && <NavbarHover />}
         </AppBar>
     );
 }
