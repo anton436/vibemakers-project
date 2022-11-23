@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { createContext, useContext } from 'react';
-import { JSON_API_PRODUCTS } from '../helpers/const';
+import { JSON_API_PRODUCTS } from '../helpers/consts';
 
 export const productContext = createContext();
 

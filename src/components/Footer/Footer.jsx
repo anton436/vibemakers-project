@@ -458,7 +458,7 @@ const Footer = () => {
                         fontSize: '13px',
                     }}
                 >
-                    <Link
+                    <a
                         href="https://www.fila.com/us"
                         sx={{
                             width: '90px',
@@ -469,7 +469,7 @@ const Footer = () => {
                             src="https://logodownload.org/wp-content/uploads/2017/06/fila-logo-15.png"
                             alt="fila"
                         />
-                    </Link>
+                    </a>
 
                     <Typography>
                         {' '}

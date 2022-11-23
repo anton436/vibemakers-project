@@ -1,1 +1,12 @@
-{"products":[]}
+{
+  "products": [
+    {
+      "name": "m,.",
+      "description": "sadasdasdasd",
+      "price": 2222,
+      "picture": "sadsad",
+      "type": "sdsadada",
+      "id": 1
+    }
+  ]
+}
