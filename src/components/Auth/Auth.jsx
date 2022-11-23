@@ -1,20 +1,17 @@
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useAuth } from "../../contexts/AuthContextProvider";
-import { Navigate, useNavigate } from "react-router-dom";
-import "./Auth.css";
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useAuth } from '../../contexts/AuthContextProvider';
+import { useNavigate } from 'react-router-dom';
+import './Auth.css';
 
 const theme = createTheme();
 
@@ -37,8 +34,8 @@ export default function Auth() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
-            email: data.get("email"),
-            password: data.get("password"),
+            email: data.get('email'),
+            password: data.get('password'),
         });
     };
 
@@ -54,8 +51,8 @@ export default function Auth() {
                             md: 15,
                         },
                         textAlign: {
-                            xs: "center",
-                            md: "left",
+                            xs: 'center',
+                            md: 'left',
                         },
                     }}
                 >
@@ -66,27 +63,27 @@ export default function Auth() {
                     <Box
                         sx={{
                             mb: 8,
-                            display: "flex",
+                            display: 'flex',
                             flexDirection: {
-                                xs: "column",
-                                md: "row",
+                                xs: 'column',
+                                md: 'row',
                             },
                             justifyContent: {
-                                xs: "center",
-                                md: "space-around",
+                                xs: 'center',
+                                md: 'space-around',
                             },
                             alignItems: {
-                                xs: "center",
-                                md: "flex-start",
+                                xs: 'center',
+                                md: 'flex-start',
                             },
                         }}
                     >
                         <Box
                             sx={{
                                 mt: 3,
-                                display: "flex",
-                                flexDirection: "column",
-                                width: { xs: "90%", sm: "70%", md: "35%" },
+                                display: 'flex',
+                                flexDirection: 'column',
+                                width: { xs: '90%', sm: '70%', md: '35%' },
                             }}
                         >
                             <Typography
@@ -149,24 +146,25 @@ export default function Auth() {
                                         onChange={(e) => {
                                             setPassword(e.target.value);
                                         }}
+                                        sx={{ borderRadius: '0' }}
                                     />
                                 </Box>
 
                                 <Box
                                     sx={{
-                                        display: "flex",
-                                        justifyContent: "space-between",
-                                        alignItems: "center",
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
                                     }}
                                 >
                                     <Box
                                         sx={{
-                                            display: "flex",
-                                            alignItems: "center",
+                                            display: 'flex',
+                                            alignItems: 'center',
                                             mt: 1,
                                         }}
                                     >
-                                        {" "}
+                                        {' '}
                                         <Checkbox
                                             value="remember"
                                             color="primary"
@@ -180,7 +178,7 @@ export default function Auth() {
                                         sx={{
                                             mt: 1,
                                             fontSize: 15,
-                                            color: "black",
+                                            color: 'black',
                                             fontSize: { xs: 14, sm: 16 },
                                         }}
                                         href="#"
@@ -199,7 +197,7 @@ export default function Auth() {
                                         sx={{ mt: 3, mb: 2, fontWeight: 600 }}
                                         onClick={() => {
                                             handleLogin();
-                                            navigate("/");
+                                            navigate('/');
                                         }}
                                     >
                                         Sign in
@@ -220,15 +218,15 @@ export default function Auth() {
                                 <Grid
                                     container
                                     sx={{
-                                        display: "flex",
-                                        justifyContent: "center",
+                                        display: 'flex',
+                                        justifyContent: 'center',
                                     }}
                                 >
                                     <Grid item>
                                         {hasAccount ? (
                                             <Link
                                                 className="links"
-                                                sx={{ color: "black" }}
+                                                sx={{ color: 'black' }}
                                                 href="#"
                                                 variant="body2"
                                                 onClick={() =>
@@ -242,7 +240,7 @@ export default function Auth() {
                                         ) : (
                                             <Link
                                                 className="links"
-                                                sx={{ color: "black" }}
+                                                sx={{ color: 'black' }}
                                                 href="#"
                                                 variant="body2"
                                                 onClick={() =>
@@ -250,7 +248,7 @@ export default function Auth() {
                                                 }
                                             >
                                                 {
-                                                    "Already have an account? Log In"
+                                                    'Already have an account? Log In'
                                                 }
                                             </Link>
                                         )}
@@ -262,8 +260,8 @@ export default function Auth() {
                         <Box
                             sx={{
                                 display: {
-                                    xs: "none",
-                                    md: "block",
+                                    xs: 'none',
+                                    md: 'block',
                                 },
                             }}
                             id="line"
@@ -273,9 +271,9 @@ export default function Auth() {
                         <Box
                             sx={{
                                 mt: 3,
-                                display: "flex",
-                                flexDirection: "column",
-                                width: { xs: "90%", sm: "70%", md: "35%" },
+                                display: 'flex',
+                                flexDirection: 'column',
+                                width: { xs: '90%', sm: '70%', md: '35%' },
                             }}
                         >
                             <Typography
@@ -315,7 +313,7 @@ export default function Auth() {
                                         fullWidth
                                         id="fname"
                                         name="fname"
-                                        autoFocus
+
                                         // ===========
                                     />
                                 </Box>
@@ -331,7 +329,7 @@ export default function Auth() {
                                         fullWidth
                                         id="lname"
                                         name="lname"
-                                        autoFocus
+
                                         // ===========
                                     />
                                 </Box>
@@ -401,12 +399,12 @@ export default function Auth() {
 
                                 <Box
                                     sx={{
-                                        display: "flex",
-                                        alignItems: "center",
+                                        display: 'flex',
+                                        alignItems: 'center',
                                         mt: 1,
                                     }}
                                 >
-                                    {" "}
+                                    {' '}
                                     <Checkbox
                                         value="remember"
                                         color="primary"
@@ -433,15 +431,15 @@ export default function Auth() {
                                     I’m interested in (optional):
                                 </Typography>
 
-                                <Box sx={{ display: "flex" }}>
+                                <Box sx={{ display: 'flex' }}>
                                     <Box
                                         sx={{
-                                            display: "flex",
-                                            alignItems: "center",
+                                            display: 'flex',
+                                            alignItems: 'center',
                                             mt: 1,
                                         }}
                                     >
-                                        {" "}
+                                        {' '}
                                         <Checkbox
                                             value="remember"
                                             color="primary"
@@ -452,12 +450,12 @@ export default function Auth() {
                                     </Box>
                                     <Box
                                         sx={{
-                                            display: "flex",
-                                            alignItems: "center",
+                                            display: 'flex',
+                                            alignItems: 'center',
                                             mt: 1,
                                         }}
                                     >
-                                        {" "}
+                                        {' '}
                                         <Checkbox
                                             value="remember"
                                             color="primary"
@@ -468,12 +466,12 @@ export default function Auth() {
                                     </Box>
                                     <Box
                                         sx={{
-                                            display: "flex",
-                                            alignItems: "center",
+                                            display: 'flex',
+                                            alignItems: 'center',
                                             mt: 1,
                                         }}
                                     >
-                                        {" "}
+                                        {' '}
                                         <Checkbox
                                             value="remember"
                                             color="primary"
@@ -492,7 +490,7 @@ export default function Auth() {
                                     sx={{ mt: 3, mb: 2, fontWeight: 600 }}
                                     onClick={() => {
                                         handleLogin();
-                                        navigate("/");
+                                        navigate('/');
                                     }}
                                 >
                                     CREATE ACCOUNT

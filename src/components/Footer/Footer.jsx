@@ -107,8 +107,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {contact.map((i) => (
+                        {contact.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: '10px',
                                     margin: 0,
@@ -163,8 +164,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {corporate.map((i) => (
+                        {corporate.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: '10px',
                                     margin: 0,
@@ -219,8 +221,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {policies.map((i) => (
+                        {policies.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: '10px',
                                     margin: 0,
@@ -275,8 +278,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {resources.map((i) => (
+                        {resources.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: '10px',
                                     [theme.breakpoints.down('md')]: {
@@ -330,8 +334,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {supplyChain.map((i) => (
+                        {supplyChain.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: '10px',
                                     [theme.breakpoints.down('md')]: {
@@ -392,45 +397,43 @@ const Footer = () => {
                             Sign Up to Join FILA
                         </Button>
 
-                        <Typography>
-                            <ListItem
-                                sx={{
-                                    fontSize: '14px',
-                                    padding: '3px 10px',
-                                }}
-                            >
-                                Connect with Us
+                        <ListItem
+                            sx={{
+                                fontSize: '14px',
+                                padding: '3px 10px',
+                            }}
+                        >
+                            Connect with Us
+                        </ListItem>
+                        <List
+                            className="icons"
+                            sx={{ display: 'flex', width: '30%' }}
+                        >
+                            <ListItem>
+                                <Link
+                                    className="icon-twitter"
+                                    href="https://twitter.com/FILAUSA?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                >
+                                    <TwitterIcon />
+                                </Link>
                             </ListItem>
-                            <List
-                                className="icons"
-                                sx={{ display: 'flex', width: '30%' }}
-                            >
-                                <ListItem>
-                                    <Link
-                                        className="icon-twitter"
-                                        href="https://twitter.com/FILAUSA?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
-                                    >
-                                        <TwitterIcon />
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link
-                                        className="icon-instagram"
-                                        href="https://www.instagram.com/filausa/"
-                                    >
-                                        <InstagramIcon />
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link
-                                        className="icon-facebook"
-                                        href="https://www.facebook.com/filausa/"
-                                    >
-                                        <FacebookIcon />
-                                    </Link>
-                                </ListItem>
-                            </List>
-                        </Typography>
+                            <ListItem>
+                                <Link
+                                    className="icon-instagram"
+                                    href="https://www.instagram.com/filausa/"
+                                >
+                                    <InstagramIcon />
+                                </Link>
+                            </ListItem>
+                            <ListItem>
+                                <Link
+                                    className="icon-facebook"
+                                    href="https://www.facebook.com/filausa/"
+                                >
+                                    <FacebookIcon />
+                                </Link>
+                            </ListItem>
+                        </List>
                     </List>
                 </Box>
             </Box>
@@ -455,7 +458,7 @@ const Footer = () => {
                         fontSize: '13px',
                     }}
                 >
-                    <a
+                    <Link
                         href="https://www.fila.com/us"
                         sx={{
                             width: '90px',
@@ -466,7 +469,7 @@ const Footer = () => {
                             src="https://logodownload.org/wp-content/uploads/2017/06/fila-logo-15.png"
                             alt="fila"
                         />
-                    </a>
+                    </Link>
 
                     <Typography>
                         {' '}
