@@ -1,7 +1,12 @@
 import { Box, Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useProducts } from '../../contexts/ProductContextProvider';
 
 const AddProduct = () => {
+  const { addProduct } = useProducts();
+
+  const navigate = useNavigate();
   const [product, setProduct] = useState({
     name: '',
     description: '',
@@ -18,8 +23,6 @@ const AddProduct = () => {
       let obj = { ...product, [e.target.name]: e.target.value };
       setProduct(obj);
     }
-
-    console.log(product);
   };
 
   return (
@@ -78,6 +81,10 @@ const AddProduct = () => {
         />
 
         <Button
+          onClick={() => {
+            addProduct(product);
+            navigate('/products');
+          }}
           sx={{
             marginBottom: '10px',
             borderColor: 'black',
