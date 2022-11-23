@@ -1,11 +1,20 @@
-import { Button, CardContent, Typography } from "@mui/material";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box } from "@mui/system";
+import AirportShuttleIcon from "@mui/icons-material/AirportShuttle";
+import PaymentIcon from "@mui/icons-material/Payment";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContextProvider";
 
 import "./style.css";
+import { Button, CardContent } from "@mui/material";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -17,7 +26,7 @@ const ProductDetails = () => {
   );
 
   let sizes = [
-    7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 13, 14, 15, 16, 17,
+    7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 13, 14, 15, 16, 17, 18, 19,20,21
   ];
 
   const [size, setSize] = useState();
@@ -25,6 +34,15 @@ const ProductDetails = () => {
   function sizesIndex(item) {
     setSize(item);
   }
+  const LiItems = [
+    "leather / textile / synthetic",
+    "embossed FILA logos on tongue, quarter, and instep",
+    "embossed FILA basketball logo on adjustable heel strap",
+    "perforated and reflective detailing on eyerow",
+    "embossed detailing on sidewall",
+    "cushioned heel collar and mesh tongue",
+    "adjustable heel strap",
+  ];
 
   return (
     <div>
@@ -41,8 +59,9 @@ const ProductDetails = () => {
           sx={{
             width: "40%",
             display: "flex",
-            justifyContent: "center",
             alignItems: "center",
+            justifyContent:'center'
+
           }}
         >
           <Typography gutterBottom variant="h3" component="div">
@@ -74,12 +93,9 @@ const ProductDetails = () => {
 
           <div>
             АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ
-            ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ
-            АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ
-            ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ
-            АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ
-            ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ
-            АЙЖАМАЛ ТЫ ГДЕ
+            ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ 
+            
+           
           </div>
 
           <Box sx={{ width: "50%" }}>
@@ -101,7 +117,7 @@ const ProductDetails = () => {
             </Box>
             <Box
               className="sizes__block"
-              sx={{ width: "80%", display: "flex", flexWrap: "wrap" }}
+              sx={{ width: "100%", display: "flex", flexWrap: "wrap" }}
             >
               {sizes.map((item) => (
                 <Typography
@@ -126,12 +142,43 @@ const ProductDetails = () => {
               ))}
             </Box>
           </Box>
+
+
+          
           <div>
-            АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН
-            АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН
-            АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН
-            АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН
-            АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН АДАХААН{" "}
+            <Box sx={{ width: "100%" }}>
+              <Accordion sx={{ width: "100%" }}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography sx={{ fontWeight: "700" }}>
+                    Features & Specs
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <ul>
+                    {LiItems.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </AccordionDetails>
+              </Accordion>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <Typography sx={{ display: "flex", alignItems: "center" }}>
+                  <AirportShuttleIcon />
+                  Free Shipping & Easy Returns
+                </Typography>
+                <Typography sx={{ display: "flex", alignItems: "center" }}>
+                  <PaymentIcon />
+                  Multiple Payment Options
+                </Typography>
+                <Typography sx={{ display: "flex", alignItems: "center" }}>
+                  <HelpOutlineIcon />
+                </Typography>
+              </Box>
+            </Box>
           </div>
         </Box>
       </Box>
