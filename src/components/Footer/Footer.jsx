@@ -1,13 +1,13 @@
-import React from 'react';
-import { createTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import { Link, List, ListItem, Typography, Button } from '@mui/material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import React from "react";
+import { createTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+// import FacebookIcon from "@mui/icons-material/Facebook";
+// import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import { Link, List, ListItem, Typography, Button } from "@mui/material";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Footer = () => {
     const [open, setOpen] = React.useState(true);
@@ -16,28 +16,28 @@ const Footer = () => {
         setOpen(!open);
     };
     const contact = [
-        'FILA USA Careers',
-        'FILA USA Careers',
-        'FILA Online Careers',
-        'Idea Submission',
-        'Preferred Player',
-        'Wholesaler Inquiries',
+        "FILA USA Careers",
+        "FILA USA Careers",
+        "FILA Online Careers",
+        "Idea Submission",
+        "Preferred Player",
+        "Wholesaler Inquiries",
     ];
-    const corporate = ['FILA Holdings', 'ESG', 'FILA News'];
-    const policies = ['Terms of Use', 'Privacy Policy', 'Accessibility'];
+    const corporate = ["FILA Holdings", "ESG", "FILA News"];
+    const policies = ["Terms of Use", "Privacy Policy", "Accessibility"];
     const resources = [
-        'Account',
-        'Sitemap',
-        'Customer Service',
-        'Check Order Status',
-        'The Archives',
-        'eGift Card',
+        "Account",
+        "Sitemap",
+        "Customer Service",
+        "Check Order Status",
+        "The Archives",
+        "eGift Card",
     ];
     const supplyChain = [
-        'California Supply Chains Act',
-        'Corporate Statement on Forced Labor',
-        'Business Partner Code of Conduct',
-        'FAQ',
+        "California Supply Chains Act",
+        "Corporate Statement on Forced Labor",
+        "Business Partner Code of Conduct",
+        "FAQ",
     ];
 
     const theme = createTheme({
@@ -55,74 +55,74 @@ const Footer = () => {
     return (
         <Box
             sx={{
-                backgroundColor: '#0b1f3f',
-                color: 'white',
+                backgroundColor: "#0b1f3f",
+                color: "white",
             }}
         >
             <Box
                 sx={{
-                    display: 'flex',
-                    [theme.breakpoints.down('md')]: {
-                        display: 'block',
+                    display: "flex",
+                    [theme.breakpoints.down("md")]: {
+                        display: "block",
                     },
-                    justifyContent: 'space-between',
-                    padding: '2% 5%',
-                    fontSize: '11px',
+                    justifyContent: "space-between",
+                    padding: "2% 5%",
+                    fontSize: "11px",
 
-                    border: 'solid rgba(122,139,160,.3)',
-                    borderWidth: '0 0 1px',
-                    padding: '23px 0',
-                    width: '97%',
-                    margin: '0 auto',
+                    border: "solid rgba(122,139,160,.3)",
+                    borderWidth: "0 0 1px",
+                    padding: "23px 0",
+                    width: "97%",
+                    margin: "0 auto",
                 }}
             >
-                <Box onClick={() => console.log('zxc')}>
+                <Box onClick={() => console.log("zxc")}>
                     <Typography
                         sx={{
-                            padding: '3px 10px',
-                            [theme.breakpoints.down('md')]: {
+                            padding: "3px 10px",
+                            [theme.breakpoints.down("md")]: {
                                 fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                border: "solid rgba(122,139,160,.3)",
+                                borderWidth: "0 0 1px",
+                                padding: "23px 0",
                             },
                         }}
                     >
                         Contact
                         <KeyboardArrowDownIcon
                             sx={{
-                                position: 'absolute',
-                                top: 'calc(21%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
+                                position: "absolute",
+                                top: "calc(21%)",
+                                right: "3%",
+                                [theme.breakpoints.up("md")]: {
+                                    display: "none",
                                 },
                             }}
                         />
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down('md')]: {
-                                padding: '0',
+                            [theme.breakpoints.down("md")]: {
+                                padding: "0",
                             },
                         }}
                     >
                         {contact.map((i) => (
                             <ListItem
                                 sx={{
-                                    padding: '10px',
+                                    padding: "10px",
                                     margin: 0,
-                                    [theme.breakpoints.down('md')]: {
-                                        display: 'none',
+                                    [theme.breakpoints.down("md")]: {
+                                        display: "none",
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: 'white',
-                                            cursor: 'pointer',
-                                            transition: '0.5s',
+                                            color: "white",
+                                            cursor: "pointer",
+                                            transition: "0.5s",
                                         }}
                                     >
                                         {i}
@@ -135,50 +135,50 @@ const Footer = () => {
                 <Box>
                     <Typography
                         sx={{
-                            padding: '3px 10px',
-                            [theme.breakpoints.down('md')]: {
+                            padding: "3px 10px",
+                            [theme.breakpoints.down("md")]: {
                                 fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                border: "solid rgba(122,139,160,.3)",
+                                borderWidth: "0 0 1px",
+                                padding: "23px 0",
                             },
                         }}
                     >
                         Corporate
                         <KeyboardArrowDownIcon
                             sx={{
-                                position: 'absolute',
-                                top: 'calc(32%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
+                                position: "absolute",
+                                top: "calc(32%)",
+                                right: "3%",
+                                [theme.breakpoints.up("md")]: {
+                                    display: "none",
                                 },
                             }}
                         />
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down('md')]: {
-                                padding: '0',
+                            [theme.breakpoints.down("md")]: {
+                                padding: "0",
                             },
                         }}
                     >
                         {corporate.map((i) => (
                             <ListItem
                                 sx={{
-                                    padding: '10px',
+                                    padding: "10px",
                                     margin: 0,
-                                    [theme.breakpoints.down('md')]: {
-                                        display: 'none',
+                                    [theme.breakpoints.down("md")]: {
+                                        display: "none",
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: 'white',
-                                            cursor: 'pointer',
-                                            transition: '0.5s',
+                                            color: "white",
+                                            cursor: "pointer",
+                                            transition: "0.5s",
                                         }}
                                     >
                                         {i}
@@ -191,50 +191,50 @@ const Footer = () => {
                 <Box>
                     <Typography
                         sx={{
-                            padding: '3px 10px',
-                            [theme.breakpoints.down('md')]: {
+                            padding: "3px 10px",
+                            [theme.breakpoints.down("md")]: {
                                 fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                border: "solid rgba(122,139,160,.3)",
+                                borderWidth: "0 0 1px",
+                                padding: "23px 0",
                             },
                         }}
                     >
                         Policies
                         <KeyboardArrowDownIcon
                             sx={{
-                                position: 'absolute',
-                                top: 'calc(43%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
+                                position: "absolute",
+                                top: "calc(43%)",
+                                right: "3%",
+                                [theme.breakpoints.up("md")]: {
+                                    display: "none",
                                 },
                             }}
                         />
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down('md')]: {
-                                padding: '0',
+                            [theme.breakpoints.down("md")]: {
+                                padding: "0",
                             },
                         }}
                     >
                         {policies.map((i) => (
                             <ListItem
                                 sx={{
-                                    padding: '10px',
+                                    padding: "10px",
                                     margin: 0,
-                                    [theme.breakpoints.down('md')]: {
-                                        display: 'none',
+                                    [theme.breakpoints.down("md")]: {
+                                        display: "none",
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: 'white',
-                                            cursor: 'pointer',
-                                            transition: '0.5s',
+                                            color: "white",
+                                            cursor: "pointer",
+                                            transition: "0.5s",
                                         }}
                                     >
                                         {i}
@@ -247,49 +247,49 @@ const Footer = () => {
                 <Box>
                     <Typography
                         sx={{
-                            padding: '3px 10px',
-                            [theme.breakpoints.down('md')]: {
+                            padding: "3px 10px",
+                            [theme.breakpoints.down("md")]: {
                                 fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                border: "solid rgba(122,139,160,.3)",
+                                borderWidth: "0 0 1px",
+                                padding: "23px 0",
                             },
                         }}
                     >
                         Resources
                         <KeyboardArrowDownIcon
                             sx={{
-                                position: 'absolute',
-                                top: 'calc(54%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
+                                position: "absolute",
+                                top: "calc(54%)",
+                                right: "3%",
+                                [theme.breakpoints.up("md")]: {
+                                    display: "none",
                                 },
                             }}
                         />
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down('md')]: {
-                                padding: '0',
+                            [theme.breakpoints.down("md")]: {
+                                padding: "0",
                             },
                         }}
                     >
                         {resources.map((i) => (
                             <ListItem
                                 sx={{
-                                    padding: '10px',
-                                    [theme.breakpoints.down('md')]: {
-                                        display: 'none',
+                                    padding: "10px",
+                                    [theme.breakpoints.down("md")]: {
+                                        display: "none",
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: 'white',
-                                            cursor: 'pointer',
-                                            transition: '0.5s',
+                                            color: "white",
+                                            cursor: "pointer",
+                                            transition: "0.5s",
                                         }}
                                     >
                                         {i}
@@ -302,49 +302,49 @@ const Footer = () => {
                 <Box>
                     <Typography
                         sx={{
-                            padding: '3px 10px',
-                            [theme.breakpoints.down('md')]: {
+                            padding: "3px 10px",
+                            [theme.breakpoints.down("md")]: {
                                 fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                border: "solid rgba(122,139,160,.3)",
+                                borderWidth: "0 0 1px",
+                                padding: "23px 0",
                             },
                         }}
                     >
                         Supply Chain
                         <KeyboardArrowDownIcon
                             sx={{
-                                position: 'absolute',
-                                top: 'calc(65%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
+                                position: "absolute",
+                                top: "calc(65%)",
+                                right: "3%",
+                                [theme.breakpoints.up("md")]: {
+                                    display: "none",
                                 },
                             }}
                         />
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down('md')]: {
-                                padding: '0',
+                            [theme.breakpoints.down("md")]: {
+                                padding: "0",
                             },
                         }}
                     >
                         {supplyChain.map((i) => (
                             <ListItem
                                 sx={{
-                                    padding: '10px',
-                                    [theme.breakpoints.down('md')]: {
-                                        display: 'none',
+                                    padding: "10px",
+                                    [theme.breakpoints.down("md")]: {
+                                        display: "none",
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: 'white',
-                                            cursor: 'pointer',
-                                            transition: '0.5s',
+                                            color: "white",
+                                            cursor: "pointer",
+                                            transition: "0.5s",
                                         }}
                                     >
                                         {i}
@@ -354,10 +354,10 @@ const Footer = () => {
                         ))}
                     </List>
                 </Box>
-                <Box sx={{ width: '27%' }}>
+                <Box sx={{ width: "27%" }}>
                     <Typography
                         sx={{
-                            padding: '3px 10px',
+                            padding: "3px 10px",
                         }}
                     >
                         Join FILA
@@ -366,9 +366,9 @@ const Footer = () => {
                     <List>
                         <ListItem
                             sx={{
-                                width: '95%',
-                                fontSize: '16px',
-                                padding: '3px 10px',
+                                width: "95%",
+                                fontSize: "16px",
+                                padding: "3px 10px",
                             }}
                         >
                             Sign up for exclusive offers, first looks at
@@ -380,30 +380,30 @@ const Footer = () => {
                             type="btn"
                             value="Sign Up to Join FILA"
                             sx={{
-                                width: '95%',
-                                borderRadius: '0px',
-                                padding: '2% 10%',
-                                margin: '15px 10px',
-                                color: 'black',
-                                backgroundColor: 'white',
+                                width: "95%",
+                                borderRadius: "0px",
+                                padding: "2% 10%",
+                                margin: "15px 10px",
+                                color: "black",
+                                backgroundColor: "white",
                             }}
                         >
-                            <EmailOutlinedIcon />
+                            {/* <EmailOutlinedIcon /> */}
                             Sign Up to Join FILA
                         </Button>
 
                         <Typography>
                             <ListItem
                                 sx={{
-                                    fontSize: '14px',
-                                    padding: '3px 10px',
+                                    fontSize: "14px",
+                                    padding: "3px 10px",
                                 }}
                             >
                                 Connect with Us
                             </ListItem>
                             <List
                                 className="icons"
-                                sx={{ display: 'flex', width: '30%' }}
+                                sx={{ display: "flex", width: "30%" }}
                             >
                                 <ListItem>
                                     <Link
@@ -426,7 +426,7 @@ const Footer = () => {
                                         className="icon-facebook"
                                         href="https://www.facebook.com/filausa/"
                                     >
-                                        <FacebookIcon />
+                                        {/* <FacebookIcon /> */}
                                     </Link>
                                 </ListItem>
                             </List>
@@ -437,29 +437,29 @@ const Footer = () => {
 
             <Box
                 sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: '80px',
-                    paddingBottom: '50px',
-                    paddingTop: '40px',
-                    borderTopWidth: '1px',
-                    borderColor: 'white',
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "80px",
+                    paddingBottom: "50px",
+                    paddingTop: "40px",
+                    borderTopWidth: "1px",
+                    borderColor: "white",
                 }}
             >
                 <Box
                     sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        fontSize: '13px',
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        fontSize: "13px",
                     }}
                 >
                     <a
                         href="https://www.fila.com/us"
                         sx={{
-                            width: '90px',
-                            height: '40px',
+                            width: "90px",
+                            height: "40px",
                         }}
                     >
                         <img
@@ -469,8 +469,8 @@ const Footer = () => {
                     </a>
 
                     <Typography>
-                        {' '}
-                        © 2022 FILA Luxembourg, S.a.r.l. All Rights Reserved{' '}
+                        {" "}
+                        © 2022 FILA Luxembourg, S.a.r.l. All Rights Reserved{" "}
                     </Typography>
                 </Box>
             </Box>
