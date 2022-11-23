@@ -4,7 +4,9 @@ import { useProducts } from '../../contexts/ProductContextProvider';
 
 const ProductDetails = () => {
     const { getProductDetails, productDetails } = useProducts();
+
     const { id } = useParams();
+
     useEffect(() => {
         getProductDetails(id);
     }, []);

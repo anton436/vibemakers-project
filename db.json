@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "products": [
         {
             "name": "m,.",
@@ -18,3 +19,32 @@
         }
     ]
 }
+=======
+  "products": [
+    {
+      "name": "m,.",
+      "description": "sadasdasdasd",
+      "price": 2222,
+      "picture": "sadsad",
+      "type": "sdsadada",
+      "id": 1
+    },
+    {
+      "name": "AAA",
+      "description": "sadasdasdasd",
+      "price": 2222,
+      "picture": "sadsad",
+      "type": "sdsadada",
+      "id": 2
+    },
+    {
+      "name": "BB",
+      "description": "sadasdasdasd",
+      "price": 2222,
+      "picture": "sadsad",
+      "type": "sdsadada",
+      "id": 3
+    }
+  ]
+}
+>>>>>>> a88a44147a481a229deb930536db5e64443d2acb

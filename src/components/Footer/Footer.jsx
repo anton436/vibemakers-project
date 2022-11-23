@@ -7,12 +7,43 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { Link, List, ListItem, Typography, Button } from '@mui/material';
 
-const Footer = () => {
-    const [open, setOpen] = React.useState(true);
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 
-    const handleClick = () => {
-        setOpen(!open);
+const Footer = () => {
+    const [openContact, setOpenContact] = React.useState(false);
+
+    const handleContact = () => {
+        setOpenContact(!openContact);
     };
+
+    const [openCorporate, setOpenCorporate] = React.useState(false);
+
+    const handleCorporate = () => {
+        setOpenCorporate(!openCorporate);
+    };
+
+    const [openPolicies, setOpenPolicies] = React.useState(false);
+
+    const handlePolicies = () => {
+        setOpenPolicies(!openPolicies);
+    };
+
+    const [openResources, setOpenResources] = React.useState(false);
+
+    const handleResources = () => {
+        setOpenResources(!openResources);
+    };
+
+    const [openSupChain, setOpenSupChain] = React.useState(false);
+
+    const handleSupChain = () => {
+        setOpenSupChain(!openSupChain);
+    };
+
     const contact = [
         'FILA USA Careers',
         'FILA USA Careers',
@@ -79,10 +110,7 @@ const Footer = () => {
                         sx={{
                             padding: '3px 10px',
                             [theme.breakpoints.down('md')]: {
-                                fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                display: 'none',
                             },
                         }}
                     >
@@ -126,10 +154,7 @@ const Footer = () => {
                         sx={{
                             padding: '3px 10px',
                             [theme.breakpoints.down('md')]: {
-                                fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                display: 'none',
                             },
                         }}
                     >
@@ -173,10 +198,7 @@ const Footer = () => {
                         sx={{
                             padding: '3px 10px',
                             [theme.breakpoints.down('md')]: {
-                                fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                display: 'none',
                             },
                         }}
                     >
@@ -220,10 +242,7 @@ const Footer = () => {
                         sx={{
                             padding: '3px 10px',
                             [theme.breakpoints.down('md')]: {
-                                fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                display: 'none',
                             },
                         }}
                     >
@@ -266,10 +285,7 @@ const Footer = () => {
                         sx={{
                             padding: '3px 10px',
                             [theme.breakpoints.down('md')]: {
-                                fontWeight: 600,
-                                border: 'solid rgba(122,139,160,.3)',
-                                borderWidth: '0 0 1px',
-                                padding: '23px 0',
+                                display: 'none',
                             },
                         }}
                     >
@@ -307,6 +323,164 @@ const Footer = () => {
                         ))}
                     </List>
                 </Box>
+
+                <ListItemButton
+                    onClick={handleContact}
+                    sx={{
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
+                            fontWeight: 600,
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
+                        },
+                    }}
+                >
+                    <ListItemText primary="Contact" />
+                    {openContact ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openContact} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
+                            }}
+                        >
+                            {contact.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+
+                <ListItemButton
+                    onClick={handleCorporate}
+                    sx={{
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
+                            fontWeight: 600,
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
+                        },
+                    }}
+                >
+                    <ListItemText primary="Corporate" />
+                    {openCorporate ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openCorporate} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
+                            }}
+                        >
+                            {corporate.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+                <ListItemButton
+                    onClick={handlePolicies}
+                    sx={{
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
+                            fontWeight: 600,
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
+                        },
+                    }}
+                >
+                    <ListItemText primary="Policies" />
+                    {openPolicies ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openPolicies} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
+                            }}
+                        >
+                            {policies.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+                <ListItemButton
+                    onClick={handleResources}
+                    sx={{
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
+                            fontWeight: 600,
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
+                        },
+                    }}
+                >
+                    <ListItemText primary="Resources" />
+                    {openResources ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openResources} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
+                            }}
+                        >
+                            {resources.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+                <ListItemButton
+                    onClick={handleSupChain}
+                    sx={{
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
+                            fontWeight: 600,
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
+                        },
+                    }}
+                >
+                    <ListItemText primary="Supply Chain" />
+                    {openSupChain ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openSupChain} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
+                            }}
+                        >
+                            {supplyChain.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+
                 <Box
                     sx={{
                         width: '27%',
@@ -320,7 +494,7 @@ const Footer = () => {
                         sx={{
                             padding: '3px 10px',
                             [theme.breakpoints.down('md')]: {
-                                padding: '3px 10px 10px 0',
+                                padding: '20px 10px 10px 0',
                             },
                         }}
                     >
