@@ -1,13 +1,14 @@
-import { DisplaySettings } from "@mui/icons-material";
 import React, { useEffect } from "react";
-import { useProduct } from "../../contexts/ProductContextProvider";
+import { useProducts } from "../../contexts/ProductContextProvider";
 import ProductCard from "./ProductCard";
 
 const ProductList = () => {
-    const { products, getProducts } = useProduct();
+    const { products, getProducts } = useProducts();
+
     useEffect(() => {
         getProducts();
     }, []);
+
     return (
         <div>
             {products.map((item) => (

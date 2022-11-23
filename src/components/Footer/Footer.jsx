@@ -3,8 +3,8 @@ import { createTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
-// import FacebookIcon from "@mui/icons-material/Facebook";
-// import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { Link, List, ListItem, Typography, Button } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -107,8 +107,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {contact.map((i) => (
+                        {contact.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: "10px",
                                     margin: 0,
@@ -163,8 +164,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {corporate.map((i) => (
+                        {corporate.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: "10px",
                                     margin: 0,
@@ -219,8 +221,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {policies.map((i) => (
+                        {policies.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: "10px",
                                     margin: 0,
@@ -275,8 +278,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {resources.map((i) => (
+                        {resources.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: "10px",
                                     [theme.breakpoints.down("md")]: {
@@ -330,8 +334,9 @@ const Footer = () => {
                             },
                         }}
                     >
-                        {supplyChain.map((i) => (
+                        {supplyChain.map((i, index) => (
                             <ListItem
+                                key={index}
                                 sx={{
                                     padding: "10px",
                                     [theme.breakpoints.down("md")]: {
@@ -388,49 +393,47 @@ const Footer = () => {
                                 backgroundColor: "white",
                             }}
                         >
-                            {/* <EmailOutlinedIcon /> */}
+                            <EmailOutlinedIcon />
                             Sign Up to Join FILA
                         </Button>
 
-                        <Typography>
-                            <ListItem
-                                sx={{
-                                    fontSize: "14px",
-                                    padding: "3px 10px",
-                                }}
-                            >
-                                Connect with Us
+                        <ListItem
+                            sx={{
+                                fontSize: "14px",
+                                padding: "3px 10px",
+                            }}
+                        >
+                            Connect with Us
+                        </ListItem>
+                        <List
+                            className="icons"
+                            sx={{ display: "flex", width: "30%" }}
+                        >
+                            <ListItem>
+                                <Link
+                                    className="icon-twitter"
+                                    href="https://twitter.com/FILAUSA?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                >
+                                    <TwitterIcon />
+                                </Link>
                             </ListItem>
-                            <List
-                                className="icons"
-                                sx={{ display: "flex", width: "30%" }}
-                            >
-                                <ListItem>
-                                    <Link
-                                        className="icon-twitter"
-                                        href="https://twitter.com/FILAUSA?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
-                                    >
-                                        <TwitterIcon />
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link
-                                        className="icon-instagram"
-                                        href="https://www.instagram.com/filausa/"
-                                    >
-                                        <InstagramIcon />
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link
-                                        className="icon-facebook"
-                                        href="https://www.facebook.com/filausa/"
-                                    >
-                                        {/* <FacebookIcon /> */}
-                                    </Link>
-                                </ListItem>
-                            </List>
-                        </Typography>
+                            <ListItem>
+                                <Link
+                                    className="icon-instagram"
+                                    href="https://www.instagram.com/filausa/"
+                                >
+                                    <InstagramIcon />
+                                </Link>
+                            </ListItem>
+                            <ListItem>
+                                <Link
+                                    className="icon-facebook"
+                                    href="https://www.facebook.com/filausa/"
+                                >
+                                    <FacebookIcon />
+                                </Link>
+                            </ListItem>
+                        </List>
                     </List>
                 </Box>
             </Box>

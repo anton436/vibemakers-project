@@ -5,17 +5,14 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import NavabarContexts from "./contexts/NavabarContexts";
 import AuthContextProvider from "./contexts/AuthContextProvider";
-import ProductContextProvider from "./contexts/ProductContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <BrowserRouter>
-        <ProductContextProvider>
-            <AuthContextProvider>
-                <NavabarContexts>
-                    <App />
-                </NavabarContexts>
-            </AuthContextProvider>
-        </ProductContextProvider>
+        <AuthContextProvider>
+            <NavabarContexts>
+                <App />
+            </NavabarContexts>
+        </AuthContextProvider>
     </BrowserRouter>
 );

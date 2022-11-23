@@ -1,10 +1,12 @@
 import { Box, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useProduct } from "../../contexts/ProductContextProvider";
+import { useProducts } from "../../contexts/ProductContextProvider";
 
 const AddProduct = () => {
-    const { addProduct } = useProduct();
+    const { addProduct } = useProducts();
+
+    const navigate = useNavigate();
     const [product, setProduct] = useState({
         name: "",
         description: "",
@@ -12,6 +14,7 @@ const AddProduct = () => {
         picture: "",
         type: "",
     });
+
     const handleInp = (e) => {
         if (e.target.name === "price") {
             let obj = { ...product, [e.target.name]: Number(e.target.value) };
@@ -21,7 +24,7 @@ const AddProduct = () => {
             setProduct(obj);
         }
     };
-    const navigate = useNavigate();
+
     return (
         <div align="center">
             <h1>ADMIN PANEL</h1>
@@ -35,15 +38,17 @@ const AddProduct = () => {
                     name="name"
                     size="small"
                 />
+
                 <TextField
                     onChange={handleInp}
                     sx={{ marginBottom: "10px", borderColor: "black" }}
                     fullWidth
-                    label="description"
+                    label="Description"
                     variant="outlined"
                     name="description"
                     size="small"
                 />
+
                 <TextField
                     onChange={handleInp}
                     sx={{ marginBottom: "10px", borderColor: "black" }}
@@ -54,6 +59,7 @@ const AddProduct = () => {
                     size="small"
                     type="number"
                 />
+
                 <TextField
                     onChange={handleInp}
                     sx={{ marginBottom: "10px", borderColor: "black" }}
@@ -63,6 +69,7 @@ const AddProduct = () => {
                     name="picture"
                     size="small"
                 />
+
                 <TextField
                     onChange={handleInp}
                     sx={{ marginBottom: "10px", borderColor: "black" }}
@@ -72,13 +79,14 @@ const AddProduct = () => {
                     name="type"
                     size="small"
                 />
+
                 <Button
                     onClick={() => {
                         addProduct(product);
                         navigate("/products");
                     }}
                     sx={{
-                        marginBotttom: "10px",
+                        marginBottom: "10px",
                         borderColor: "black",
                         backgroundColor: "black",
                         color: "white",
@@ -87,7 +95,7 @@ const AddProduct = () => {
                     fullWidth
                     size="large"
                 >
-                    add product
+                    ADD PRODUCT
                 </Button>
             </Box>
         </div>
