@@ -17,6 +17,22 @@ const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
         case ACTIONS.GET_PRODUCTS:
             return { ...state, products: action.payload };
+        case ACTIONS.GET_PRODUCT_DETAILS:
+            return { ...state, productDetails: action.payload };
+        default:
+            return state;
+    }
+};
+
+const INIT_STATE = {
+  products: [],
+  productDetails: {},
+};
+
+const reducer = (state = INIT_STATE, action) => {
+    switch (action.type) {
+        case ACTIONS.GET_PRODUCTS:
+            return { ...state, products: action.payload };
 
         case ACTIONS.GET_PRODUCT_DETAILS:
             return { ...state, productDetails: action.payload };
@@ -27,7 +43,43 @@ const reducer = (state = INIT_STATE, action) => {
 };
 
 const ProductContextProvider = ({ children }) => {
+<<<<<<< HEAD
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
+    async function addProduct(newProduct) {
+        await axios.post(JSON_API_PRODUCTS, newProduct);
+    }
+
+    async function getProducts() {
+        const { data } = await axios(JSON_API_PRODUCTS);
+        dispatch({
+            type: ACTIONS.GET_PRODUCTS,
+            payload: data,
+        });
+    }
+
+    async function getProductDetails(id) {
+        const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
+        dispatch({
+            type: ACTIONS.GET_PRODUCT_DETAILS,
+            payload: data,
+        });
+    }
+
+    const values = {
+        addProduct,
+        products: state.products,
+        getProducts,
+        getProductDetails,
+        productDetails: state.productDetails,
+    };
+    return (
+        <productContext.Provider value={values}>
+            {children}
+        </productContext.Provider>
+    );
+=======
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
     async function addProduct(newProduct) {
         await axios.post(JSON_API_PRODUCTS, newProduct);
@@ -51,18 +103,17 @@ const ProductContextProvider = ({ children }) => {
         });
     }
 
-    const values = {
-        addProduct,
-        products: state.products,
-        productDetails: state.productDetails,
-        getProducts,
-        getProductDetails,
-    };
-    return (
-        <productContext.Provider value={values}>
-            {children}
-        </productContext.Provider>
-    );
+  const values = {
+    addProduct,
+    products: state.products,
+    productDetails: state.productDetails,
+    getProducts,
+    getProductDetails,
+  };
+  return (
+    <productContext.Provider value={values}>{children}</productContext.Provider>
+  );
+>>>>>>> a88a44147a481a229deb930536db5e64443d2acb
 };
 
 export default ProductContextProvider;

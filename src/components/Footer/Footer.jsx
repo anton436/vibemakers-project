@@ -6,14 +6,44 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { Link, List, ListItem, Typography, Button } from "@mui/material";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Collapse from "@mui/material/Collapse";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const Footer = () => {
-    const [open, setOpen] = React.useState(true);
+    const [openContact, setOpenContact] = React.useState(false);
 
-    const handleClick = () => {
-        setOpen(!open);
+    const handleContact = () => {
+        setOpenContact(!openContact);
     };
+
+    const [openCorporate, setOpenCorporate] = React.useState(false);
+
+    const handleCorporate = () => {
+        setOpenCorporate(!openCorporate);
+    };
+
+    const [openPolicies, setOpenPolicies] = React.useState(false);
+
+    const handlePolicies = () => {
+        setOpenPolicies(!openPolicies);
+    };
+
+    const [openResources, setOpenResources] = React.useState(false);
+
+    const handleResources = () => {
+        setOpenResources(!openResources);
+    };
+
+    const [openSupChain, setOpenSupChain] = React.useState(false);
+
+    const handleSupChain = () => {
+        setOpenSupChain(!openSupChain);
+    };
+
     const contact = [
         "FILA USA Careers",
         "FILA USA Careers",
@@ -80,24 +110,11 @@ const Footer = () => {
                         sx={{
                             padding: "3px 10px",
                             [theme.breakpoints.down("md")]: {
-                                fontWeight: 600,
-                                border: "solid rgba(122,139,160,.3)",
-                                borderWidth: "0 0 1px",
-                                padding: "23px 0",
+                                display: "none",
                             },
                         }}
                     >
                         Contact
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: "absolute",
-                                top: "calc(21%)",
-                                right: "3%",
-                                [theme.breakpoints.up("md")]: {
-                                    display: "none",
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -137,24 +154,11 @@ const Footer = () => {
                         sx={{
                             padding: "3px 10px",
                             [theme.breakpoints.down("md")]: {
-                                fontWeight: 600,
-                                border: "solid rgba(122,139,160,.3)",
-                                borderWidth: "0 0 1px",
-                                padding: "23px 0",
+                                display: "none",
                             },
                         }}
                     >
                         Corporate
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: "absolute",
-                                top: "calc(32%)",
-                                right: "3%",
-                                [theme.breakpoints.up("md")]: {
-                                    display: "none",
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -194,24 +198,11 @@ const Footer = () => {
                         sx={{
                             padding: "3px 10px",
                             [theme.breakpoints.down("md")]: {
-                                fontWeight: 600,
-                                border: "solid rgba(122,139,160,.3)",
-                                borderWidth: "0 0 1px",
-                                padding: "23px 0",
+                                display: "none",
                             },
                         }}
                     >
                         Policies
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: "absolute",
-                                top: "calc(43%)",
-                                right: "3%",
-                                [theme.breakpoints.up("md")]: {
-                                    display: "none",
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -251,24 +242,11 @@ const Footer = () => {
                         sx={{
                             padding: "3px 10px",
                             [theme.breakpoints.down("md")]: {
-                                fontWeight: 600,
-                                border: "solid rgba(122,139,160,.3)",
-                                borderWidth: "0 0 1px",
-                                padding: "23px 0",
+                                display: "none",
                             },
                         }}
                     >
                         Resources
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: "absolute",
-                                top: "calc(54%)",
-                                right: "3%",
-                                [theme.breakpoints.up("md")]: {
-                                    display: "none",
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -307,24 +285,11 @@ const Footer = () => {
                         sx={{
                             padding: "3px 10px",
                             [theme.breakpoints.down("md")]: {
-                                fontWeight: 600,
-                                border: "solid rgba(122,139,160,.3)",
-                                borderWidth: "0 0 1px",
-                                padding: "23px 0",
+                                display: "none",
                             },
                         }}
                     >
                         Supply Chain
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: "absolute",
-                                top: "calc(65%)",
-                                right: "3%",
-                                [theme.breakpoints.up("md")]: {
-                                    display: "none",
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -358,10 +323,179 @@ const Footer = () => {
                         ))}
                     </List>
                 </Box>
-                <Box sx={{ width: "27%" }}>
+
+                <ListItemButton
+                    onClick={handleContact}
+                    sx={{
+                        [theme.breakpoints.up("md")]: { display: "none" },
+                        [theme.breakpoints.down("md")]: {
+                            fontWeight: 600,
+                            border: "solid rgba(122,139,160,.3)",
+                            borderWidth: "0 0 1px",
+                            padding: "23px 0",
+                        },
+                    }}
+                >
+                    <ListItemText primary="Contact" />
+                    {openContact ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openContact} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: "flex",
+                                flexDirection: "column",
+                                textAlign: "left",
+                            }}
+                        >
+                            {contact.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+
+                <ListItemButton
+                    onClick={handleCorporate}
+                    sx={{
+                        [theme.breakpoints.up("md")]: { display: "none" },
+                        [theme.breakpoints.down("md")]: {
+                            fontWeight: 600,
+                            border: "solid rgba(122,139,160,.3)",
+                            borderWidth: "0 0 1px",
+                            padding: "23px 0",
+                        },
+                    }}
+                >
+                    <ListItemText primary="Corporate" />
+                    {openCorporate ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openCorporate} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: "flex",
+                                flexDirection: "column",
+                                textAlign: "left",
+                            }}
+                        >
+                            {corporate.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+                <ListItemButton
+                    onClick={handlePolicies}
+                    sx={{
+                        [theme.breakpoints.up("md")]: { display: "none" },
+                        [theme.breakpoints.down("md")]: {
+                            fontWeight: 600,
+                            border: "solid rgba(122,139,160,.3)",
+                            borderWidth: "0 0 1px",
+                            padding: "23px 0",
+                        },
+                    }}
+                >
+                    <ListItemText primary="Policies" />
+                    {openPolicies ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openPolicies} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: "flex",
+                                flexDirection: "column",
+                                textAlign: "left",
+                            }}
+                        >
+                            {policies.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+                <ListItemButton
+                    onClick={handleResources}
+                    sx={{
+                        [theme.breakpoints.up("md")]: { display: "none" },
+                        [theme.breakpoints.down("md")]: {
+                            fontWeight: 600,
+                            border: "solid rgba(122,139,160,.3)",
+                            borderWidth: "0 0 1px",
+                            padding: "23px 0",
+                        },
+                    }}
+                >
+                    <ListItemText primary="Resources" />
+                    {openResources ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openResources} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: "flex",
+                                flexDirection: "column",
+                                textAlign: "left",
+                            }}
+                        >
+                            {resources.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+                <ListItemButton
+                    onClick={handleSupChain}
+                    sx={{
+                        [theme.breakpoints.up("md")]: { display: "none" },
+                        [theme.breakpoints.down("md")]: {
+                            fontWeight: 600,
+                            border: "solid rgba(122,139,160,.3)",
+                            borderWidth: "0 0 1px",
+                            padding: "23px 0",
+                        },
+                    }}
+                >
+                    <ListItemText primary="Supply Chain" />
+                    {openSupChain ? <ExpandMore /> : <ExpandLess />}
+                </ListItemButton>
+                <Collapse in={openSupChain} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton
+                            sx={{
+                                pl: 4,
+                                display: "flex",
+                                flexDirection: "column",
+                                textAlign: "left",
+                            }}
+                        >
+                            {supplyChain.map((i, index) => (
+                                <ListItemText key={index} primary={i} sx={{}} />
+                            ))}
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+
+                <Box
+                    sx={{
+                        width: "27%",
+                        [theme.breakpoints.down("md")]: {
+                            width: "100%",
+                            margin: "0 auto",
+                        },
+                    }}
+                >
                     <Typography
                         sx={{
                             padding: "3px 10px",
+                            [theme.breakpoints.down("md")]: {
+                                padding: "20px 10px 10px 0",
+                            },
                         }}
                     >
                         Join FILA
@@ -373,6 +507,9 @@ const Footer = () => {
                                 width: "95%",
                                 fontSize: "16px",
                                 padding: "3px 10px",
+                                [theme.breakpoints.down("md")]: {
+                                    padding: "3px 10px 10px 0",
+                                },
                             }}
                         >
                             Sign up for exclusive offers, first looks at
@@ -384,12 +521,15 @@ const Footer = () => {
                             type="btn"
                             value="Sign Up to Join FILA"
                             sx={{
-                                width: "95%",
+                                width: "100%",
                                 borderRadius: "0px",
                                 padding: "2% 10%",
                                 margin: "15px 10px",
                                 color: "black",
                                 backgroundColor: "white",
+                                [theme.breakpoints.down("md")]: {
+                                    margin: "15px 0",
+                                },
                             }}
                         >
                             <EmailOutlinedIcon />
@@ -400,13 +540,22 @@ const Footer = () => {
                             sx={{
                                 fontSize: "14px",
                                 padding: "3px 10px",
+                                [theme.breakpoints.down("md")]: {
+                                    padding: "3px 10px 10px 0",
+                                },
                             }}
                         >
                             Connect with Us
                         </ListItem>
                         <List
                             className="icons"
-                            sx={{ display: "flex", width: "30%" }}
+                            sx={{
+                                display: "flex",
+                                width: "30%",
+                                [theme.breakpoints.down("md")]: {
+                                    width: "15%",
+                                },
+                            }}
                         >
                             <ListItem>
                                 <Link
