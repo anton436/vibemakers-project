@@ -1,181 +1,507 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useAuth } from '../../contexts/AuthContextProvider';
-import { Navigate, useNavigate } from 'react-router-dom';
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant='body2'
-      color='text.secondary'
-      align='center'
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color='inherit' href='https://mui.com/'>
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useAuth } from "../../contexts/AuthContextProvider";
+import { Navigate, useNavigate } from "react-router-dom";
+import "./Auth.css";
 
 const theme = createTheme();
 
 export default function Auth() {
-  const navigate = useNavigate();
-  const {
-    email,
-    password,
-    emailError,
-    passwordError,
-    hasAccount,
-    setPassword,
-    setEmail,
-    setHasAccount,
-    handleLogin,
-    handleSignup,
-  } = useAuth();
+    const navigate = useNavigate();
+    const {
+        email,
+        password,
+        emailError,
+        passwordError,
+        hasAccount,
+        setPassword,
+        setEmail,
+        setHasAccount,
+        handleLogin,
+        handleSignup,
+    } = useAuth();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        console.log({
+            email: data.get("email"),
+            password: data.get("password"),
+        });
+    };
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Container component='main' maxWidth='xs'>
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component='h1' variant='h5'>
-            Sign in
-          </Typography>
-          <Box
-            component='form'
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
-          >
-            <TextField
-              margin='normal'
-              required
-              fullWidth
-              id='email'
-              label='Email Address'
-              name='email'
-              autoComplete='email'
-              autoFocus
-              // ===========
-              helperText={emailError}
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-            <TextField
-              margin='normal'
-              required
-              fullWidth
-              name='password'
-              label='Password'
-              type='password'
-              id='password'
-              autoComplete='current-password'
-              // ===============
-              helperText={passwordError}
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-            <FormControlLabel
-              control={<Checkbox value='remember' color='primary' />}
-              label='Remember me'
-            />
+    return (
+        <Box className="auth">
+            <ThemeProvider theme={theme}>
+                <Typography
+                    sx={{
+                        mt: 12,
+                        fontSize: { xs: 30, sm: 40 },
+                        fontWeight: 700,
+                        ml: {
+                            md: 15,
+                        },
+                        textAlign: {
+                            xs: "center",
+                            md: "left",
+                        },
+                    }}
+                >
+                    YOUR ACCOUNT
+                </Typography>
+                <Container component="main" maxWidth="lg">
+                    <CssBaseline />
+                    <Box
+                        sx={{
+                            mb: 8,
+                            display: "flex",
+                            flexDirection: {
+                                xs: "column",
+                                md: "row",
+                            },
+                            justifyContent: {
+                                xs: "center",
+                                md: "space-around",
+                            },
+                            alignItems: {
+                                xs: "center",
+                                md: "flex-start",
+                            },
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                mt: 3,
+                                display: "flex",
+                                flexDirection: "column",
+                                width: { xs: "90%", sm: "70%", md: "35%" },
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontWeight: 700,
+                                    fontSize: 26,
+                                }}
+                                component="h1"
+                                variant="h5"
+                            >
+                                Sign In
+                            </Typography>
+                            <Box
+                                component="form"
+                                onSubmit={handleSubmit}
+                                noValidate
+                                sx={{ mt: 3 }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontWeight: 600,
+                                        fontSize: { xs: 14, sm: 16 },
+                                    }}
+                                >
+                                    Email
+                                </Typography>
+                                <TextField
+                                    className="input-email"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    name="email"
+                                    autoComplete="email"
+                                    autoFocus
+                                    // ===========
+                                    helperText={emailError}
+                                    value={email}
+                                    onChange={(e) => {
+                                        setEmail(e.target.value);
+                                    }}
+                                />
 
-            {hasAccount ? (
-              <Button
-                type='submit'
-                fullWidth
-                variant='contained'
-                sx={{ mt: 3, mb: 2 }}
-                onClick={() => {
-                  handleLogin();
-                  navigate('/');
-                }}
-              >
-                Login
-              </Button>
-            ) : (
-              <Button
-                type='submit'
-                fullWidth
-                variant='contained'
-                sx={{ mt: 3, mb: 2 }}
-                onClick={handleSignup}
-              >
-                Register
-              </Button>
-            )}
+                                <Box sx={{ mt: 2 }}>
+                                    <Typography
+                                        sx={{ fontWeight: 600, fontSize: 14 }}
+                                    >
+                                        Password
+                                    </Typography>
+                                    <TextField
+                                        className="input-password"
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        type="password"
+                                        id="password"
+                                        autoComplete="current-password"
+                                        // ===============
+                                        helperText={passwordError}
+                                        value={password}
+                                        onChange={(e) => {
+                                            setPassword(e.target.value);
+                                        }}
+                                    />
+                                </Box>
 
-            <Grid container>
-              <Grid item xs>
-                <Link href='#' variant='body2'>
-                  Forgot password?
-                </Link>
-              </Grid>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            mt: 1,
+                                        }}
+                                    >
+                                        {" "}
+                                        <Checkbox
+                                            value="remember"
+                                            color="primary"
+                                        />
+                                        <Typography sx={{ fontSize: 14 }}>
+                                            Remember me
+                                        </Typography>
+                                    </Box>
+                                    <Link
+                                        className="links"
+                                        sx={{
+                                            mt: 1,
+                                            fontSize: 15,
+                                            color: "black",
+                                            fontSize: { xs: 14, sm: 16 },
+                                        }}
+                                        href="#"
+                                        variant="body2"
+                                        color="primary"
+                                    >
+                                        Forgot password?
+                                    </Link>
+                                </Box>
+                                {hasAccount ? (
+                                    <Button
+                                        className="button_sign_in"
+                                        type="submit"
+                                        fullWidth
+                                        variant="contained"
+                                        sx={{ mt: 3, mb: 2, fontWeight: 600 }}
+                                        onClick={() => {
+                                            handleLogin();
+                                            navigate("/");
+                                        }}
+                                    >
+                                        Sign in
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        className="button_register"
+                                        type="submit"
+                                        fullWidth
+                                        variant="contained"
+                                        sx={{ mt: 3, mb: 2, fontWeight: 600 }}
+                                        onClick={handleSignup}
+                                    >
+                                        Register
+                                    </Button>
+                                )}
 
-              <Grid item>
-                {hasAccount ? (
-                  <Link
-                    href='#'
-                    variant='body2'
-                    onClick={() => setHasAccount(!hasAccount)}
-                  >
-                    {"Don't have an account? Register now"}
-                  </Link>
-                ) : (
-                  <Link
-                    href='#'
-                    variant='body2'
-                    onClick={() => setHasAccount(!hasAccount)}
-                  >
-                    {'Have an account? Login'}
-                  </Link>
-                )}
-              </Grid>
-            </Grid>
-          </Box>
+                                <Grid
+                                    container
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                    }}
+                                >
+                                    <Grid item>
+                                        {hasAccount ? (
+                                            <Link
+                                                className="links"
+                                                sx={{ color: "black" }}
+                                                href="#"
+                                                variant="body2"
+                                                onClick={() =>
+                                                    setHasAccount(!hasAccount)
+                                                }
+                                            >
+                                                {
+                                                    "Don't have an account? Register now"
+                                                }
+                                            </Link>
+                                        ) : (
+                                            <Link
+                                                className="links"
+                                                sx={{ color: "black" }}
+                                                href="#"
+                                                variant="body2"
+                                                onClick={() =>
+                                                    setHasAccount(!hasAccount)
+                                                }
+                                            >
+                                                {
+                                                    "Already have an account? Log In"
+                                                }
+                                            </Link>
+                                        )}
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        </Box>
+
+                        <Box
+                            sx={{
+                                display: {
+                                    xs: "none",
+                                    md: "block",
+                                },
+                            }}
+                            id="line"
+                        ></Box>
+
+                        {/* !===================================================================================================================================================================== */}
+                        <Box
+                            sx={{
+                                mt: 3,
+                                display: "flex",
+                                flexDirection: "column",
+                                width: { xs: "90%", sm: "70%", md: "35%" },
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontWeight: 700,
+                                    fontSize: 26,
+                                    mt: {
+                                        xs: 8,
+                                        md: 0,
+                                    },
+                                }}
+                                component="h1"
+                                variant="h5"
+                            >
+                                Create an Account
+                            </Typography>
+
+                            <Typography sx={{ fontSize: 13, fontWeight: 600 }}>
+                                Enjoy the benefits — you'll always get faster
+                                checkout, access to your shopping bag from any
+                                device, easily process returns and more!
+                            </Typography>
+                            <Box
+                                component="form"
+                                onSubmit={handleSubmit}
+                                noValidate
+                                sx={{ mt: 1 }}
+                            >
+                                <Box sx={{ mt: 0 }}>
+                                    <Typography
+                                        sx={{ fontWeight: 600, fontSize: 14 }}
+                                    >
+                                        First Name
+                                    </Typography>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="fname"
+                                        name="fname"
+                                        autoFocus
+                                        // ===========
+                                    />
+                                </Box>
+
+                                <Box sx={{ mt: 2 }}>
+                                    <Typography
+                                        sx={{ fontWeight: 600, fontSize: 14 }}
+                                    >
+                                        Last Name
+                                    </Typography>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="lname"
+                                        name="lname"
+                                        autoFocus
+                                        // ===========
+                                    />
+                                </Box>
+
+                                <Box sx={{ mt: 2 }}>
+                                    <Typography
+                                        sx={{ fontWeight: 600, fontSize: 14 }}
+                                    >
+                                        Email
+                                    </Typography>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        name="email"
+                                        autoFocus
+                                        // ===========
+                                    />
+                                </Box>
+
+                                <Box sx={{ mt: 2 }}>
+                                    <Typography
+                                        sx={{ fontWeight: 600, fontSize: 14 }}
+                                    >
+                                        Confirm Email
+                                    </Typography>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        name="email"
+                                        autoFocus
+                                        // ===========
+                                    />
+                                </Box>
+
+                                <Box sx={{ mt: 2 }}>
+                                    <Typography
+                                        sx={{ fontWeight: 600, fontSize: 14 }}
+                                    >
+                                        Password
+                                    </Typography>
+                                    <TextField
+                                        className="input-password"
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        type="password"
+                                        autoComplete="current-password"
+                                        // ===============
+                                    />
+                                </Box>
+                                <Box sx={{ mt: 2 }}>
+                                    <Typography
+                                        sx={{ fontWeight: 600, fontSize: 14 }}
+                                    >
+                                        Confirm Password
+                                    </Typography>
+                                    <TextField
+                                        className="input-password"
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        type="password"
+                                        autoComplete="current-password"
+                                        // ===============
+                                    />
+                                </Box>
+
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        mt: 1,
+                                    }}
+                                >
+                                    {" "}
+                                    <Checkbox
+                                        value="remember"
+                                        color="primary"
+                                    />
+                                    <Typography
+                                        sx={{ fontSize: 14, fontWeight: 600 }}
+                                    >
+                                        Yes, sign me up for FILA emails!
+                                    </Typography>
+                                </Box>
+                                <Typography sx={{ fontSize: 13 }}>
+                                    Enjoy the benefits — you'll always get
+                                    faster checkout, access to your shopping bag
+                                    from any device, easily process returns and
+                                    more!
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: 14,
+                                        fontWeight: 600,
+                                        mt: 2,
+                                    }}
+                                >
+                                    I’m interested in (optional):
+                                </Typography>
+
+                                <Box sx={{ display: "flex" }}>
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            mt: 1,
+                                        }}
+                                    >
+                                        {" "}
+                                        <Checkbox
+                                            value="remember"
+                                            color="primary"
+                                        />
+                                        <Typography sx={{ fontSize: 14 }}>
+                                            Women's
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            mt: 1,
+                                        }}
+                                    >
+                                        {" "}
+                                        <Checkbox
+                                            value="remember"
+                                            color="primary"
+                                        />
+                                        <Typography sx={{ fontSize: 14 }}>
+                                            Men's
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            mt: 1,
+                                        }}
+                                    >
+                                        {" "}
+                                        <Checkbox
+                                            value="remember"
+                                            color="primary"
+                                        />
+                                        <Typography sx={{ fontSize: 14 }}>
+                                            Kids
+                                        </Typography>
+                                    </Box>
+                                </Box>
+
+                                <Button
+                                    className="button_create"
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{ mt: 3, mb: 2, fontWeight: 600 }}
+                                    onClick={() => {
+                                        handleLogin();
+                                        navigate("/");
+                                    }}
+                                >
+                                    CREATE ACCOUNT
+                                </Button>
+                            </Box>
+                        </Box>
+                    </Box>
+                </Container>
+            </ThemeProvider>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
-      </Container>
-    </ThemeProvider>
-  );
+    );
 }
