@@ -1,0 +1,23 @@
+.cardshow {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 50%;
+  }
+  
+  .slide {
+    height: 50vh;
+    margin: 2px;
+    cursor: pointer;
+    color: #fff;
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: all 500ms ease-in-out;
+  }
+  
+  .cardshow.slide.active {
+    flex: 200px;
+  }
