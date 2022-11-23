@@ -7,7 +7,6 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { Link, List, ListItem, Typography, Button } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Footer = () => {
     const [open, setOpen] = React.useState(true);
