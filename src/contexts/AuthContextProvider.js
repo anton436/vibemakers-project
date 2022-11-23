@@ -71,6 +71,7 @@ const AuthContextProvider = ({ children }) => {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {
         clearInputs();
+        console.log(user);
         setUser(user);
       } else {
         setUser('');
