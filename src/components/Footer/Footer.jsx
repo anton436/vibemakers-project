@@ -6,8 +6,6 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { Link, List, ListItem, Typography, Button } from '@mui/material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const Footer = () => {
     const [open, setOpen] = React.useState(true);
@@ -89,16 +87,6 @@ const Footer = () => {
                         }}
                     >
                         Contact
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: 'absolute',
-                                top: 'calc(21%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -146,16 +134,6 @@ const Footer = () => {
                         }}
                     >
                         Corporate
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: 'absolute',
-                                top: 'calc(32%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -203,16 +181,6 @@ const Footer = () => {
                         }}
                     >
                         Policies
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: 'absolute',
-                                top: 'calc(43%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -260,16 +228,6 @@ const Footer = () => {
                         }}
                     >
                         Resources
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: 'absolute',
-                                top: 'calc(54%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -316,16 +274,6 @@ const Footer = () => {
                         }}
                     >
                         Supply Chain
-                        <KeyboardArrowDownIcon
-                            sx={{
-                                position: 'absolute',
-                                top: 'calc(65%)',
-                                right: '3%',
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
-                                },
-                            }}
-                        />
                     </Typography>
                     <List
                         sx={{
@@ -359,10 +307,21 @@ const Footer = () => {
                         ))}
                     </List>
                 </Box>
-                <Box sx={{ width: '27%' }}>
+                <Box
+                    sx={{
+                        width: '27%',
+                        [theme.breakpoints.down('md')]: {
+                            width: '100%',
+                            margin: '0 auto',
+                        },
+                    }}
+                >
                     <Typography
                         sx={{
                             padding: '3px 10px',
+                            [theme.breakpoints.down('md')]: {
+                                padding: '3px 10px 10px 0',
+                            },
                         }}
                     >
                         Join FILA
@@ -374,6 +333,9 @@ const Footer = () => {
                                 width: '95%',
                                 fontSize: '16px',
                                 padding: '3px 10px',
+                                [theme.breakpoints.down('md')]: {
+                                    padding: '3px 10px 10px 0',
+                                },
                             }}
                         >
                             Sign up for exclusive offers, first looks at
@@ -385,12 +347,15 @@ const Footer = () => {
                             type="btn"
                             value="Sign Up to Join FILA"
                             sx={{
-                                width: '95%',
+                                width: '100%',
                                 borderRadius: '0px',
                                 padding: '2% 10%',
                                 margin: '15px 10px',
                                 color: 'black',
                                 backgroundColor: 'white',
+                                [theme.breakpoints.down('md')]: {
+                                    margin: '15px 0',
+                                },
                             }}
                         >
                             <EmailOutlinedIcon />
@@ -401,13 +366,22 @@ const Footer = () => {
                             sx={{
                                 fontSize: '14px',
                                 padding: '3px 10px',
+                                [theme.breakpoints.down('md')]: {
+                                    padding: '3px 10px 10px 0',
+                                },
                             }}
                         >
                             Connect with Us
                         </ListItem>
                         <List
                             className="icons"
-                            sx={{ display: 'flex', width: '30%' }}
+                            sx={{
+                                display: 'flex',
+                                width: '30%',
+                                [theme.breakpoints.down('md')]: {
+                                    width: '15%',
+                                },
+                            }}
                         >
                             <ListItem>
                                 <Link

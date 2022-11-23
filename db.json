@@ -1,12 +1,20 @@
 {
-  "products": [
-    {
-      "name": "m,.",
-      "description": "sadasdasdasd",
-      "price": 2222,
-      "picture": "sadsad",
-      "type": "sdsadada",
-      "id": 1
-    }
-  ]
+    "products": [
+        {
+            "name": "m,.",
+            "description": "sadasdasdasd",
+            "price": 2222,
+            "picture": "sadsad",
+            "type": "sdsadada",
+            "id": 1
+        },
+        {
+            "name": "123",
+            "description": "421",
+            "price": 312,
+            "picture": "31231",
+            "type": "123123",
+            "id": 2
+        }
+    ]
 }
