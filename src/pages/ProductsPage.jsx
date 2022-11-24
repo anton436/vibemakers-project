@@ -9,7 +9,6 @@ const ProductsPage = () => {
     return (
         <div>
             <ProductHeader />
-
             <Box sx={{ width: '100%', mt: '80px' }}>
                 <Box sx={{ display: 'flex' }}>
                     <Box sx={{ width: '35%' }}>
@@ -19,6 +18,18 @@ const ProductsPage = () => {
                         <ProductList />
                     </Box>
                 </Box>
+            </Box>
+            <Divider
+                sx={{
+                    width: '60%',
+                    margin: '10px',
+                    border: '1px solid',
+                    backgroundColor: 'black',
+                }}
+            ></Divider>
+
+            <Box sx={{ width: '65%' }}>
+                <ProductList />
             </Box>
         </div>
     );

@@ -3,16 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContextProvider';
 
-const AddProduct = () => {
-    const {
-        productDetails,
-        getProductDetails,
-        saveEditedProduct,
-        deleteProduct,
-    } = useProducts();
+const EditProduct = () => {
+    const { productDetails, getProductDetails, saveEditedProduct } =
+        useProducts();
+    const [product, setProduct] = useState(productDetails);
 
     const { id } = useParams();
-
     useEffect(() => {
         getProductDetails(id);
     }, []);
@@ -22,7 +18,6 @@ const AddProduct = () => {
     }, [productDetails]);
 
     const navigate = useNavigate();
-    const [product, setProduct] = useState(productDetails);
 
     const handleInp = (e) => {
         let obj = { ...product, [e.target.name]: e.target.value };
@@ -31,7 +26,7 @@ const AddProduct = () => {
 
     return (
         <div align="center">
-            <h1>ADMIN PANEL</h1>
+            <h1>EDIT PRODUCT</h1>
             <Box sx={{ width: '60vw', margin: '10vh auto' }}>
                 <TextField
                     onChange={handleInp}
@@ -104,11 +99,11 @@ const AddProduct = () => {
                     fullWidth
                     size="large"
                 >
-                    Save changes
+                    SAVE CHANGES
                 </Button>
             </Box>
         </div>
     );
 };
 
-export default AddProduct;
+export default EditProduct;

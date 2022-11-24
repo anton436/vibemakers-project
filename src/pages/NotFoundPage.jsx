@@ -5,17 +5,17 @@ import {
     ListItem,
     TextField,
     Typography,
-} from '@mui/material';
-import { border, Box, ThemeProvider, width } from '@mui/system';
-import React from 'react';
+} from "@mui/material";
+import { border, Box, ThemeProvider, width } from "@mui/system";
+import React from "react";
 
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
 
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 
-import { NoEncryption } from '@mui/icons-material';
+import { NoEncryption } from "@mui/icons-material";
 
 const theme = createTheme();
 
@@ -28,13 +28,13 @@ const NotFoundPage = () => {
     return (
         <Box sx={{ m: 10, ml: 0, mr: 0 }}>
             <ThemeProvider theme={theme}>
-                <Box sx={{ display: 'flex', fontSize: 14, ml: 32, mb: 0 }}>
+                <Box sx={{ display: "flex", fontSize: 14, ml: 32, mb: 0 }}>
                     <Typography
                         sx={{
                             fontSize: 14,
-                            textDecoration: 'none',
-                            color: '#0b1f3f',
-                            ml: '20%',
+                            textDecoration: "none",
+                            color: "#0b1f3f",
+                            ml: "20%",
                         }}
                         component="a"
                         href="/"
@@ -45,9 +45,9 @@ const NotFoundPage = () => {
                         /An Error Occured
                     </Typography>
                 </Box>
-                <Box sx={{ display: 'flex' }}>
-                    <Box align="center" sx={{ width: '40%', mt: 10 }}>
-                        <Box align="left" sx={{ width: '30%' }}>
+                <Box sx={{ display: "flex" }}>
+                    <Box align="center" sx={{ width: "40%", mt: 10 }}>
+                        <Box align="left" sx={{ width: "30%" }}>
                             <Typography sx={{ fontWeight: 600, fontSize: 22 }}>
                                 Customer
                             </Typography>
@@ -57,7 +57,7 @@ const NotFoundPage = () => {
                                     fontSize: 22,
                                     pb: 1,
                                     borderBottom:
-                                        '1px solid rgb(192, 192, 192)',
+                                        "1px solid rgb(192, 192, 192)",
                                 }}
                             >
                                 Service
@@ -65,20 +65,20 @@ const NotFoundPage = () => {
 
                             <Accordion
                                 sx={{
-                                    '&': {
-                                        py: '5px',
-                                        boxShadow: 'none',
+                                    "&": {
+                                        py: "5px",
+                                        boxShadow: "none",
 
-                                        border: 'none',
+                                        border: "none",
                                         m: 0,
                                     },
                                 }}
-                                expanded={expanded === 'panel1'}
-                                onChange={handleChange('panel1')}
+                                expanded={expanded === "panel1"}
+                                onChange={handleChange("panel1")}
                             >
                                 <AccordionSummary
                                     sx={{
-                                        '&': {
+                                        "&": {
                                             padding: 0,
                                         },
                                     }}
@@ -129,17 +129,17 @@ const NotFoundPage = () => {
                             </Accordion>
                             <Accordion
                                 sx={{
-                                    '&': {
+                                    "&": {
                                         m: 0,
-                                        py: '5px',
-                                        boxShadow: 'none',
+                                        py: "5px",
+                                        boxShadow: "none",
                                         borderTop:
-                                            '1px solid rgb(192, 192, 192)',
-                                        borderRadius: '0px',
+                                            "1px solid rgb(192, 192, 192)",
+                                        borderRadius: "0px",
                                     },
                                 }}
-                                expanded={expanded === 'panel2'}
-                                onChange={handleChange('panel2')}
+                                expanded={expanded === "panel2"}
+                                onChange={handleChange("panel2")}
                             >
                                 <AccordionSummary
                                     sx={{
@@ -210,16 +210,16 @@ const NotFoundPage = () => {
                             </Accordion>
                             <Accordion
                                 sx={{
-                                    '&': {
-                                        py: '5px',
-                                        boxShadow: 'none',
+                                    "&": {
+                                        py: "5px",
+                                        boxShadow: "none",
                                         borderTop:
-                                            '1px solid rgb(192, 192, 192)',
-                                        borderRadius: '0px',
+                                            "1px solid rgb(192, 192, 192)",
+                                        borderRadius: "0px",
                                     },
                                 }}
-                                expanded={expanded === 'panel3'}
-                                onChange={handleChange('panel3')}
+                                expanded={expanded === "panel3"}
+                                onChange={handleChange("panel3")}
                             >
                                 <AccordionSummary
                                     sx={{
@@ -285,17 +285,17 @@ const NotFoundPage = () => {
                             </Accordion>
                             <Accordion
                                 sx={{
-                                    '&': {
-                                        py: '5px',
-                                        boxShadow: 'none',
+                                    "&": {
+                                        py: "5px",
+                                        boxShadow: "none",
                                         borderTop:
-                                            '1px solid rgb(192, 192, 192)',
-                                        borderRadius: '0px',
+                                            "1px solid rgb(192, 192, 192)",
+                                        borderRadius: "0px",
                                         m: 0,
                                     },
                                 }}
-                                expanded={expanded === 'panel4'}
-                                onChange={handleChange('panel4')}
+                                expanded={expanded === "panel4"}
+                                onChange={handleChange("panel4")}
                             >
                                 <AccordionSummary
                                     sx={{
@@ -337,12 +337,12 @@ const NotFoundPage = () => {
                         </Box>
                     </Box>
 
-                    <Box sx={{ width: '60%' }}>
+                    <Box sx={{ width: "60%" }}>
                         <Typography
                             sx={{
                                 fontSize: 35,
                                 fontWeight: 600,
-                                textAlign: 'center',
+                                textAlign: "center",
                             }}
                         >
                             Page Not Found
@@ -351,9 +351,9 @@ const NotFoundPage = () => {
                         <Box sx={{ mt: 7 }}>
                             <Box
                                 sx={{
-                                    width: '95%',
-                                    height: '1px',
-                                    backgroundColor: 'rgb(216, 216, 216)',
+                                    width: "95%",
+                                    height: "1px",
+                                    backgroundColor: "rgb(216, 216, 216)",
                                 }}
                             ></Box>
                             <Typography sx={{ mt: 2, mb: 1, fontSize: 14 }}>
@@ -362,19 +362,19 @@ const NotFoundPage = () => {
                             <Box sx={{ mb: 1 }}>
                                 <TextField
                                     sx={{
-                                        '&': {
-                                            width: '50%',
+                                        "&": {
+                                            width: "50%",
                                             mt: 1,
                                         },
-                                        '&.MuiTextfield-root': {
+                                        "&.MuiTextfield-root": {
                                             padding: 0,
                                         },
                                     }}
                                 />
                                 <Button
                                     sx={{
-                                        backgroundColor: '#0b1f3f ',
-                                        color: 'white',
+                                        backgroundColor: "#0b1f3f ",
+                                        color: "white",
                                         borderRadius: 0,
                                         fontWeight: 600,
                                         m: 2,
@@ -389,9 +389,9 @@ const NotFoundPage = () => {
 
                             <Box
                                 sx={{
-                                    width: '95%',
-                                    height: '1px',
-                                    backgroundColor: 'rgb(216, 216, 216)',
+                                    width: "95%",
+                                    height: "1px",
+                                    backgroundColor: "rgb(216, 216, 216)",
                                 }}
                             ></Box>
                         </Box>

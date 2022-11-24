@@ -14,14 +14,14 @@ const ProductDetails = () => {
     return (
         <div>
             {productDetails.name} {productDetails.price}
-            <button onClick={() => navigate(`/edit/${id}`)}>Edit</button>
+            <button onClick={() => navigate(`/edit/${id}`)}>EDIT</button>
             <button
                 onClick={() => {
                     deleteProduct(id);
-                    navigate(`/products`);
+                    navigate('/products');
                 }}
             >
-                Delete
+                DELETE
             </button>
         </div>
     );

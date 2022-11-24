@@ -17,7 +17,6 @@ import { Link } from "react-router-dom";
 import { navbarContext } from "../../contexts/NavabarContexts";
 
 const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);

@@ -1,6 +1,6 @@
-import { Box, Typography } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Box, Typography } from '@mui/material';
 
 const ProductCard = ({ item }) => {
     const navigate = useNavigate();
@@ -10,7 +10,7 @@ const ProductCard = ({ item }) => {
                 sx={{
                     width: '100%',
                     backgroundColor: 'white',
-                    margin: '10px 0px 30px 0',
+                    margin: '10px 20px 30px 20px',
                 }}
             >
                 <Box
@@ -60,6 +60,10 @@ const ProductCard = ({ item }) => {
                     </Typography>
                 </Box>
             </Box>
+            {item.name} {item.price}{' '}
+            <button onClick={() => navigate(`/products/${item.id}`)}>
+                details
+            </button>
         </div>
     );
 };
