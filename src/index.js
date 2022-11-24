@@ -9,13 +9,13 @@ import ProductContextProvider from './contexts/ProductContextProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <ProductContextProvider>
-      <AuthContextProvider>
-        <NavabarContexts>
-          <App />
-        </NavabarContexts>
-      </AuthContextProvider>
-    </ProductContextProvider>
-  </BrowserRouter>
+    <BrowserRouter>
+        <ProductContextProvider>
+            <AuthContextProvider>
+                <NavabarContexts>
+                    <App />
+                </NavabarContexts>
+            </AuthContextProvider>
+        </ProductContextProvider>
+    </BrowserRouter>
 );
