@@ -60,10 +60,6 @@ const ProductCard = ({ item }) => {
                     </Typography>
                 </Box>
             </Box>
-            {item.name} {item.price}{' '}
-            <button onClick={() => navigate(`/products/${item.id}`)}>
-                details
-            </button>
         </div>
     );
 };

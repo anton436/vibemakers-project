@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 import ProductList from '../components/Products/ProductList';
 import ProductHeader from '../components/Products/ProductHeader';
 import ProductFilter from '../components/Products/ProductFilter';
+import ProductSortPagination from '../components/Products/ProductSortPagination';
 
 const ProductsPage = () => {
     return (
@@ -15,21 +16,10 @@ const ProductsPage = () => {
                         <ProductFilter />
                     </Box>
                     <Box sx={{ width: '65%' }}>
+                        <ProductSortPagination />
                         <ProductList />
                     </Box>
                 </Box>
-            </Box>
-            <Divider
-                sx={{
-                    width: '60%',
-                    margin: '10px',
-                    border: '1px solid',
-                    backgroundColor: 'black',
-                }}
-            ></Divider>
-
-            <Box sx={{ width: '65%' }}>
-                <ProductList />
             </Box>
         </div>
     );

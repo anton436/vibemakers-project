@@ -16,6 +16,11 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AddIcon from '@mui/icons-material/Add';
 
 const ProductFilter = () => {
+    const [sort, setSort] = React.useState('');
+
+    const handleSort = (event) => {
+        setSort(event.target.value);
+    };
     const theme = createTheme({
         breakpoints: {
             values: {
@@ -124,29 +129,34 @@ const ProductFilter = () => {
                             margin: '0%',
                             color: '#0b1f3f',
                             fontWeight: 'bold',
+                            fontSize: 16,
+                            mt: 1,
                         }}
                     >
-                        New
+                        NEW
                     </Typography>
-                    <List sx={{ marginBottom: '20px' }}>
+                    <List sx={{ mb: 3, p: 0 }}>
                         {filterNew.map((i, index) => (
                             <ListItem
                                 key={index}
                                 sx={{
                                     padding: '0%',
-                                    margin: '0%',
-                                    fontSize: '80%',
+                                    my: 1,
+                                    fontSize: 14,
+                                    fontWeight: 600,
                                 }}
                             >
                                 {i}
                             </ListItem>
                         ))}
                     </List>
+
                     <Accordion
                         sx={{
                             border: 'none',
                             p: 0,
                             boxShadow: 'none',
+                            borderTop: '1px solid rgb(192, 192, 192)',
                         }}
                         expanded={expanded === 'panel1'}
                         onChange={handleChange('panel1')}
@@ -195,7 +205,12 @@ const ProductFilter = () => {
                         </AccordionDetails>
                     </Accordion>
                     <Accordion
-                        sx={{ border: 'none', p: 0, boxShadow: 'none' }}
+                        sx={{
+                            border: 'none',
+                            p: 0,
+                            boxShadow: 'none',
+                            borderTop: '1px solid rgb(192, 192, 192)',
+                        }}
                         expanded={expanded === 'panel2'}
                         onChange={handleChange('panel2')}
                     >
@@ -252,7 +267,12 @@ const ProductFilter = () => {
                         </AccordionDetails>
                     </Accordion>
                     <Accordion
-                        sx={{ border: 'none', p: 0, boxShadow: 'none' }}
+                        sx={{
+                            border: 'none',
+                            p: 0,
+                            boxShadow: 'none',
+                            borderTop: '1px solid rgb(192, 192, 192)',
+                        }}
                         expanded={expanded === 'panel3'}
                         onChange={handleChange('panel3')}
                     >
@@ -279,7 +299,10 @@ const ProductFilter = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             {price.map((i, index) => (
-                                <ListItem key={index} sx={{ fontSize: '13px' }}>
+                                <ListItem
+                                    key={index}
+                                    sx={{ fontSize: '13px', p: 0, m: 0 }}
+                                >
                                     <Checkbox />
                                     {i}
                                 </ListItem>
@@ -287,7 +310,12 @@ const ProductFilter = () => {
                         </AccordionDetails>
                     </Accordion>
                     <Accordion
-                        sx={{ border: 'none', p: 0, boxShadow: 'none' }}
+                        sx={{
+                            border: 'none',
+                            p: 0,
+                            boxShadow: 'none',
+                            borderTop: '1px solid rgb(192, 192, 192)',
+                        }}
                         expanded={expanded === 'panel4'}
                         onChange={handleChange('panel4')}
                     >
@@ -314,7 +342,10 @@ const ProductFilter = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             {apparel.map((i, index) => (
-                                <ListItem key={index} sx={{ fontSize: '13px' }}>
+                                <ListItem
+                                    key={index}
+                                    sx={{ fontSize: '13px', p: 0, m: 0 }}
+                                >
                                     <Checkbox />
                                     {i}
                                 </ListItem>
@@ -322,7 +353,12 @@ const ProductFilter = () => {
                         </AccordionDetails>
                     </Accordion>
                     <Accordion
-                        sx={{ border: 'none', p: 0, boxShadow: 'none' }}
+                        sx={{
+                            border: 'none',
+                            p: 0,
+                            boxShadow: 'none',
+                            borderTop: '1px solid rgb(192, 192, 192)',
+                        }}
                         expanded={expanded === 'panel5'}
                         onChange={handleChange('panel5')}
                     >
@@ -349,7 +385,10 @@ const ProductFilter = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             {shoeStyle.map((i, index) => (
-                                <ListItem key={index} sx={{ fontSize: '13px' }}>
+                                <ListItem
+                                    key={index}
+                                    sx={{ fontSize: '13px', p: 0, m: 0 }}
+                                >
                                     <Checkbox />
                                     {i}
                                 </ListItem>
@@ -357,7 +396,12 @@ const ProductFilter = () => {
                         </AccordionDetails>
                     </Accordion>
                     <Accordion
-                        sx={{ border: 'none', p: 0, boxShadow: 'none' }}
+                        sx={{
+                            border: 'none',
+                            p: 0,
+                            boxShadow: 'none',
+                            borderTop: '1px solid rgb(192, 192, 192)',
+                        }}
                         expanded={expanded === 'panel6'}
                         onChange={handleChange('panel6')}
                     >
@@ -384,7 +428,10 @@ const ProductFilter = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             {collections.map((i, index) => (
-                                <ListItem key={index} sx={{ fontSize: '13px' }}>
+                                <ListItem
+                                    key={index}
+                                    sx={{ fontSize: '13px', p: 0, m: 0 }}
+                                >
                                     <Checkbox />
                                     {i}
                                 </ListItem>
@@ -392,7 +439,12 @@ const ProductFilter = () => {
                         </AccordionDetails>
                     </Accordion>
                     <Accordion
-                        sx={{ border: 'none', p: 0, boxShadow: 'none' }}
+                        sx={{
+                            border: 'none',
+                            p: 0,
+                            boxShadow: 'none',
+                            borderTop: '1px solid rgb(192, 192, 192)',
+                        }}
                         expanded={expanded === 'panel7'}
                         onChange={handleChange('panel7')}
                     >
@@ -419,7 +471,10 @@ const ProductFilter = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             {benefits.map((i, index) => (
-                                <ListItem key={index} sx={{ fontSize: '13px' }}>
+                                <ListItem
+                                    key={index}
+                                    sx={{ fontSize: '13px', p: 0, m: 0 }}
+                                >
                                     <Checkbox />
                                     {i}
                                 </ListItem>
@@ -427,7 +482,12 @@ const ProductFilter = () => {
                         </AccordionDetails>
                     </Accordion>
                     <Accordion
-                        sx={{ border: 'none', p: 0, boxShadow: 'none' }}
+                        sx={{
+                            border: 'none',
+                            p: 0,
+                            boxShadow: 'none',
+                            borderTop: '1px solid rgb(192, 192, 192)',
+                        }}
                         expanded={expanded === 'panel8'}
                         onChange={handleChange('panel8')}
                     >
@@ -454,7 +514,10 @@ const ProductFilter = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             {collabarations.map((i, index) => (
-                                <ListItem key={index} sx={{ fontSize: '13px' }}>
+                                <ListItem
+                                    key={index}
+                                    sx={{ fontSize: '13px', p: 0, m: 0 }}
+                                >
                                     <Checkbox />
                                     {i}
                                 </ListItem>
