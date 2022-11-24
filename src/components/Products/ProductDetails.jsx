@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useProducts } from '../../contexts/ProductContextProvider';
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useProducts } from "../../contexts/ProductContextProvider";
 
 const ProductDetails = () => {
     const { getProductDetails, productDetails } = useProducts();

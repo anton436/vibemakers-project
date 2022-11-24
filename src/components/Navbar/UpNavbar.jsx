@@ -114,13 +114,13 @@ function UpNavbar(props) {
                                 mr: 45,
                             },
                             [theme.breakpoints.down("md")]: {
-                                mr: 45,
+                                mr: 38,
                             },
                             [theme.breakpoints.down("lg")]: {
                                 mr: 45,
                             },
-                            [theme.breakpoints.up("sm")]: {
-                                mr: 45,
+                            [theme.breakpoints.down("sm")]: {
+                                display: "none",
                             },
                         }}
                     >

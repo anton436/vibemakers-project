@@ -1,3 +1,5 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -60,6 +62,14 @@ const ProductCard = ({ item }) => {
                     </Typography>
                 </Box>
             </Box>
+<<<<<<< HEAD
+            {item.name} {item.price}{" "}
+=======
+            {item.name} {item.price}
+>>>>>>> c4b536b3770ded489d8822014f1a3490af0e202f
+            <button onClick={() => navigate(`/products/${item.id}`)}>
+                details
+            </button>
         </div>
     );
 };
