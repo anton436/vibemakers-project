@@ -4,6 +4,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Box } from '@mui/material';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 const ProductSortPagination = () => {
     const [sort, setSort] = React.useState('');
@@ -13,13 +15,24 @@ const ProductSortPagination = () => {
     };
     return (
         <div>
-            <Box sx={{ width: '100%' }}>
-                <Box sx={{ width: '30%', mb: 2 }}>
-                    <FormControl fullWidth>
-                        <InputLabel
-                            sx={{ '&': { color: '0b1f3f' } }}
-                            id="demo-simple-select-label"
-                        >
+            <Box
+                sx={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}
+            >
+                <Box
+                    sx={{
+                        width: '30%',
+                        mb: 2,
+                        height: '30px',
+                        paddingBottom: '5%',
+                    }}
+                >
+                    <FormControl fullWidth sx={{ mt: 2 }}>
+                        <InputLabel id="demo-simple-select-label">
                             Sort By
                         </InputLabel>
                         <Select
@@ -41,6 +54,9 @@ const ProductSortPagination = () => {
                         </Select>
                     </FormControl>
                 </Box>
+                <Stack spacing={2} sx={{ marginRight: 5 }}>
+                    <Pagination count={3} color="warning" />
+                </Stack>
             </Box>
         </div>
     );
