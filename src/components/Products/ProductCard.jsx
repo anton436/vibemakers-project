@@ -10,7 +10,7 @@ const ProductCard = ({ item }) => {
                 sx={{
                     width: '100%',
                     backgroundColor: 'white',
-                    margin: '10px 20px 30px 20px',
+                    margin: '10px 0px 30px 0',
                 }}
             >
                 <Box

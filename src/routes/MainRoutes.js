@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AdminPage from '../pages/AdminPage';
 import AuthPage from '../pages/AuthPage';
+import EditProductPage from '../pages/EditProductPage';
 import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
 import ProductDetailsPage from '../pages/ProductDetailsPage';
@@ -15,6 +16,7 @@ const MainRoutes = () => {
         { link: '/products', element: <ProductsPage />, id: 4 },
         { link: '/products/:id', element: <ProductDetailsPage />, id: 5 },
         { link: '*', element: <NotFoundPage />, id: 6 },
+        { link: '/edit/:id', element: <EditProductPage />, id: 7 },
     ];
     return (
         <>
