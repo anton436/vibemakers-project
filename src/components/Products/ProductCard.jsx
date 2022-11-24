@@ -28,8 +28,8 @@ const ProductCard = ({ item }) => {
                     <button
                         style={{
                             position: 'absolute',
-                            top: '75%',
-                            left: '48%',
+                            top: '80%',
+                            left: '50%',
                             transform: 'translate(-50%, -50%)',
                             msTransform: 'translate(-50%, -50%)',
                             backgroundColor: 'white',
