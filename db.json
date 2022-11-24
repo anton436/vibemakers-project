@@ -1,76 +1,77 @@
 {
-    "products": [
-        {
-            "name": "Grant Hill 2 Low X 2Pac '96 Reissue",
-            "description": "Or 4 interest-free payments of $49.50",
-            "price": 198,
-            "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw3a2ca405/images/ProductImages/1BM02096_125_01_e.jpg?sw=340&sh=510&sm=fit",
-            "type": "Shoes",
-            "id": 1
-        },
-        {
-            "name": "Men's Grant Hill 2",
-            "description": "Or 4 interest-free payments of $33.75",
-            "price": 135,
-            "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw6a30d22b/images/ProductImages/1BM01887_148_01_e.jpg?sw=340&sh=510&sm=fit",
-            "type": "Shoes",
-            "id": 2
-        },
-        {
-            "name": "Men's Grant Hill 2",
-            "description": "Or 4 interest-free payments of $33.75",
-            "price": 135,
-            "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw371609ca/images/ProductImages/1BM01887_116_01_e.jpg?sw=340&sh=510&sm=fit",
-            "type": "Shoes",
-            "id": 3
-        },
-        {
-            "name": "Men's Grant Hill 2",
-            "description": "Or 4 interest-free payments of $33.75",
-            "price": 158.5,
-            "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dwa8f5a276/images/ProductImages/1BM01890_101_01_e.jpg?sw=340&sh=510&sm=fit",
-            "type": "Shoes",
-            "id": 4
-        },
-        {
-            "name": "Men's Original Fitness",
-            "description": "Or 4 interest-free payments of $49.50",
-            "price": 75,
-            "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dwc05c15ca/images/ProductImages/1FM01812_116_01_e.jpg?sw=340&sh=510&sm=fit",
-            "type": "Shoes",
-            "id": 5
-        },
-        {
-            "name": "Men's Trigate",
-            "description": "Or 4 interest-free payments of $33.75",
-            "price": 80,
-            "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw54fbf0d9/images/ProductImages/1RM02232_125_01_e.jpg?sw=340&sh=510&sm=fit",
-            "type": "Shoes",
-            "id": 6
-        },
-        {
-            "name": "Tactik 5 Impulse",
-            "description": "Or 4 interest-free payments of $49.50",
-            "price": 118,
-            "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw58718b36/images/ProductImages/1RM02286_125_01_e.jpg?sw=340&sh=510&sm=fit",
-            "type": "Shoes",
-            "id": 7
-        },
-        {
-            "name": "Women's F-14 Metallic",
-            "description": "Or 4 interest-free payments of $33.75",
-            "price": 85,
-            "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw0a5332d6/images/ProductImages/5FM01821_702_01_e.jpg?sw=340&sh=510&sm=fit",
-            "type": "Shoes",
-            "id": 8
-        },
-        {
-            "name": "Women's Grant Hill 2",
-            "description": "Or 4 interest-free payments of $49.50",
-            "price": 125,
-            "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw1163bda0/images/ProductImages/5BM01877_800_01_e.jpg?sw=340&sh=510&sm=fit",
-            "type": "Shoes",
-            "id": 9
-        }
-    ]
+  "products": [
+    {
+      "name": "Grant Hill 2 Low X 2Pac '96 Reissue",
+      "description": "Or 4 interest-free payments of $49.50",
+      "price": 198.00,
+      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw3a2ca405/images/ProductImages/1BM02096_125_01_e.jpg?sw=340&sh=510&sm=fit",
+      "type": "Shoes",
+      "id": 1
+    },
+
+    {
+      "name": "Men's Grant Hill 2",
+      "description": "Or 4 interest-free payments of $33.75",
+      "price": 135,
+      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw6a30d22b/images/ProductImages/1BM01887_148_01_e.jpg?sw=340&sh=510&sm=fit",
+      "type": "Shoes",
+      "id": 2
+    },
+    {
+      "name": "Men's Grant Hill 2",
+      "description": "Or 4 interest-free payments of $33.75",
+      "price": 135,
+      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw371609ca/images/ProductImages/1BM01887_116_01_e.jpg?sw=340&sh=510&sm=fit",
+      "type": "Shoes",
+      "id": 3
+    },
+    {
+      "name": "Men's Grant Hill 2",
+      "description": "Or 4 interest-free payments of $33.75",
+      "price": 158.5,
+      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dwa8f5a276/images/ProductImages/1BM01890_101_01_e.jpg?sw=340&sh=510&sm=fit",
+      "type": "Shoes",
+      "id": 4
+    },
+    {
+      "name": "Men's Original Fitness",
+      "description": "Or 4 interest-free payments of $49.50",
+      "price": 75,
+      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dwc05c15ca/images/ProductImages/1FM01812_116_01_e.jpg?sw=340&sh=510&sm=fit",
+      "type": "Shoes",
+      "id": 5
+    },
+    {
+      "name": "Men's Trigate",
+      "description": "Or 4 interest-free payments of $33.75",
+      "price": 80,
+      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw54fbf0d9/images/ProductImages/1RM02232_125_01_e.jpg?sw=340&sh=510&sm=fit",
+      "type": "Shoes",
+      "id": 6
+    },
+    {
+      "name": "Tactik 5 Impulse",
+      "description": "Or 4 interest-free payments of $49.50",
+      "price": 118,
+      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw58718b36/images/ProductImages/1RM02286_125_01_e.jpg?sw=340&sh=510&sm=fit",
+      "type": "Shoes",
+      "id": 7
+    },
+    {
+      "name": "Women's F-14 Metallic",
+      "description": "Or 4 interest-free payments of $33.75",
+      "price": 85,
+      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw0a5332d6/images/ProductImages/5FM01821_702_01_e.jpg?sw=340&sh=510&sm=fit",
+      "type": "Shoes",
+      "id": 8
+    },
+    {
+      "name": "Women's Grant Hill 2",
+      "description": "Or 4 interest-free payments of $49.50",
+      "price": 125,
+      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw1163bda0/images/ProductImages/5BM01877_800_01_e.jpg?sw=340&sh=510&sm=fit",
+      "type": "Shoes",
+      "id": 9
+    }
+  ]
 }
