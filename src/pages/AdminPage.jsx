@@ -4,7 +4,6 @@ const AdminPage = () => {
     return (
         <div>
             <AddProduct />
-            fghkl;ljeawrie
         </div>
     );
 };

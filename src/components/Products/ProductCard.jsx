@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Typography } from '@mui/material';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Box, Typography } from "@mui/material";
 
 const ProductCard = ({ item }) => {
     const navigate = useNavigate();
@@ -10,39 +8,39 @@ const ProductCard = ({ item }) => {
         <div>
             <Box
                 sx={{
-                    width: '100%',
-                    backgroundColor: 'white',
-                    margin: '10px 20px 30px 20px',
+                    width: "100%",
+                    backgroundColor: "white",
+                    margin: "10px 20px 30px 20px",
                 }}
             >
                 <Box
                     sx={{
-                        width: '90%',
-                        backgroundColor: 'white',
-                        position: 'relative',
+                        width: "90%",
+                        backgroundColor: "white",
+                        position: "relative",
                     }}
                 >
                     <img
                         src={item.picture}
                         alt=""
-                        style={{ width: '100%', height: '100%' }}
+                        style={{ width: "100%", height: "100%" }}
                     />
                     <button
                         style={{
-                            position: 'absolute',
-                            top: '75%',
-                            left: '48%',
-                            transform: 'translate(-50%, -50%)',
-                            msTransform: 'translate(-50%, -50%)',
-                            backgroundColor: 'white',
-                            color: 'black',
-                            width: '75%',
-                            fontSize: '20px',
-                            padding: '12px 24px',
-                            border: 'none',
-                            cursor: 'pointer',
-                            borderRadius: '5px',
-                            textAlign: 'center',
+                            position: "absolute",
+                            top: "75%",
+                            left: "48%",
+                            transform: "translate(-50%, -50%)",
+                            msTransform: "translate(-50%, -50%)",
+                            backgroundColor: "white",
+                            color: "black",
+                            width: "75%",
+                            fontSize: "20px",
+                            padding: "12px 24px",
+                            border: "none",
+                            cursor: "pointer",
+                            borderRadius: "5px",
+                            textAlign: "center",
                         }}
                         onClick={() => navigate(`/products/${item.id}`)}
                     >
@@ -50,26 +48,18 @@ const ProductCard = ({ item }) => {
                     </button>
                     <Typography
                         sx={{
-                            fontWeight: '600',
-                            marginTop: '13px',
-                            width: '90%',
+                            fontWeight: "600",
+                            marginTop: "13px",
+                            width: "90%",
                         }}
                     >
                         {item.name}
                     </Typography>
-                    <Typography sx={{ fontWeight: '600' }}>
+                    <Typography sx={{ fontWeight: "600" }}>
                         ${item.price}
                     </Typography>
                 </Box>
             </Box>
-<<<<<<< HEAD
-            {item.name} {item.price}{" "}
-=======
-            {item.name} {item.price}
->>>>>>> c4b536b3770ded489d8822014f1a3490af0e202f
-            <button onClick={() => navigate(`/products/${item.id}`)}>
-                details
-            </button>
         </div>
     );
 };

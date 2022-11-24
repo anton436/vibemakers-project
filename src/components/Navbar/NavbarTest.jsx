@@ -174,7 +174,7 @@ function Navbar() {
                             admin
                         </Button>
                         <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
-                            Shoes
+                            products
                         </Button>
                         <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
                             Men
@@ -188,9 +188,9 @@ function Navbar() {
                         <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
                             work
                         </Button>
-                        <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
+                        {/* <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
                             WareHouse
-                        </Button>
+                        </Button> */}
                         {/* {pages.map((page) => (
                             <Button
                                 key={page}
