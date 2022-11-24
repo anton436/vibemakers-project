@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import AboutUsPage from "../pages/AboutUsPage";
 import AdminPage from "../pages/AdminPage";
 import AuthPage from "../pages/AuthPage";
 import EditProductPage from "../pages/EditProductPage";
@@ -15,8 +16,9 @@ const MainRoutes = () => {
         { link: "/admin", element: <AdminPage />, id: 3 },
         { link: "/products", element: <ProductsPage />, id: 4 },
         { link: "/products/:id", element: <ProductDetailsPage />, id: 5 },
-        { link: "/edit/:id", element: <EditProductPage />, id: 6 },
-        { link: "*", element: <NotFoundPage />, id: 7 },
+        { link: "*", element: <NotFoundPage />, id: 6 },
+        { link: "/edit/:id", element: <EditProductPage />, id: 7 },
+        { link: "/aboutus", element: <AboutUsPage />, id: 7 },
     ];
     return (
         <>

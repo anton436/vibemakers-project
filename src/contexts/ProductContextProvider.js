@@ -1,7 +1,6 @@
-import { Javascript } from "@mui/icons-material";
-import axios from "axios";
-import React, { createContext, useContext, useReducer } from "react";
-import { ACTIONS, JSON_API_PRODUCTS } from "../helpers/consts";
+import axios from 'axios';
+import React, { createContext, useContext, useReducer } from 'react';
+import { ACTIONS, JSON_API_PRODUCTS } from '../helpers/consts';
 
 export const productContext = createContext();
 
@@ -37,7 +36,6 @@ const ProductContextProvider = ({ children }) => {
 
     async function getProducts() {
         const { data } = await axios(JSON_API_PRODUCTS);
-
         dispatch({
             type: ACTIONS.GET_PRODUCTS,
             payload: data,
@@ -46,7 +44,6 @@ const ProductContextProvider = ({ children }) => {
 
     async function getProductDetails(id) {
         const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
-
         dispatch({
             type: ACTIONS.GET_PRODUCT_DETAILS,
             payload: data,
@@ -66,9 +63,9 @@ const ProductContextProvider = ({ children }) => {
     const values = {
         addProduct,
         products: state.products,
-        productDetails: state.productDetails,
         getProducts,
         getProductDetails,
+        productDetails: state.productDetails,
         saveEditedProduct,
         deleteProduct,
     };

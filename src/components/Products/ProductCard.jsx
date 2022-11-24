@@ -1,6 +1,6 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Box, Typography } from '@mui/material';
 
 const ProductCard = ({ item }) => {
     const navigate = useNavigate();
@@ -27,20 +27,20 @@ const ProductCard = ({ item }) => {
                     />
                     <button
                         style={{
-                            position: "absolute",
-                            top: "75%",
-                            left: "48%",
-                            transform: "translate(-50%, -50%)",
-                            msTransform: "translate(-50%, -50%)",
-                            backgroundColor: "white",
-                            color: "black",
-                            width: "75%",
-                            fontSize: "20px",
-                            padding: "12px 24px",
-                            border: "none",
-                            cursor: "pointer",
-                            borderRadius: "5px",
-                            textAlign: "center",
+                            position: 'absolute',
+                            top: '80%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            msTransform: 'translate(-50%, -50%)',
+                            backgroundColor: 'white',
+                            color: 'black',
+                            width: '75%',
+                            fontSize: '20px',
+                            padding: '12px 24px',
+                            border: 'none',
+                            cursor: 'pointer',
+                            borderRadius: '5px',
+                            textAlign: 'center',
                         }}
                         onClick={() => navigate(`/products/${item.id}`)}
                     >
