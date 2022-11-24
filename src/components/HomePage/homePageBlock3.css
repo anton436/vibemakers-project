@@ -9,12 +9,13 @@
   margin-top: 50px;
 }
 .btn2 {
-  /* background-image: url(https://i.shgcdn.com/7a7c1bc4-7a4a-41fd-adc3-fe4eaeb8447b/-/format/auto/-/preview/1680x1500/-/quality/lighter/); */
-  background-repeat: no-repeat;
+  background-image: url(https://i.pinimg.com/564x/d3/65/3b/d3653b1f922c160099eafb58d10d5051.jpg );
+
   width: 100%;
   height: 100%;
   margin-top: 50px;
-  background-color: rgb(12, 5, 60);
+  /* background-color: rgb(12, 5, 60); */
+  margin-bottom: 50px;
 }
 .image-one {
   /* width: 100%; */
