@@ -9,20 +9,19 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import Connect from "./Connect";
+import Map from "./Map";
 
 const theme = createTheme();
 const ContactUs = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Box sx={{ display: "flex", mt: 4, color: "#0b1f3f", }}>
+        <Box sx={{ display: "flex", mt: 4, color: "#0b1f3f" }}>
           <Box
             sx={{
               width: "50%",
               display: "flex",
               justifyContent: "center",
-             
-              
             }}
           >
             <Box
@@ -133,6 +132,7 @@ const ContactUs = () => {
           </Box>
           <Box sx={{ width: "50%" }}>
             <Connect />
+            <Map />
           </Box>
         </Box>
       </ThemeProvider>
