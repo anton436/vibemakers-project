@@ -11,29 +11,32 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useProducts } from "../../contexts/ProductContextProvider";
 
 import "./style.css";
-import { Button, CardContent } from "@mui/material";
+import { Button, CardContent, Grid } from "@mui/material";
+import { useProducts } from "../../../contexts/ProductContextProvider";
+import ProductCounter from "./ProductCounter";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
-  const { getProductDetails, productDetails } = useProducts();
-  const { id } = useParams(
-    useEffect(() => {
-      getProductDetails(id);
-    }, [])
-  );
+  const { getProductDetails, productDetails, deleteProduct } = useProducts();
+  const { id } = useParams();
+  useEffect(() => {
+    getProductDetails(id);
+  }, []);
 
   let sizes = [
-    7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 13, 14, 15, 16, 17, 18, 19,20,21
+    7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 13, 14, 15, 16, 17, 18, 19,
+    20, 21,
   ];
 
   const [size, setSize] = useState();
 
   function sizesIndex(item) {
     setSize(item);
+    changeColor(item);
   }
+
   const LiItems = [
     "leather / textile / synthetic",
     "embossed FILA logos on tongue, quarter, and instep",
@@ -44,24 +47,65 @@ const ProductDetails = () => {
     "adjustable heel strap",
   ];
 
+  const [color, setColor] = useState(false);
+  function changeColor() {
+    setColor((prev) => !prev);
+  }
+
   return (
-    <div>
+    <Grid sx={{ mb: "50px", mt: "50px" }}>
       <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
-        <div>
+        <Grid
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-evenly",
+          }}
+        >
           <Button
             onClick={() => navigate(`/products`)}
-            sx={{ color: "black", backgroundColor: "whitesmoke" }}
+            variant="contained"
+            sx={{
+              color: "white",
+              backgroundColor: "#0a203f",
+              width: "100px",
+              height: "50px",
+            }}
           >
             Disabled
           </Button>
-        </div>
+          <Button
+            onClick={() => navigate(`/edit/${id}`)}
+            variant="contained"
+            sx={{
+              color: "black",
+              backgroundColor: "whitesmoke",
+              width: "100px",
+              height: "50px",
+            }}
+          >
+            EDIT
+          </Button>
+
+          <Button
+            onClick={() => deleteProduct(id)}
+            variant="contained"
+            sx={{
+              backgroundColor: "red",
+              color: "white",
+              width: "100px",
+              height: "50px",
+            }}
+          >
+            DELETE
+          </Button>
+        </Grid>
         <Box
           sx={{
             width: "40%",
             display: "flex",
             alignItems: "center",
-            justifyContent:'center'
-
+            justifyContent: "center",
           }}
         >
           <Typography gutterBottom variant="h3" component="div">
@@ -78,8 +122,10 @@ const ProductDetails = () => {
             alignItems: "center",
           }}
         >
-          <CardContent sx={{ width: "100%", fontWeight: "bold" }}>
-            <Typography gutterBottom variant="h4" component="div">
+          <CardContent
+            sx={{ width: "100%", fontWeight: "bold", textAlign: "center" }}
+          >
+            <Typography gutterBottom variant="h3" component="div">
               {productDetails.name}
             </Typography>
 
@@ -90,13 +136,6 @@ const ProductDetails = () => {
               {productDetails.description}
             </Typography>
           </CardContent>
-
-          <div>
-            АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ
-            ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ АЙЖАМАЛ ТЫ ГДЕ 
-            
-           
-          </div>
 
           <Box sx={{ width: "50%" }}>
             <Box
@@ -119,13 +158,13 @@ const ProductDetails = () => {
               className="sizes__block"
               sx={{ width: "100%", display: "flex", flexWrap: "wrap" }}
             >
-              {sizes.map((item) => (
+              {sizes.map((item, index) => (
                 <Typography
-                  style={{
+                  sx={{
                     cursor: "pointer",
                     width: "30px",
                     height: "30px",
-                    border: "1px solid grey",
+                    border: color ? "1px solid red" : "1px solid gray",
                     borderRadius: "50%",
                     display: "flex",
                     justifyContent: "center",
@@ -135,7 +174,11 @@ const ProductDetails = () => {
                     color: "grey",
                   }}
                   key={item}
-                  onClick={() => sizesIndex(item)}
+                  onClick={() => {
+                    sizesIndex(item);
+                    // changeColor()
+                  }}
+                  // onMouseOver={(e) => changeColor(e)}
                 >
                   {item}
                 </Typography>
@@ -143,8 +186,7 @@ const ProductDetails = () => {
             </Box>
           </Box>
 
-
-          
+          <ProductCounter />
           <div>
             <Box sx={{ width: "100%" }}>
               <Accordion sx={{ width: "100%" }}>
@@ -165,24 +207,34 @@ const ProductDetails = () => {
                   </ul>
                 </AccordionDetails>
               </Accordion>
-              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography sx={{ display: "flex", alignItems: "center" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginBottom: "20px",
+                }}
+              >
+                <Typography
+                  sx={{ display: "flex", alignItems: "center", color: "gray" }}
+                >
                   <AirportShuttleIcon />
                   Free Shipping & Easy Returns
                 </Typography>
-                <Typography sx={{ display: "flex", alignItems: "center" }}>
+                <Typography
+                  sx={{ display: "flex", alignItems: "center", color: "gray" }}
+                >
                   <PaymentIcon />
-                  Multiple Payment Options
+                  Multiple Payment Options <HelpOutlineIcon />
                 </Typography>
-                <Typography sx={{ display: "flex", alignItems: "center" }}>
-                  <HelpOutlineIcon />
-                </Typography>
+                <Typography
+                  sx={{ display: "flex", alignItems: "center" }}
+                ></Typography>
               </Box>
             </Box>
           </div>
         </Box>
       </Box>
-    </div>
+    </Grid>
   );
 };
 
