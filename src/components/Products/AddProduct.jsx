@@ -16,7 +16,6 @@ import { useProducts } from "../../contexts/ProductContextProvider";
 const category = ["cat1", "cat2", "cat3", "cat4", "cat5"];
 const AddProduct = () => {
     const { addProduct } = useProducts();
-<<<<<<< HEAD
     const navigate = useNavigate();
     const [product, setProduct] = useState({
         name: "",
@@ -108,63 +107,21 @@ const AddProduct = () => {
                     label="Description"
                     variant="outlined"
                     name="description"
-=======
-
-    const navigate = useNavigate();
-    const [product, setProduct] = useState({
-        name: '',
-        description: '',
-        price: 0,
-        picture: '',
-        type: '',
-    });
-
-    const handleInp = (e) => {
-        if (e.target.name === 'price') {
-            let obj = { ...product, [e.target.name]: Number(e.target.value) };
-            setProduct(obj);
-        } else {
-            let obj = { ...product, [e.target.name]: e.target.value };
-            setProduct(obj);
-        }
-    };
-
-    return (
-        <div align="center">
-            <h1>ADMIN PANEL</h1>
-            <Box sx={{ width: '60vw', margin: '10vh auto' }}>
-                <TextField
-                    onChange={handleInp}
-                    sx={{ marginBottom: '10px', borderColor: 'black' }}
-                    fullWidth
-                    label="Name"
-                    variant="outlined"
-                    name="name"
->>>>>>> c4b536b3770ded489d8822014f1a3490af0e202f
                     size="small"
                 />
 
                 <TextField
                     onChange={handleInp}
-<<<<<<< HEAD
                     sx={{ borderColor: "black" }}
                     fullWidth
                     label="Picture"
                     variant="outlined"
                     name="picture"
-=======
-                    sx={{ marginBottom: '10px', borderColor: 'black' }}
-                    fullWidth
-                    label="Description"
-                    variant="outlined"
-                    name="description"
->>>>>>> c4b536b3770ded489d8822014f1a3490af0e202f
                     size="small"
                 />
 
                 <TextField
                     onChange={handleInp}
-<<<<<<< HEAD
                     sx={{ borderColor: "black" }}
                     fullWidth
                     label="Type"
@@ -184,47 +141,6 @@ const AddProduct = () => {
                         color: "white",
                         transition: "1000s",
                         gridColumn: "1/3",
-=======
-                    sx={{ marginBottom: '10px', borderColor: 'black' }}
-                    fullWidth
-                    label="Price"
-                    variant="outlined"
-                    name="price"
-                    size="small"
-                    type="number"
-                />
-
-                <TextField
-                    onChange={handleInp}
-                    sx={{ marginBottom: '10px', borderColor: 'black' }}
-                    fullWidth
-                    label="Picture"
-                    variant="outlined"
-                    name="picture"
-                    size="small"
-                />
-
-                <TextField
-                    onChange={handleInp}
-                    sx={{ marginBottom: '10px', borderColor: 'black' }}
-                    fullWidth
-                    label="Type"
-                    variant="outlined"
-                    name="type"
-                    size="small"
-                />
-
-                <Button
-                    onClick={() => {
-                        addProduct(product);
-                        navigate('/products');
-                    }}
-                    sx={{
-                        marginBottom: '10px',
-                        borderColor: 'black',
-                        backgroundColor: 'black',
-                        color: 'white',
->>>>>>> c4b536b3770ded489d8822014f1a3490af0e202f
                     }}
                     variant="outlined"
                     fullWidth
