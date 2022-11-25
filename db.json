@@ -71,22 +71,6 @@
       "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw1163bda0/images/ProductImages/5BM01877_800_01_e.jpg?sw=340&sh=510&sm=fit",
       "type": "Shoes",
       "id": 9
-    },
-    {
-      "name": "ешькг",
-      "description": "1221",
-      "price": 12212121,
-      "picture": "2121",
-      "type": "2121",
-      "id": 10
-    },
-    {
-      "name": "",
-      "description": "",
-      "price": 0,
-      "picture": "",
-      "type": "",
-      "id": 11
     }
   ]
 }
