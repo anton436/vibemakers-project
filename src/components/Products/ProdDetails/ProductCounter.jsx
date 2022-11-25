@@ -10,7 +10,6 @@ const ProductCounter = () => {
   const { productDetails, getProductDetails } = useProducts();
 
   const [count, setCount] = useState(1);
-  console.log(count);
   const increment = () => {
     setCount((prev) => prev+=1);
   };

@@ -159,7 +159,7 @@ const ProductDetails = () => {
               sx={{ width: "100%", display: "flex", flexWrap: "wrap" }}
             >
               {sizes.map((item, index) => (
-                <Typography
+                <Typography 
                   sx={{
                     cursor: "pointer",
                     width: "30px",
@@ -173,7 +173,7 @@ const ProductDetails = () => {
                     fontSize: "12px",
                     color: "grey",
                   }}
-                  key={item}
+                  key={index}
                   onClick={() => {
                     sizesIndex(item);
                     // changeColor()
@@ -201,8 +201,8 @@ const ProductDetails = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <ul>
-                    {LiItems.map((item) => (
-                      <li>{item}</li>
+                    {LiItems.map((item, index) => (
+                      <li key={index}>{item}</li>
                     ))}
                   </ul>
                 </AccordionDetails>
