@@ -16,6 +16,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AddIcon from "@mui/icons-material/Add";
 
 import { NoEncryption } from "@mui/icons-material";
+import Error404 from "../components/NotFound/Error404";
 
 const theme = createTheme();
 
@@ -50,7 +51,7 @@ const NotFoundPage = () => {
           >
             Home
           </Typography>
-          <Typography sx={{ fontSize: 14, mr: { xs: "50%", md: "80%" } }}>
+          <Typography sx={{ fontSize: 14, mr: { xs: "20%", md: "80%" } }}>
             /An Error Occured
           </Typography>
         </Box>
@@ -283,16 +284,9 @@ const NotFoundPage = () => {
           </Box>
 
           <Box sx={{ width: { xs: "90%", md: "60%" } }}>
-            <Typography
-              sx={{
-                fontSize: 35,
-                fontWeight: 600,
-                textAlign: "center",
-                mt: { xs: 5, sm: 0 },
-              }}
-            >
-              Page Not Found
-            </Typography>
+            <Box>
+              <Error404 />
+            </Box>
 
             <Box sx={{ mt: 7 }}>
               <Box
