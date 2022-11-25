@@ -1,5 +1,4 @@
 import {
-    Autocomplete,
     Box,
     Button,
     FormControl,
@@ -7,13 +6,13 @@ import {
     InputLabel,
     OutlinedInput,
     TextField,
+    Typography,
 } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContextProvider";
-const category = ["cat1", "cat2", "cat3", "cat4", "cat5"];
 const AddProduct = () => {
     const { addProduct } = useProducts();
     const navigate = useNavigate();
@@ -37,9 +36,9 @@ const AddProduct = () => {
     const theme = createTheme({
         breakpoints: {
             values: {
-                xs: 0,
+                xs: 425,
                 sm: 750,
-                md: 1024,
+                md: 960,
                 lg: 1200,
                 xl: 1536,
             },
@@ -47,29 +46,58 @@ const AddProduct = () => {
     });
 
     return (
-        <div align="center">
-            <h1
-                style={{
+        <Box
+            align="center"
+            sx={{
+                backgroundImage:
+                    "url(https://www.fila.de/out/fila/img/footer-mobile.png)",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "100%",
+                height: "70vh",
+                display: "flex",
+                marginBottom: "0px",
+                flexDirection: "column",
+                justifyContent: "center",
+                [theme.breakpoints.down("sm")]: {
+                    width: "100%",
+                    backgroundImage: "none",
+                },
+                [theme.breakpoints.down("md")]: {
+                    height: "54vh",
+                },
+            }}
+        >
+            <Typography
+                sx={{
+                    color: "white",
                     fontSize: "30px",
+                    [theme.breakpoints.down("sm")]: {
+                        color: "black",
+                        fontSize: "24px",
+                    },
                 }}
             >
                 ADD PRODUCT PANEL
-            </h1>
+            </Typography>
             <Box
                 sx={{
                     width: "60vw",
-                    margin: "5vh auto 20vh",
+                    margin: "3vh auto 10vh",
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr ",
                     gridGap: "10px",
                     [theme.breakpoints.down("sm")]: {
-                        width: "70vw",
+                        width: "80%",
                     },
                 }}
             >
                 <TextField
                     onChange={handleInp}
-                    sx={{ borderColor: "black" }}
+                    sx={{
+                        borderColor: "white",
+                        backgroundColor: "white",
+                        borderRadius: "4px",
+                    }}
                     fullWidth
                     label="Name"
                     variant="outlined"
@@ -77,17 +105,21 @@ const AddProduct = () => {
                     size="small"
                 />
 
-                <FormControl fullWidth>
+                <FormControl
+                    fullWidth
+                    sx={{ backgroundColor: "white", borderRadius: "4px" }}
+                >
                     <InputLabel
-                        sx={{ fontSize: "18px" }}
+                        sx={{
+                            fontSize: "18px",
+                            color: "black",
+                        }}
                         htmlFor="outlined-adornment-amount"
-                    >
-                        price
-                    </InputLabel>
+                    ></InputLabel>
                     <OutlinedInput
                         id="outlined-adornment-amount"
                         onChange={handleInp}
-                        label="Price"
+                        placeholder="Price"
                         variant="outlined"
                         name="price"
                         size="small"
@@ -102,6 +134,8 @@ const AddProduct = () => {
                     sx={{
                         borderColor: "black",
                         gridColumn: "1/3",
+                        backgroundColor: "white",
+                        borderRadius: "4px",
                     }}
                     fullWidth
                     label="Description"
@@ -112,17 +146,24 @@ const AddProduct = () => {
 
                 <TextField
                     onChange={handleInp}
-                    sx={{ borderColor: "black" }}
+                    sx={{
+                        borderColor: "black",
+                        backgroundColor: "white",
+                        borderRadius: "4px",
+                    }}
                     fullWidth
                     label="Picture"
                     variant="outlined"
                     name="picture"
                     size="small"
                 />
-
                 <TextField
                     onChange={handleInp}
-                    sx={{ borderColor: "black" }}
+                    sx={{
+                        borderColor: "black",
+                        backgroundColor: "white",
+                        borderRadius: "4px",
+                    }}
                     fullWidth
                     label="Type"
                     variant="outlined"
@@ -149,7 +190,7 @@ const AddProduct = () => {
                     ADD PRODUCT
                 </Button>
             </Box>
-        </div>
+        </Box>
     );
 };
 

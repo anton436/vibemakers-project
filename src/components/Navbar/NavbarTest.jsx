@@ -71,7 +71,7 @@ function Navbar() {
                         variant="h6"
                         noWrap
                         component="a"
-                        href="/"
+                        onClick={() => navigate("/")}
                         sx={{
                             mr: 2,
                             display: { xs: "none", md: "flex" },
@@ -173,38 +173,23 @@ function Navbar() {
                         >
                             admin
                         </Button>
-                        <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
-                            Shoes
+                        <Button
+                            onClick={() => navigate("/products")}
+                            onMouseEnter={hoverNav}
+                            sx={{ color: "black" }}
+                        >
+                            products
+                        </Button>
+                        <Button
+                            onClick={() => navigate("/aboutus")}
+                            onMouseEnter={hoverNav}
+                            sx={{ color: "black" }}
+                        >
+                            About us
                         </Button>
                         <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
-                            Men
+                            contact us
                         </Button>
-                        <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
-                            Women
-                        </Button>
-                        <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
-                            Tennis
-                        </Button>
-                        <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
-                            work
-                        </Button>
-                        <Button onMouseEnter={hoverNav} sx={{ color: "black" }}>
-                            WareHouse
-                        </Button>
-                        {/* {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                
-                                sx={{
-                                    my: 2,
-                                    color: 'black",
-                                    display: "block",
-                                }}
-                            >
-                                {page}
-                            </Button>
-                        ))} */}
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>

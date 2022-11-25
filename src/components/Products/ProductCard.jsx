@@ -8,22 +8,22 @@ const ProductCard = ({ item }) => {
         <div>
             <Box
                 sx={{
-                    width: '100%',
-                    backgroundColor: 'white',
-                    margin: '10px 20px 30px 20px',
+                    width: "100%",
+                    backgroundColor: "white",
+                    margin: "10px 20px 30px 20px",
                 }}
             >
                 <Box
                     sx={{
-                        width: '90%',
-                        backgroundColor: 'white',
-                        position: 'relative',
+                        width: "90%",
+                        backgroundColor: "white",
+                        position: "relative",
                     }}
                 >
                     <img
                         src={item.picture}
                         alt=""
-                        style={{ width: '100%', height: '100%' }}
+                        style={{ width: "100%", height: "100%" }}
                     />
                     <button
                         style={{
@@ -48,14 +48,14 @@ const ProductCard = ({ item }) => {
                     </button>
                     <Typography
                         sx={{
-                            fontWeight: '600',
-                            marginTop: '13px',
-                            width: '90%',
+                            fontWeight: "600",
+                            marginTop: "13px",
+                            width: "90%",
                         }}
                     >
                         {item.name}
                     </Typography>
-                    <Typography sx={{ fontWeight: '600' }}>
+                    <Typography sx={{ fontWeight: "600" }}>
                         ${item.price}
                     </Typography>
                 </Box>
