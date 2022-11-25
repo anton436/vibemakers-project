@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useCart } from '../../contexts/CartContextProvider';
+import { Button } from '@mui/material';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -21,11 +22,16 @@ const rows = [
 ];
 
 export default function Cart() {
-  const { getCart, cart, changeProductCount } = useCart();
+  const { getCart, cart, changeProductCount, deleteCartProduct } = useCart();
 
   React.useEffect(() => {
     getCart();
   }, []);
+
+  const cartCleaner = () => {
+    localStorage.removeItem('cart');
+    getCart();
+  };
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
@@ -66,11 +72,16 @@ export default function Cart() {
                 />
               </TableCell>
               <TableCell align='right'>{row.subPrice}</TableCell>
-              <TableCell align='right'>{row.item.price}</TableCell>
+              <TableCell align='right'>
+                <Button onClick={() => deleteCartProduct(row.item.id)}>
+                  DELETE
+                </Button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      <Button onClick={cartCleaner}> BUY NOW FOR {cart?.totalPrice} $</Button>
     </TableContainer>
   );
 }

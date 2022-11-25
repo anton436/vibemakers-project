@@ -10,7 +10,7 @@ import { useCart } from '../../../contexts/CartContextProvider';
 const ProductCounter = () => {
   const { productDetails, getProductDetails } = useProducts();
 
-  const { addProductToCart } = useCart();
+  const { addProductToCart, checkProductInCart } = useCart();
 
   const [count, setCount] = useState(1);
   const increment = () => {
@@ -65,22 +65,42 @@ const ProductCounter = () => {
             </a>
           </div>
         </Box>
-        <Button
-          variant='contained'
-          onClick={() => addProductToCart(productDetails)}
-          sx={{
-            backgroundColor: '#0a203f',
-            color: 'white',
-            width: '300px',
-            height: '55px',
-            // mb: "50px",
-            borderRadius: '1px',
-            font: '16px',
-            fontWeight: '600',
-          }}
-        >
-          ADD TO BAG
-        </Button>
+
+        {checkProductInCart(productDetails.id) ? (
+          <Button
+            variant='contained'
+            onClick={() => addProductToCart(productDetails)}
+            sx={{
+              backgroundColor: '#0a203f',
+              color: 'white',
+              width: '300px',
+              height: '55px',
+              // mb: "50px",
+              borderRadius: '1px',
+              font: '16px',
+              fontWeight: '600',
+            }}
+          >
+            REMOVE FROM BAG
+          </Button>
+        ) : (
+          <Button
+            variant='contained'
+            onClick={() => addProductToCart(productDetails)}
+            sx={{
+              backgroundColor: '#0a203f',
+              color: 'white',
+              width: '300px',
+              height: '55px',
+              // mb: "50px",
+              borderRadius: '1px',
+              font: '16px',
+              fontWeight: '600',
+            }}
+          >
+            ADD TO BAG
+          </Button>
+        )}
       </Box>
     </div>
   );

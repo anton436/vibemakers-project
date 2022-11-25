@@ -21,6 +21,9 @@ import { Input, InputAdornment } from '@mui/material';
 import NavbarHover from './NavbarHover';
 import { useAuth } from '../../contexts/AuthContextProvider';
 import Badge from '@mui/material/Badge';
+import { useCart } from '../../contexts/CartContextProvider';
+import { CountertopsRounded } from '@mui/icons-material';
+import { getCountProductsInCart } from '../../helpers/functions';
 
 const pages = ['New', 'Shoes', 'Men', 'Women', 'Tennis', 'work', 'WareHouse'];
 
@@ -58,6 +61,13 @@ function Navbar() {
     setSearchState(!searchState);
   };
   const navigate = useNavigate();
+
+  const { addProductToCart } = useCart();
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    setCount(getCountProductsInCart);
+  }, [addProductToCart]);
 
   return (
     <AppBar
@@ -202,7 +212,7 @@ function Navbar() {
                 onClick={() => navigate('/cart')}
                 sx={{ p: 0, width: '40px' }}
               >
-                <Badge badgeContent={4} color='primary'>
+                <Badge badgeContent={count} color='primary'>
                   <LocalMallIcon />
                 </Badge>
               </IconButton>
