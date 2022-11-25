@@ -1,6 +1,10 @@
 import React, { createContext, useContext, useReducer } from 'react';
 import { CART } from '../helpers/consts';
-import { calcTotalPrice, getCountProductsInCart } from '../helpers/functions';
+import {
+  calcSubPrice,
+  calcTotalPrice,
+  getCountProductsInCart,
+} from '../helpers/functions';
 
 const cartContext = createContext();
 
@@ -81,7 +85,30 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
-  const values = { getCart, addProductToCart, cart: state.cart };
+  const changeProductCount = (count, id) => {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+
+    cart.products = cart.products.map((product) => {
+      if (product.item.id === id) {
+        product.count = count;
+        product.subPrice = calcSubPrice(product);
+      }
+      return product;
+    });
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    dispatch({
+      type: CART.GET_CART,
+      payload: cart,
+    });
+  };
+  const values = {
+    changeProductCount,
+    getCart,
+    addProductToCart,
+    cart: state.cart,
+  };
   return <cartContext.Provider value={values}>{children}</cartContext.Provider>;
 };
 

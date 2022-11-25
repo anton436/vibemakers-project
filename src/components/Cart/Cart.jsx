@@ -21,7 +21,7 @@ const rows = [
 ];
 
 export default function Cart() {
-  const { getCart, cart } = useCart();
+  const { getCart, cart, changeProductCount } = useCart();
 
   React.useEffect(() => {
     getCart();
@@ -53,6 +53,19 @@ export default function Cart() {
               <TableCell align='right'>{row.item.name}</TableCell>
               <TableCell align='right'>{row.item.type}</TableCell>
               <TableCell align='right'>{row.item.description}</TableCell>
+              <TableCell align='right'>{row.item.price}</TableCell>
+              <TableCell align='right'>
+                <input
+                  min={1}
+                  max={100}
+                  type='number'
+                  value={row.count}
+                  onChange={(e) =>
+                    changeProductCount(e.target.value, row.item.id)
+                  }
+                />
+              </TableCell>
+              <TableCell align='right'>{row.subPrice}</TableCell>
               <TableCell align='right'>{row.item.price}</TableCell>
             </TableRow>
           ))}
