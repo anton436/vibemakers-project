@@ -8,44 +8,47 @@ import { Link } from 'react-router-dom';
 import { createTheme, List, ListItem } from '@mui/material';
 
 const Connect = () => {
-  const theme = createTheme();
+    const theme = createTheme();
 
-  return (
-    <>
-      <Typography
-        sx={{
-          fontWeight: '700',
-          fontSize: '26px',
-          mt: {
-            xs: '8px',
-            md: '0px',
-          },
-        }}
-        component='h1'
-        variant='h5'
-      >
-        Connect
-      </Typography>
+    return (
+        <>
+            <Typography
+                sx={{
+                    fontWeight: 700,
+                    fontSize: 26,
+                    mt: {
+                        xs: 8,
+                        md: 0,
+                    },
+                }}
+                component="h1"
+                variant="h5"
+            >
+                Connect
+            </Typography>
 
-      <Link
-        className='icon-twitter'
-        href='https://twitter.com/FILAUSA?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor'
-      >
-        <TwitterIcon />
-      </Link>
+            <Link
+                className="icon-twitter"
+                href="https://twitter.com/FILAUSA?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+            >
+                <TwitterIcon />
+            </Link>
 
-      <Link
-        className='icon-instagram'
-        href='https://www.instagram.com/filausa/'
-      >
-        <InstagramIcon />
-      </Link>
+            <Link
+                className="icon-instagram"
+                href="https://www.instagram.com/filausa/"
+            >
+                <InstagramIcon />
+            </Link>
 
-      <Link className='icon-facebook' href='https://www.facebook.com/filausa/'>
-        <FacebookIcon />
-      </Link>
-    </>
-  );
+            <Link
+                className="icon-facebook"
+                href="https://www.facebook.com/filausa/"
+            >
+                <FacebookIcon />
+            </Link>
+        </>
+    );
 };
 
 export default Connect;

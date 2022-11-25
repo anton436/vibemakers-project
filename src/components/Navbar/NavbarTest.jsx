@@ -22,267 +22,298 @@ import NavbarHover from './NavbarHover';
 import { useAuth } from '../../contexts/AuthContextProvider';
 import Badge from '@mui/material/Badge';
 import { useCart } from '../../contexts/CartContextProvider';
-import { CountertopsRounded } from '@mui/icons-material';
 import { getCountProductsInCart } from '../../helpers/functions';
 
 const pages = ['New', 'Shoes', 'Men', 'Women', 'Tennis', 'work', 'WareHouse'];
 
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const { setHover, searchState, setSearchState, hover } =
-    React.useContext(navbarContext);
-  const {
-    user: { email },
-    handleLogout,
-  } = useAuth();
+    const { cart, addProductToCart } = useCart();
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+    const [count, setCount] = React.useState(0);
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    React.useEffect(() => {
+        setCount(getCountProductsInCart);
+    }, [addProductToCart]);
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+    // function totalProducts() {
+    //     let total = 0;
+    //     cart.products.map((item) => {
+    //         total += +item.count;
+    //     });
+    //     return total;
+    // }
 
-  const hoverNav = () => {
-    setHover(true);
-    setSearchState(false);
-  };
-  const openSearch = () => {
-    setHover(false);
-    setSearchState(!searchState);
-  };
-  const navigate = useNavigate();
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const { setHover, searchState, setSearchState, hover } =
+        React.useContext(navbarContext);
+    const {
+        user: { email },
+        handleLogout,
+    } = useAuth();
 
-  const { addProductToCart } = useCart();
-  const [count, setCount] = React.useState(0);
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    };
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
 
-  React.useEffect(() => {
-    setCount(getCountProductsInCart);
-  }, [addProductToCart]);
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
 
-  return (
-    <AppBar
-      position='static'
-      sx={{ backgroundColor: 'white', boxShadow: 'none' }}
-    >
-      <Container maxWidth='xl'>
-        <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-          <Typography
-            variant='h6'
-            noWrap
-            component='a'
-            onClick={() => navigate('/')}
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'black',
-              textDecoration: 'none',
-            }}
-          >
-            <img sx={{ width: '55px' }} width='75' src={images} alt='' />
-          </Typography>
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
 
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'flex', md: 'none' },
-            }}
-          >
-            <IconButton
-              size='large'
-              aria-label='account of current user'
-              aria-controls='menu-appbar'
-              aria-haspopup='true'
-              onClick={handleOpenNavMenu}
-              color='black'
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id='menu-appbar'
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
-          <Typography
-            variant='h5'
-            noWrap
-            component='a'
-            href=''
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.6rem',
-              color: 'black',
-              textDecoration: 'none',
-            }}
-          >
-            <img sx={{ width: '55px' }} width='75' src={images} alt='' />
-          </Typography>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
-            }}
-          >
-            <Button
-              onClick={() => navigate('/admin')}
-              onMouseEnter={hoverNav}
-              sx={{ color: 'black' }}
-            >
-              admin
-            </Button>
-            <Button
-              onClick={() => navigate('/products')}
-              onMouseEnter={hoverNav}
-              sx={{ color: 'black' }}
-            >
-              products
-            </Button>
-            <Button
-              onClick={() => navigate('/aboutus')}
-              onMouseEnter={hoverNav}
-              sx={{ color: 'black' }}
-            >
-              About us
-            </Button>
-            <Button
-              onClick={() => navigate('/contactus')}
-              onMouseEnter={hoverNav}
-              sx={{ color: 'black' }}
-            >
-              contact us
-            </Button>
-          </Box>
+    const hoverNav = () => {
+        setHover(true);
+        setSearchState(false);
+    };
+    const openSearch = () => {
+        setHover(false);
+        setSearchState(!searchState);
+    };
+    const navigate = useNavigate();
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip>
-              <IconButton onClick={openSearch} sx={{ p: 0, width: '40px' }}>
-                <SearchOutlinedIcon />
-              </IconButton>
-            </Tooltip>
-
-            <Tooltip title='Open settings'>
-              <IconButton
-                onClick={handleOpenUserMenu}
-                sx={{ p: 0, width: '40px' }}
-              >
-                <PersonIcon />
-              </IconButton>
-            </Tooltip>
-
-            <Tooltip>
-              <IconButton
-                onClick={() => navigate('/cart')}
-                sx={{ p: 0, width: '40px' }}
-              >
-                <Badge badgeContent={count} color='primary'>
-                  <LocalMallIcon />
-                </Badge>
-              </IconButton>
-            </Tooltip>
-
-            <Menu
-              sx={{ mt: '45px' }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {email ? (
-                <MenuItem onClick={handleLogout}>
-                  <Typography textAlign='center'>Logout</Typography>
-                </MenuItem>
-              ) : (
-                <Link to='/auth'>
-                  <MenuItem onClick={handleLogout}>
-                    <Typography textAlign='center'>login</Typography>
-                  </MenuItem>
-                </Link>
-              )}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-      {searchState && (
-        <Box
-          sx={{
-            position: 'absolute',
-            marginTop: '50px',
-            background: 'white',
-            width: '95%',
-            paddingLeft: '5%',
-          }}
+    return (
+        <AppBar
+            position="static"
+            sx={{ backgroundColor: 'white', boxShadow: 'none' }}
         >
-          <Input
-            id='standard-adornment-amount'
-            sx={{
-              width: '90%',
-              marginBottom: '0px',
-              paddingLeft: '20px',
-              fontSize: '25px',
-              boxShadow: '0px 5px 10px -5px rgba(34, 60, 80, 0.6)',
-            }}
-            placeholder='Search'
-            endAdornment={
-              <InputAdornment
-                sx={{ cursor: ' pointer' }}
-                position='start'
-                onClick={() => setSearchState(false)}
-              >
-                X
-              </InputAdornment>
-            }
-          />
-        </Box>
-      )}
-      {hover && <NavbarHover />}
-    </AppBar>
-  );
+            <Container maxWidth="xl">
+                <Toolbar disableGutters>
+                    {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="a"
+                        onClick={() => navigate('/')}
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'black',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        <img
+                            sx={{ width: '55px' }}
+                            width="75"
+                            src={images}
+                            alt=""
+                        />
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: { xs: 'flex', md: 'none' },
+                        }}
+                    >
+                        <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            onClick={handleOpenNavMenu}
+                            color="black"
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Menu
+                            id="menu-appbar"
+                            anchorEl={anchorElNav}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            open={Boolean(anchorElNav)}
+                            onClose={handleCloseNavMenu}
+                            sx={{
+                                display: { xs: 'block', md: 'none' },
+                            }}
+                        >
+                            {pages.map((page) => (
+                                <MenuItem
+                                    key={page}
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign="center">
+                                        {page}
+                                    </Typography>
+                                </MenuItem>
+                            ))}
+                        </Menu>
+                    </Box>
+                    {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+                    <Typography
+                        variant="h5"
+                        noWrap
+                        component="a"
+                        href=""
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'flex', md: 'none' },
+                            flexGrow: 1,
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.6rem',
+                            color: 'black',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        <img
+                            sx={{ width: '55px' }}
+                            width="75"
+                            src={images}
+                            alt=""
+                        />
+                    </Typography>
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: { xs: 'none', md: 'flex' },
+                        }}
+                    >
+                        <Button
+                            onClick={() => navigate('/admin')}
+                            onMouseEnter={hoverNav}
+                            sx={{ color: 'black' }}
+                        >
+                            admin
+                        </Button>
+                        <Button
+                            onClick={() => navigate('/products')}
+                            onMouseEnter={hoverNav}
+                            sx={{ color: 'black' }}
+                        >
+                            products
+                        </Button>
+                        <Button
+                            onClick={() => navigate('/aboutus')}
+                            onMouseEnter={hoverNav}
+                            sx={{ color: 'black' }}
+                        >
+                            About us
+                        </Button>
+                        <Button
+                            onMouseEnter={hoverNav}
+                            sx={{ color: 'black' }}
+                            onClick={() => navigate('/contactus')}
+                        >
+                            contact us
+                        </Button>
+                    </Box>
+
+                    <Box sx={{ flexGrow: 0 }}>
+                        <Tooltip>
+                            <IconButton
+                                onClick={openSearch}
+                                sx={{ p: 0, width: '40px' }}
+                            >
+                                <SearchOutlinedIcon />
+                            </IconButton>
+                        </Tooltip>
+
+                        <Tooltip title="Open settings">
+                            <IconButton
+                                onClick={handleOpenUserMenu}
+                                sx={{ p: 0, width: '40px' }}
+                            >
+                                <PersonIcon />
+                            </IconButton>
+                        </Tooltip>
+
+                        <Tooltip>
+                            <IconButton
+                                onClick={() => navigate('/cart')}
+                                sx={{ p: 0, width: '40px' }}
+                            >
+                                <Badge badgeContent={count} color="primary">
+                                    <LocalMallIcon />
+                                </Badge>
+                            </IconButton>
+                        </Tooltip>
+
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+                            {email ? (
+                                <MenuItem onClick={handleLogout}>
+                                    <Typography textAlign="center">
+                                        Logout
+                                    </Typography>
+                                </MenuItem>
+                            ) : (
+                                <Link to="/auth">
+                                    <MenuItem onClick={handleLogout}>
+                                        <Typography textAlign="center">
+                                            login
+                                        </Typography>
+                                    </MenuItem>
+                                </Link>
+                            )}
+                        </Menu>
+                    </Box>
+                </Toolbar>
+            </Container>
+            {searchState && (
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        marginTop: '50px',
+                        background: 'white',
+                        width: '95%',
+                        paddingLeft: '5%',
+                    }}
+                >
+                    <Input
+                        id="standard-adornment-amount"
+                        sx={{
+                            width: '90%',
+                            marginBottom: '0px',
+                            paddingLeft: '20px',
+                            fontSize: '25px',
+                            boxShadow:
+                                '0px 5px 10px -5px rgba(34, 60, 80, 0.6)',
+                        }}
+                        placeholder="Search"
+                        endAdornment={
+                            <InputAdornment
+                                sx={{ cursor: ' pointer' }}
+                                position="start"
+                                onClick={() => setSearchState(false)}
+                            >
+                                X
+                            </InputAdornment>
+                        }
+                    />
+                </Box>
+            )}
+            {hover && <NavbarHover />}
+        </AppBar>
+    );
 }
 export default Navbar;

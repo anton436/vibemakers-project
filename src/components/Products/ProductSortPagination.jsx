@@ -9,37 +9,37 @@ import Stack from '@mui/material/Stack';
 import ProductSort from './ProductSort';
 
 const ProductSortPagination = () => {
-  const [sort, setSort] = React.useState('');
+    const [sort, setSort] = React.useState('');
 
-  const handleSort = (event) => {
-    setSort(event.target.value);
-  };
-  return (
-    <div>
-      <Box
-        sx={{
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <Box
-          sx={{
-            width: '30%',
-            mb: 2,
-            height: '30px',
-            paddingBottom: '5%',
-          }}
-        >
-          <ProductSort />
-        </Box>
-        <Stack spacing={2} sx={{ marginRight: '5px' }}>
-          <Pagination count={3} color='warning' />
-        </Stack>
-      </Box>
-    </div>
-  );
+    const handleSort = (event) => {
+        setSort(event.target.value);
+    };
+    return (
+        <div>
+            <Box
+                sx={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    paddingBottom: '3%',
+                }}
+            >
+                <Box
+                    sx={{
+                        width: '30%',
+                        mb: 2,
+                        height: '30px',
+                    }}
+                >
+                    <ProductSort />
+                </Box>
+                <Stack spacing={2} sx={{ marginRight: 5 }}>
+                    <Pagination count={3} color="warning" />
+                </Stack>
+            </Box>
+        </div>
+    );
 };
 
 export default ProductSortPagination;
