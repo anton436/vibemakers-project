@@ -21,10 +21,28 @@ import { Input, InputAdornment } from '@mui/material';
 import NavbarHover from './NavbarHover';
 import { useAuth } from '../../contexts/AuthContextProvider';
 import Badge from '@mui/material/Badge';
+import { useCart } from '../../contexts/CartContextProvider';
+import { getCountProductsInCart } from '../../helpers/functions';
 
 const pages = ['New', 'Shoes', 'Men', 'Women', 'Tennis', 'work', 'WareHouse'];
 
 function Navbar() {
+    const { cart, addProductToCart } = useCart();
+
+    const [count, setCount] = React.useState(0);
+
+    React.useEffect(() => {
+        setCount(getCountProductsInCart);
+    }, [addProductToCart]);
+
+    // function totalProducts() {
+    //     let total = 0;
+    //     cart.products.map((item) => {
+    //         total += +item.count;
+    //     });
+    //     return total;
+    // }
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const { setHover, searchState, setSearchState, hover } =
@@ -215,9 +233,12 @@ function Navbar() {
                             </IconButton>
                         </Tooltip>
 
-                        <Tooltip title="Open settings">
-                            <IconButton sx={{ p: 0, width: '40px' }}>
-                                <Badge badgeContent={4} color="primary">
+                        <Tooltip>
+                            <IconButton
+                                onClick={() => navigate('/cart')}
+                                sx={{ p: 0, width: '40px' }}
+                            >
+                                <Badge badgeContent={count} color="primary">
                                     <LocalMallIcon />
                                 </Badge>
                             </IconButton>
