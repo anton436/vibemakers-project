@@ -1,9 +1,17 @@
-import { Box, Button, TextField } from '@mui/material';
+import {
+    Box,
+    Button,
+    FormControl,
+    InputAdornment,
+    InputLabel,
+    OutlinedInput,
+    TextField,
+} from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContextProvider';
 
-const AddProduct = () => {
+const EditProduct = () => {
     const { productDetails, getProductDetails, saveEditedProduct } =
         useProducts();
 
@@ -27,7 +35,7 @@ const AddProduct = () => {
 
     return (
         <div align="center">
-            <h1>ADMIN PANEL</h1>
+            <h1>EDIT PRODUCT</h1>
             <Box sx={{ width: '60vw', margin: '10vh auto' }}>
                 <TextField
                     onChange={handleInp}
@@ -36,13 +44,37 @@ const AddProduct = () => {
                     label="Name"
                     variant="outlined"
                     name="name"
-                    size="small"
                     value={product.name || ''}
+                    size="small"
                 />
 
+                <FormControl fullWidth>
+                    <InputLabel
+                        sx={{ fontSize: '18px' }}
+                        htmlFor="outlined-adornment-amount"
+                    >
+                        price
+                    </InputLabel>
+                    <OutlinedInput
+                        id="outlined-adornment-amount"
+                        onChange={handleInp}
+                        label="Price"
+                        variant="outlined"
+                        name="price"
+                        size="small"
+                        type="number"
+                        value={product.price || ''}
+                        startAdornment={
+                            <InputAdornment position="start">$</InputAdornment>
+                        }
+                    />
+                </FormControl>
                 <TextField
                     onChange={handleInp}
-                    sx={{ marginBottom: '10px', borderColor: 'black' }}
+                    sx={{
+                        borderColor: 'black',
+                        gridColumn: '1/3',
+                    }}
                     fullWidth
                     label="Description"
                     variant="outlined"
@@ -100,11 +132,11 @@ const AddProduct = () => {
                     fullWidth
                     size="large"
                 >
-                    Save changes
+                    SAVE CHANGES
                 </Button>
             </Box>
         </div>
     );
 };
 
-export default AddProduct;
+export default EditProduct;
