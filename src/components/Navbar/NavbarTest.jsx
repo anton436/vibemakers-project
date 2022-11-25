@@ -197,8 +197,11 @@ function Navbar() {
               </IconButton>
             </Tooltip>
 
-            <Tooltip title='Open settings'>
-              <IconButton sx={{ p: 0, width: '40px' }}>
+            <Tooltip>
+              <IconButton
+                onClick={() => navigate('/cart')}
+                sx={{ p: 0, width: '40px' }}
+              >
                 <Badge badgeContent={4} color='primary'>
                   <LocalMallIcon />
                 </Badge>

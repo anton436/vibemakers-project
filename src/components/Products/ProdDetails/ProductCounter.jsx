@@ -1,51 +1,54 @@
-import React, { useContext, useEffect, useState } from "react";
-import Button from "@mui/material/Button";
+import React, { useContext, useEffect, useState } from 'react';
+import Button from '@mui/material/Button';
 // import "../Products/counterButton.css";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import { Box } from "@mui/system";
-import { useProducts } from "../../../contexts/ProductContextProvider";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import { Box } from '@mui/system';
+import { useProducts } from '../../../contexts/ProductContextProvider';
+import { useCart } from '../../../contexts/CartContextProvider';
 
 const ProductCounter = () => {
   const { productDetails, getProductDetails } = useProducts();
 
+  const { addProductToCart } = useCart();
+
   const [count, setCount] = useState(1);
   const increment = () => {
-    setCount((prev) => prev+=1);
+    setCount((prev) => (prev += 1));
   };
 
   const decrement = () => {
-    count >= 1 ? setCount((prev) => prev-=1): setCount(0);
+    count >= 1 ? setCount((prev) => (prev -= 1)) : setCount(0);
   };
   return (
     <div>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          pt: "10px",
-          margin: "15px",
-          padding: "20px",
+          display: 'flex',
+          justifyContent: 'center',
+          pt: '10px',
+          margin: '15px',
+          padding: '20px',
         }}
       >
         {/* {productDetails.name} {productDetails.price} */}
         <Box
-          className="counter_button"
-          component="div"
+          className='counter_button'
+          component='div'
           sx={{
-            border: "1px solid",
-            width: "70px",
-            height: "28px",
-            marginTop: "1px",
-            marginRight: "15px",
+            border: '1px solid',
+            width: '70px',
+            height: '28px',
+            marginTop: '1px',
+            marginRight: '15px',
           }}
         >
           <div>
-            <a href="#">
+            <a href='#'>
               <RemoveIcon
-                className="remove_icon"
+                className='remove_icon'
                 onClick={() => decrement()}
-                sx={{ marginRight: "6px" }}
+                sx={{ marginRight: '6px' }}
               />
             </a>
           </div>
@@ -53,26 +56,27 @@ const ProductCounter = () => {
             <div>{count}</div>
           </div>
           <div>
-            <a href="#">
+            <a href='#'>
               <AddIcon
-                className="add_icon"
+                className='add_icon'
                 onClick={increment}
-                sx={{ marginLeft: "6px" }}
+                sx={{ marginLeft: '6px' }}
               />
             </a>
           </div>
         </Box>
         <Button
-          variant="contained"
+          variant='contained'
+          onClick={() => addProductToCart(productDetails)}
           sx={{
-            backgroundColor: "#0a203f",
-            color: "white",
-            width: "300px",
-            height: "55px",
+            backgroundColor: '#0a203f',
+            color: 'white',
+            width: '300px',
+            height: '55px',
             // mb: "50px",
-            borderRadius: "1px",
-            font: "16px",
-            fontWeight: "600",
+            borderRadius: '1px',
+            font: '16px',
+            fontWeight: '600',
           }}
         >
           ADD TO BAG
