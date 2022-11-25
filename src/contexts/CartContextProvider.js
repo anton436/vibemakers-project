@@ -7,6 +7,7 @@ import {
 } from '../helpers/functions';
 
 const cartContext = createContext();
+
 export const useCart = () => {
     return useContext(cartContext);
 };
@@ -26,19 +27,21 @@ function reducer(state = INIT_STATE, action) {
             return state;
     }
 }
-
 const CartContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
     const getCart = () => {
         let cart = JSON.parse(localStorage.getItem('cart'));
+
         if (!cart) {
             localStorage.setItem(
                 'cart',
                 JSON.stringify({ products: [], totalPrice: 0 })
             );
+
             cart = { products: [], totalPrice: 0 };
         }
+
         dispatch({
             type: CART.GET_CART,
             payload: cart,
@@ -47,6 +50,7 @@ const CartContextProvider = ({ children }) => {
 
     const addProductToCart = (product) => {
         let cart = JSON.parse(localStorage.getItem('cart'));
+
         if (!cart) {
             cart = {
                 products: [],
@@ -63,6 +67,7 @@ const CartContextProvider = ({ children }) => {
         let productToFind = cart.products.filter(
             (elem) => elem.item.id === product.id
         );
+
         if (productToFind.length == 0) {
             cart.products.push(newProduct);
         } else {
@@ -70,6 +75,7 @@ const CartContextProvider = ({ children }) => {
                 (elem) => elem.item.id !== product.id
             );
         }
+
         cart.totalPrice = calcTotalPrice(cart.products);
         localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -81,6 +87,7 @@ const CartContextProvider = ({ children }) => {
 
     const changeProductCount = (count, id) => {
         let cart = JSON.parse(localStorage.getItem('cart'));
+
         cart.products = cart.products.map((product) => {
             if (product.item.id === id) {
                 product.count = count;
@@ -88,11 +95,13 @@ const CartContextProvider = ({ children }) => {
             }
             return product;
         });
-
         cart.totalPrice = calcTotalPrice(cart.products);
         localStorage.setItem('cart', JSON.stringify(cart));
 
-        dispatch({ type: CART.GET_CART, payload: cart });
+        dispatch({
+            type: CART.GET_CART,
+            payload: cart,
+        });
     };
 
     function deleteCartProduct(id) {
@@ -102,7 +111,10 @@ const CartContextProvider = ({ children }) => {
         localStorage.setItem('cart', JSON.stringify(cart));
         getCart();
 
-        dispatch({ type: CART.GET_CART_LENGTH, payload: cart });
+        dispatch({
+            type: CART.GET_CART_LENGTH,
+            payload: cart,
+        });
     }
 
     function checkProductInCart(id) {
@@ -119,11 +131,11 @@ const CartContextProvider = ({ children }) => {
     }
 
     const values = {
+        changeProductCount,
         checkProductInCart,
         getCart,
         addProductToCart,
         cart: state.cart,
-        changeProductCount,
         deleteCartProduct,
     };
     return (
