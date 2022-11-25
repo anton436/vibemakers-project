@@ -10,7 +10,7 @@ const ContactUs = () => {
     <>
       <Box
         sx={{
-          width: "50%",
+          width: { xs: "100%", md: "40%" },
           display: "flex",
           justifyContent: "center",
         }}
@@ -19,7 +19,7 @@ const ContactUs = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            width: "40%",
+            width: { xs: "80%", md: "60%" },
           }}
         >
           <Typography

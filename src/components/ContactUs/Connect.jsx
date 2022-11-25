@@ -60,7 +60,7 @@ const Connect = () => {
         </Link>
       </Box>
       <Typography sx={{fontWeight:600, fontSize:20}}>Head Office</Typography>
-      <Typography sx={{m:1, width:'40%'}}>
+      <Typography sx={{m:1, width:{xs:'60%', sm:'40%'},  textAlign:{xs:'center', md:'left'},}}>
         1077 Cheonho-daero, Gangdong-gu, Seoul, Korea (EAST CENTRAL TOWER 18F)
         ir@fila.com
       </Typography>
