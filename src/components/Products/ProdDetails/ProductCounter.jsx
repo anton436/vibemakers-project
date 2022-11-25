@@ -5,17 +5,19 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Box } from "@mui/system";
 import { useProducts } from "../../../contexts/ProductContextProvider";
+import { useCart } from "../../../contexts/CartContextProvaider";
 
 const ProductCounter = () => {
   const { productDetails, getProductDetails } = useProducts();
+  const { addProductToCart, checkProductInCart } = useCart();
 
   const [count, setCount] = useState(1);
   const increment = () => {
-    setCount((prev) => prev+=1);
+    setCount((prev) => (prev += 1));
   };
 
   const decrement = () => {
-    count >= 1 ? setCount((prev) => prev-=1): setCount(0);
+    count >= 1 ? setCount((prev) => (prev -= 1)) : setCount(0);
   };
   return (
     <div>
@@ -41,42 +43,58 @@ const ProductCounter = () => {
           }}
         >
           <div>
-            <a href="#">
-              <RemoveIcon
-                className="remove_icon"
-                onClick={() => decrement()}
-                sx={{ marginRight: "6px" }}
-              />
-            </a>
+            <RemoveIcon
+              className="remove_icon"
+              onClick={() => decrement()}
+              sx={{ marginRight: "6px" }}
+            />
           </div>
           <div>
             <div>{count}</div>
           </div>
           <div>
-            <a href="#">
-              <AddIcon
-                className="add_icon"
-                onClick={increment}
-                sx={{ marginLeft: "6px" }}
-              />
-            </a>
+            <AddIcon
+              className="add_icon"
+              onClick={increment}
+              sx={{ marginLeft: "6px" }}
+            />
           </div>
         </Box>
-        <Button
-          variant="contained"
-          sx={{
-            backgroundColor: "#0a203f",
-            color: "white",
-            width: "300px",
-            height: "55px",
-            // mb: "50px",
-            borderRadius: "1px",
-            font: "16px",
-            fontWeight: "600",
-          }}
-        >
-          ADD TO BAG
-        </Button>
+        {checkProductInCart(productDetails.id) ? (
+          <Button
+            variant="contained"
+            onClick={() => addProductToCart(productDetails)}
+            sx={{
+              backgroundColor: "#0a203f",
+              color: "white",
+              width: "300px",
+              height: "55px",
+              // mb: "50px",
+              borderRadius: "1px",
+              font: "16px",
+              fontWeight: "600",
+            }}
+          >
+            REMOVE FROM BAG
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            onClick={() => addProductToCart(productDetails)}
+            sx={{
+              backgroundColor: "#0a203f",
+              color: "white",
+              width: "300px",
+              height: "55px",
+              // mb: "50px",
+              borderRadius: "1px",
+              font: "16px",
+              fontWeight: "600",
+            }}
+          >
+            ADD TO BAG
+          </Button>
+        )}
       </Box>
     </div>
   );

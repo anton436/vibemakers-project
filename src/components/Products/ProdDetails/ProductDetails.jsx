@@ -88,7 +88,10 @@ const ProductDetails = () => {
           </Button>
 
           <Button
-            onClick={() => deleteProduct(id)}
+            onClick={() => {
+              deleteProduct(id);
+              navigate("/products");
+            }}
             variant="contained"
             sx={{
               backgroundColor: "red",
@@ -159,7 +162,7 @@ const ProductDetails = () => {
               sx={{ width: "100%", display: "flex", flexWrap: "wrap" }}
             >
               {sizes.map((item, index) => (
-                <Typography 
+                <Typography
                   sx={{
                     cursor: "pointer",
                     width: "30px",

@@ -140,7 +140,7 @@ const HomePage = () => {
             </Button>
           </div>
           <Box
-            sx={{git 
+            sx={{
               display: {
                 xs: "none",
                 sm: "block",
