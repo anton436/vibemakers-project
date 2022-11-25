@@ -9,6 +9,7 @@ const GoogleMap = () => {
         height='450'
         allowFullScreen=''
         loading='lazy'
+        style={{borderRadius:'10px', border:'none', margin:'5%', marginLeft:0, marginTop:20}}
         referrerPolicy='no-referrer-when-downgrade'
       ></iframe>
     </div>
