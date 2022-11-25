@@ -10,8 +10,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
+// import AdbIcon from '@mui/icons-material/Adb';
+import { Link, useNavigate } from 'react-router-dom';
 import images from '../../images/fila.png';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonIcon from '@mui/icons-material/Person';
@@ -20,6 +20,7 @@ import { navbarContext } from '../../contexts/NavabarContexts';
 import { Input, InputAdornment } from '@mui/material';
 import NavbarHover from './NavbarHover';
 import { useAuth } from '../../contexts/AuthContextProvider';
+import Badge from '@mui/material/Badge';
 
 const pages = ['New', 'Shoes', 'Men', 'Women', 'Tennis', 'work', 'WareHouse'];
 
@@ -56,6 +57,7 @@ function Navbar() {
     setHover(false);
     setSearchState(!searchState);
   };
+  const navigate = useNavigate();
 
   return (
     <AppBar
@@ -64,12 +66,12 @@ function Navbar() {
     >
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant='h6'
             noWrap
             component='a'
-            href='/'
+            onClick={() => navigate('/')}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -124,7 +126,7 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
           <Typography
             variant='h5'
             noWrap
@@ -149,20 +151,34 @@ function Navbar() {
               display: { xs: 'none', md: 'flex' },
             }}
           >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                onMouseEnter={hoverNav}
-                sx={{
-                  my: 2,
-                  color: 'black',
-                  display: 'block',
-                }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              onClick={() => navigate('/admin')}
+              onMouseEnter={hoverNav}
+              sx={{ color: 'black' }}
+            >
+              admin
+            </Button>
+            <Button
+              onClick={() => navigate('/products')}
+              onMouseEnter={hoverNav}
+              sx={{ color: 'black' }}
+            >
+              products
+            </Button>
+            <Button
+              onClick={() => navigate('/aboutus')}
+              onMouseEnter={hoverNav}
+              sx={{ color: 'black' }}
+            >
+              About us
+            </Button>
+            <Button
+              onClick={() => navigate('/contactus')}
+              onMouseEnter={hoverNav}
+              sx={{ color: 'black' }}
+            >
+              contact us
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -183,7 +199,9 @@ function Navbar() {
 
             <Tooltip title='Open settings'>
               <IconButton sx={{ p: 0, width: '40px' }}>
-                <LocalMallIcon />
+                <Badge badgeContent={4} color='primary'>
+                  <LocalMallIcon />
+                </Badge>
               </IconButton>
             </Tooltip>
 
@@ -219,25 +237,36 @@ function Navbar() {
         </Toolbar>
       </Container>
       {searchState && (
-        <Input
-          id='standard-adornment-amount'
+        <Box
           sx={{
-            width: '90%',
-            margin: 'auto',
-            marginBottom: '20px',
-            fontSize: '25px',
+            position: 'absolute',
+            marginTop: '50px',
+            background: 'white',
+            width: '95%',
+            paddingLeft: '5%',
           }}
-          placeholder='Search'
-          endAdornment={
-            <InputAdornment
-              sx={{ cursor: ' pointer' }}
-              position='start'
-              onClick={() => setSearchState(false)}
-            >
-              X
-            </InputAdornment>
-          }
-        />
+        >
+          <Input
+            id='standard-adornment-amount'
+            sx={{
+              width: '90%',
+              marginBottom: '0px',
+              paddingLeft: '20px',
+              fontSize: '25px',
+              boxShadow: '0px 5px 10px -5px rgba(34, 60, 80, 0.6)',
+            }}
+            placeholder='Search'
+            endAdornment={
+              <InputAdornment
+                sx={{ cursor: ' pointer' }}
+                position='start'
+                onClick={() => setSearchState(false)}
+              >
+                X
+              </InputAdornment>
+            }
+          />
+        </Box>
       )}
       {hover && <NavbarHover />}
     </AppBar>
