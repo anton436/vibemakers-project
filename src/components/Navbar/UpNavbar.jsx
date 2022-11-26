@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import { createTheme } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 const navItems = ['USA', 'Contact Us', 'Corparate'];
 
@@ -27,6 +28,7 @@ const theme = createTheme({
 });
 
 function UpNavbar(props) {
+    const navigate = useNavigate();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -92,7 +94,9 @@ function UpNavbar(props) {
                                     sx={{
                                         fontSize: '12px',
                                         margin: '6px 0 0 2px',
+                                        cursor: 'pointer',
                                     }}
+                                    onClick={() => navigate('/auth')}
                                 >
                                     Sign Up to Join FILA
                                 </Typography>
@@ -128,6 +132,7 @@ function UpNavbar(props) {
                     >
                         {navItems.map((item) => (
                             <Button
+                                onClick={() => navigate('/auth')}
                                 key={item}
                                 sx={{
                                     color: '#fff',

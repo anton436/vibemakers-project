@@ -1,19 +1,22 @@
-import React from "react";
-import { createTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import { Link, List, ListItem, Typography, Button } from "@mui/material";
+import React from 'react';
+import { createTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import { Link, List, ListItem, Typography, Button } from '@mui/material';
 
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Collapse from "@mui/material/Collapse";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+    const navigate = useNavigate();
+
     const [openContact, setOpenContact] = React.useState(false);
 
     const handleContact = () => {
@@ -45,28 +48,28 @@ const Footer = () => {
     };
 
     const contact = [
-        "FILA USA Careers",
-        "FILA USA Careers",
-        "FILA Online Careers",
-        "Idea Submission",
-        "Preferred Player",
-        "Wholesaler Inquiries",
+        'FILA USA Careers',
+        'FILA USA Careers',
+        'FILA Online Careers',
+        'Idea Submission',
+        'Preferred Player',
+        'Wholesaler Inquiries',
     ];
-    const corporate = ["FILA Holdings", "ESG", "FILA News"];
-    const policies = ["Terms of Use", "Privacy Policy", "Accessibility"];
+    const corporate = ['FILA Holdings', 'ESG', 'FILA News'];
+    const policies = ['Terms of Use', 'Privacy Policy', 'Accessibility'];
     const resources = [
-        "Account",
-        "Sitemap",
-        "Customer Service",
-        "Check Order Status",
-        "The Archives",
-        "eGift Card",
+        'Account',
+        'Sitemap',
+        'Customer Service',
+        'Check Order Status',
+        'The Archives',
+        'eGift Card',
     ];
     const supplyChain = [
-        "California Supply Chains Act",
-        "Corporate Statement on Forced Labor",
-        "Business Partner Code of Conduct",
-        "FAQ",
+        'California Supply Chains Act',
+        'Corporate Statement on Forced Labor',
+        'Business Partner Code of Conduct',
+        'FAQ',
     ];
 
     const theme = createTheme({
@@ -84,33 +87,33 @@ const Footer = () => {
     return (
         <Box
             sx={{
-                backgroundColor: "#0b1f3f",
-                color: "white",
+                backgroundColor: '#0b1f3f',
+                color: 'white',
             }}
         >
             <Box
                 sx={{
-                    display: "flex",
-                    [theme.breakpoints.down("md")]: {
-                        display: "block",
+                    display: 'flex',
+                    [theme.breakpoints.down('md')]: {
+                        display: 'block',
                     },
-                    justifyContent: "space-between",
-                    padding: "2% 5%",
-                    fontSize: "11px",
+                    justifyContent: 'space-between',
+                    padding: '2% 5%',
+                    fontSize: '11px',
 
-                    border: "solid rgba(122,139,160,.3)",
-                    borderWidth: "0 0 1px",
-                    padding: "23px 0",
-                    width: "97%",
-                    margin: "0 auto",
+                    border: 'solid rgba(122,139,160,.3)',
+                    borderWidth: '0 0 1px',
+                    padding: '23px 0',
+                    width: '97%',
+                    margin: '0 auto',
                 }}
             >
-                <Box onClick={() => console.log("zxc")}>
+                <Box onClick={() => console.log('zxc')}>
                     <Typography
                         sx={{
-                            padding: "3px 10px",
-                            [theme.breakpoints.down("md")]: {
-                                display: "none",
+                            padding: '3px 10px',
+                            [theme.breakpoints.down('md')]: {
+                                display: 'none',
                             },
                         }}
                     >
@@ -118,8 +121,8 @@ const Footer = () => {
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down("md")]: {
-                                padding: "0",
+                            [theme.breakpoints.down('md')]: {
+                                padding: '0',
                             },
                         }}
                     >
@@ -127,19 +130,19 @@ const Footer = () => {
                             <ListItem
                                 key={index}
                                 sx={{
-                                    padding: "10px",
+                                    padding: '10px',
                                     margin: 0,
-                                    [theme.breakpoints.down("md")]: {
-                                        display: "none",
+                                    [theme.breakpoints.down('md')]: {
+                                        display: 'none',
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: "white",
-                                            cursor: "pointer",
-                                            transition: "0.5s",
+                                            color: 'white',
+                                            cursor: 'pointer',
+                                            transition: '0.5s',
                                         }}
                                     >
                                         {i}
@@ -152,9 +155,9 @@ const Footer = () => {
                 <Box>
                     <Typography
                         sx={{
-                            padding: "3px 10px",
-                            [theme.breakpoints.down("md")]: {
-                                display: "none",
+                            padding: '3px 10px',
+                            [theme.breakpoints.down('md')]: {
+                                display: 'none',
                             },
                         }}
                     >
@@ -162,8 +165,8 @@ const Footer = () => {
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down("md")]: {
-                                padding: "0",
+                            [theme.breakpoints.down('md')]: {
+                                padding: '0',
                             },
                         }}
                     >
@@ -171,19 +174,19 @@ const Footer = () => {
                             <ListItem
                                 key={index}
                                 sx={{
-                                    padding: "10px",
+                                    padding: '10px',
                                     margin: 0,
-                                    [theme.breakpoints.down("md")]: {
-                                        display: "none",
+                                    [theme.breakpoints.down('md')]: {
+                                        display: 'none',
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: "white",
-                                            cursor: "pointer",
-                                            transition: "0.5s",
+                                            color: 'white',
+                                            cursor: 'pointer',
+                                            transition: '0.5s',
                                         }}
                                     >
                                         {i}
@@ -196,9 +199,9 @@ const Footer = () => {
                 <Box>
                     <Typography
                         sx={{
-                            padding: "3px 10px",
-                            [theme.breakpoints.down("md")]: {
-                                display: "none",
+                            padding: '3px 10px',
+                            [theme.breakpoints.down('md')]: {
+                                display: 'none',
                             },
                         }}
                     >
@@ -206,8 +209,8 @@ const Footer = () => {
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down("md")]: {
-                                padding: "0",
+                            [theme.breakpoints.down('md')]: {
+                                padding: '0',
                             },
                         }}
                     >
@@ -215,19 +218,19 @@ const Footer = () => {
                             <ListItem
                                 key={index}
                                 sx={{
-                                    padding: "10px",
+                                    padding: '10px',
                                     margin: 0,
-                                    [theme.breakpoints.down("md")]: {
-                                        display: "none",
+                                    [theme.breakpoints.down('md')]: {
+                                        display: 'none',
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: "white",
-                                            cursor: "pointer",
-                                            transition: "0.5s",
+                                            color: 'white',
+                                            cursor: 'pointer',
+                                            transition: '0.5s',
                                         }}
                                     >
                                         {i}
@@ -240,9 +243,9 @@ const Footer = () => {
                 <Box>
                     <Typography
                         sx={{
-                            padding: "3px 10px",
-                            [theme.breakpoints.down("md")]: {
-                                display: "none",
+                            padding: '3px 10px',
+                            [theme.breakpoints.down('md')]: {
+                                display: 'none',
                             },
                         }}
                     >
@@ -250,8 +253,8 @@ const Footer = () => {
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down("md")]: {
-                                padding: "0",
+                            [theme.breakpoints.down('md')]: {
+                                padding: '0',
                             },
                         }}
                     >
@@ -259,18 +262,18 @@ const Footer = () => {
                             <ListItem
                                 key={index}
                                 sx={{
-                                    padding: "10px",
-                                    [theme.breakpoints.down("md")]: {
-                                        display: "none",
+                                    padding: '10px',
+                                    [theme.breakpoints.down('md')]: {
+                                        display: 'none',
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: "white",
-                                            cursor: "pointer",
-                                            transition: "0.5s",
+                                            color: 'white',
+                                            cursor: 'pointer',
+                                            transition: '0.5s',
                                         }}
                                     >
                                         {i}
@@ -283,9 +286,9 @@ const Footer = () => {
                 <Box>
                     <Typography
                         sx={{
-                            padding: "3px 10px",
-                            [theme.breakpoints.down("md")]: {
-                                display: "none",
+                            padding: '3px 10px',
+                            [theme.breakpoints.down('md')]: {
+                                display: 'none',
                             },
                         }}
                     >
@@ -293,8 +296,8 @@ const Footer = () => {
                     </Typography>
                     <List
                         sx={{
-                            [theme.breakpoints.down("md")]: {
-                                padding: "0",
+                            [theme.breakpoints.down('md')]: {
+                                padding: '0',
                             },
                         }}
                     >
@@ -302,18 +305,18 @@ const Footer = () => {
                             <ListItem
                                 key={index}
                                 sx={{
-                                    padding: "10px",
-                                    [theme.breakpoints.down("md")]: {
-                                        display: "none",
+                                    padding: '10px',
+                                    [theme.breakpoints.down('md')]: {
+                                        display: 'none',
                                     },
                                 }}
                             >
                                 {
                                     <Link
                                         sx={{
-                                            color: "white",
-                                            cursor: "pointer",
-                                            transition: "0.5s",
+                                            color: 'white',
+                                            cursor: 'pointer',
+                                            transition: '0.5s',
                                         }}
                                     >
                                         {i}
@@ -327,12 +330,12 @@ const Footer = () => {
                 <ListItemButton
                     onClick={handleContact}
                     sx={{
-                        [theme.breakpoints.up("md")]: { display: "none" },
-                        [theme.breakpoints.down("md")]: {
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
                             fontWeight: 600,
-                            border: "solid rgba(122,139,160,.3)",
-                            borderWidth: "0 0 1px",
-                            padding: "23px 0",
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
                         },
                     }}
                 >
@@ -344,9 +347,9 @@ const Footer = () => {
                         <ListItemButton
                             sx={{
                                 pl: 4,
-                                display: "flex",
-                                flexDirection: "column",
-                                textAlign: "left",
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
                             }}
                         >
                             {contact.map((i, index) => (
@@ -359,12 +362,12 @@ const Footer = () => {
                 <ListItemButton
                     onClick={handleCorporate}
                     sx={{
-                        [theme.breakpoints.up("md")]: { display: "none" },
-                        [theme.breakpoints.down("md")]: {
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
                             fontWeight: 600,
-                            border: "solid rgba(122,139,160,.3)",
-                            borderWidth: "0 0 1px",
-                            padding: "23px 0",
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
                         },
                     }}
                 >
@@ -376,9 +379,9 @@ const Footer = () => {
                         <ListItemButton
                             sx={{
                                 pl: 4,
-                                display: "flex",
-                                flexDirection: "column",
-                                textAlign: "left",
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
                             }}
                         >
                             {corporate.map((i, index) => (
@@ -390,12 +393,12 @@ const Footer = () => {
                 <ListItemButton
                     onClick={handlePolicies}
                     sx={{
-                        [theme.breakpoints.up("md")]: { display: "none" },
-                        [theme.breakpoints.down("md")]: {
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
                             fontWeight: 600,
-                            border: "solid rgba(122,139,160,.3)",
-                            borderWidth: "0 0 1px",
-                            padding: "23px 0",
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
                         },
                     }}
                 >
@@ -407,9 +410,9 @@ const Footer = () => {
                         <ListItemButton
                             sx={{
                                 pl: 4,
-                                display: "flex",
-                                flexDirection: "column",
-                                textAlign: "left",
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
                             }}
                         >
                             {policies.map((i, index) => (
@@ -421,12 +424,12 @@ const Footer = () => {
                 <ListItemButton
                     onClick={handleResources}
                     sx={{
-                        [theme.breakpoints.up("md")]: { display: "none" },
-                        [theme.breakpoints.down("md")]: {
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
                             fontWeight: 600,
-                            border: "solid rgba(122,139,160,.3)",
-                            borderWidth: "0 0 1px",
-                            padding: "23px 0",
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
                         },
                     }}
                 >
@@ -438,9 +441,9 @@ const Footer = () => {
                         <ListItemButton
                             sx={{
                                 pl: 4,
-                                display: "flex",
-                                flexDirection: "column",
-                                textAlign: "left",
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
                             }}
                         >
                             {resources.map((i, index) => (
@@ -452,12 +455,12 @@ const Footer = () => {
                 <ListItemButton
                     onClick={handleSupChain}
                     sx={{
-                        [theme.breakpoints.up("md")]: { display: "none" },
-                        [theme.breakpoints.down("md")]: {
+                        [theme.breakpoints.up('md')]: { display: 'none' },
+                        [theme.breakpoints.down('md')]: {
                             fontWeight: 600,
-                            border: "solid rgba(122,139,160,.3)",
-                            borderWidth: "0 0 1px",
-                            padding: "23px 0",
+                            border: 'solid rgba(122,139,160,.3)',
+                            borderWidth: '0 0 1px',
+                            padding: '23px 0',
                         },
                     }}
                 >
@@ -469,9 +472,9 @@ const Footer = () => {
                         <ListItemButton
                             sx={{
                                 pl: 4,
-                                display: "flex",
-                                flexDirection: "column",
-                                textAlign: "left",
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: 'left',
                             }}
                         >
                             {supplyChain.map((i, index) => (
@@ -483,18 +486,18 @@ const Footer = () => {
 
                 <Box
                     sx={{
-                        width: "27%",
-                        [theme.breakpoints.down("md")]: {
-                            width: "100%",
-                            margin: "0 auto",
+                        width: '27%',
+                        [theme.breakpoints.down('md')]: {
+                            width: '100%',
+                            margin: '0 auto',
                         },
                     }}
                 >
                     <Typography
                         sx={{
-                            padding: "3px 10px",
-                            [theme.breakpoints.down("md")]: {
-                                padding: "20px 10px 10px 0",
+                            padding: '3px 10px',
+                            [theme.breakpoints.down('md')]: {
+                                padding: '20px 10px 10px 0',
                             },
                         }}
                     >
@@ -504,11 +507,11 @@ const Footer = () => {
                     <List>
                         <ListItem
                             sx={{
-                                width: "95%",
-                                fontSize: "16px",
-                                padding: "3px 10px",
-                                [theme.breakpoints.down("md")]: {
-                                    padding: "3px 10px 10px 0",
+                                width: '95%',
+                                fontSize: '16px',
+                                padding: '3px 10px',
+                                [theme.breakpoints.down('md')]: {
+                                    padding: '3px 10px 10px 0',
                                 },
                             }}
                         >
@@ -521,16 +524,17 @@ const Footer = () => {
                             type="btn"
                             value="Sign Up to Join FILA"
                             sx={{
-                                width: "100%",
-                                borderRadius: "0px",
-                                padding: "2% 10%",
-                                margin: "15px 10px",
-                                color: "black",
-                                backgroundColor: "white",
-                                [theme.breakpoints.down("md")]: {
-                                    margin: "15px 0",
+                                width: '100%',
+                                borderRadius: '0px',
+                                padding: '2% 10%',
+                                margin: '15px 10px',
+                                color: 'black',
+                                backgroundColor: 'white',
+                                [theme.breakpoints.down('md')]: {
+                                    margin: '15px 0',
                                 },
                             }}
+                            onClick={() => navigate('/auth')}
                         >
                             <EmailOutlinedIcon />
                             Sign Up to Join FILA
@@ -538,10 +542,10 @@ const Footer = () => {
 
                         <ListItem
                             sx={{
-                                fontSize: "14px",
-                                padding: "3px 10px",
-                                [theme.breakpoints.down("md")]: {
-                                    padding: "3px 10px 10px 0",
+                                fontSize: '14px',
+                                padding: '3px 10px',
+                                [theme.breakpoints.down('md')]: {
+                                    padding: '3px 10px 10px 0',
                                 },
                             }}
                         >
@@ -550,10 +554,10 @@ const Footer = () => {
                         <List
                             className="icons"
                             sx={{
-                                display: "flex",
-                                width: "30%",
-                                [theme.breakpoints.down("md")]: {
-                                    width: "15%",
+                                display: 'flex',
+                                width: '30%',
+                                [theme.breakpoints.down('md')]: {
+                                    width: '15%',
                                 },
                             }}
                         >
@@ -588,29 +592,29 @@ const Footer = () => {
 
             <Box
                 sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "80px",
-                    paddingBottom: "50px",
-                    paddingTop: "40px",
-                    borderTopWidth: "1px",
-                    borderColor: "white",
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '80px',
+                    paddingBottom: '50px',
+                    paddingTop: '40px',
+                    borderTopWidth: '1px',
+                    borderColor: 'white',
                 }}
             >
                 <Box
                     sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        fontSize: "13px",
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        fontSize: '13px',
                     }}
                 >
                     <a
                         href="https://www.fila.com/us"
                         sx={{
-                            width: "90px",
-                            height: "40px",
+                            width: '90px',
+                            height: '40px',
                         }}
                     >
                         <img
@@ -620,8 +624,8 @@ const Footer = () => {
                     </a>
 
                     <Typography>
-                        {" "}
-                        © 2022 FILA Luxembourg, S.a.r.l. All Rights Reserved{" "}
+                        {' '}
+                        © 2022 FILA Luxembourg, S.a.r.l. All Rights Reserved{' '}
                     </Typography>
                 </Box>
             </Box>
