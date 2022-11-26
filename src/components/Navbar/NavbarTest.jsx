@@ -172,27 +172,27 @@ function Navbar() {
             <Button
               onClick={() => navigate("/admin")}
               onMouseEnter={hoverNav}
-              sx={{ color: "black" }}
+              sx={{ color: "black", fontWeight:600, fontSize:14, color:'#0b1f3f' }}
             >
               admin
             </Button>
             <Button
               onClick={() => navigate("/products")}
               onMouseEnter={hoverNav}
-              sx={{ color: "black" }}
+              sx={{ color: "black", fontWeight:600, fontSize:14, color:'#0b1f3f' }}
             >
               products
             </Button>
             <Button
               onClick={() => navigate("/aboutus")}
               onMouseEnter={hoverNav}
-              sx={{ color: "black" }}
+              sx={{ color: "black", fontWeight:600, fontSize:14, color:'#0b1f3f' }}
             >
               About us
             </Button>
             <Button
               onMouseEnter={hoverNav}
-              sx={{ color: "black" }}
+              sx={{ color: "black", fontWeight:600, fontSize:14, color:'#0b1f3f' }}
               onClick={() => navigate("/contactus")}
             >
               contact us
