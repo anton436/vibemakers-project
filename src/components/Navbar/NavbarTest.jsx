@@ -215,7 +215,7 @@ function Navbar() {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip>
+                        <Tooltip title="Search">
                             <IconButton
                                 onClick={openSearch}
                                 sx={{ p: 0, width: '40px' }}
@@ -224,7 +224,7 @@ function Navbar() {
                             </IconButton>
                         </Tooltip>
 
-                        <Tooltip title="Open settings">
+                        <Tooltip title="Account">
                             <IconButton
                                 onClick={handleOpenUserMenu}
                                 sx={{ p: 0, width: '40px' }}
@@ -233,7 +233,7 @@ function Navbar() {
                             </IconButton>
                         </Tooltip>
 
-                        <Tooltip>
+                        <Tooltip title="Cart">
                             <IconButton
                                 onClick={() => navigate('/cart')}
                                 sx={{ p: 0, width: '40px' }}
