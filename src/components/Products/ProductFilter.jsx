@@ -103,20 +103,20 @@ const ProductFilter = () => {
                 align="center"
                 sx={{
                     width: '100%',
-                    display: {
-                        xs: 'none',
-                        sm: 'none',
-                        md: 'block',
-                        lg: 'block',
-                        xl: 'block',
-                    },
+                    marginBottom: { xs: '40px', sm: '40px' },
                 }}
             >
-                <Box sx={{ width: '100%%' }}>
+                <Box sx={{ width: '100%' }}>
                     <Typography
                         sx={{
                             margin: '0',
-                            width: '50%',
+                            width: {
+                                xs: '90%',
+                                sm: '90%',
+                                md: '60%',
+                                lg: '60%',
+                                xl: '60%',
+                            },
                             color: '#0b1f3f',
                             fontWeight: 'bold',
                             fontSize: '20px',
@@ -127,14 +127,31 @@ const ProductFilter = () => {
                     </Typography>
                     <Divider
                         sx={{
-                            width: '60%',
+                            width: {
+                                xs: '90%',
+                                sm: '90%',
+                                md: '60%',
+                                lg: '60%',
+                                xl: '60%',
+                            },
                             margin: '10px auto',
                             border: '1px solid',
                             backgroundColor: 'black',
                         }}
                     ></Divider>
                 </Box>
-                <Box align="left" sx={{ width: '60%' }}>
+                <Box
+                    align="left"
+                    sx={{
+                        width: {
+                            xs: '90%',
+                            sm: '90%',
+                            md: '60%',
+                            lg: '60%',
+                            xl: '60%',
+                        },
+                    }}
+                >
                     <Typography
                         sx={{
                             padding: '0%',
@@ -543,6 +560,7 @@ const ProductFilter = () => {
                         margin: '10px',
                         border: '1px solid',
                         backgroundColor: 'black',
+                        display: { xs: 'none', sm: 'none' },
                     }}
                 ></Divider>
             </Box>
