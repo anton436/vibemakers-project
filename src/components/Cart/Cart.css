@@ -46,6 +46,7 @@ table {
   margin-top: 7%;
   text-decoration-thickness: 1px;
   font-weight: 500;
+  cursor: pointer;
 }
 .qty {
   padding: 5% 0;
@@ -228,6 +229,10 @@ td {
   /* font-weight: 500; */
   font-size: 15px;
   text-decoration: underline;
+  cursor: pointer;
+}
+button{
+    cursor: pointer;
 }
 
 /* !адаптивка */
