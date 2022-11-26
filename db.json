@@ -295,22 +295,6 @@
       "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dwa0e70578/images/ProductImages/LM23D556_001_01_e.jpg?sw=340&sh=510&sm=fit",
       "type": "Jogger",
       "id": 40
-    },
-    {
-      "name": "Trent Jogger",
-      "description": "Or 4 interest-free payments of $17.00 with",
-      "price": 88,
-      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dw0c98aa89/images/ProductImages/LM23D556_064_01_e.jpg?sw=340&sh=510&sm=fit",
-      "type": "Jogger",
-      "id": 41
-    },
-    {
-      "name": "Trent Jogger",
-      "description": "Or 4 interest-free payments of $17.00 with",
-      "price": 88,
-      "picture": "https://www.fila.com/dw/image/v2/AAEJ_PRD/on/demandware.static/-/Sites-FilaUSACatalogID/default/dwafb8ce82/images/ProductImages/LM23D556_132_01_e.jpg?sw=340&sh=510&sm=fit",
-      "type": "Jogger",
-      "id": 42
     }
   ]
 }

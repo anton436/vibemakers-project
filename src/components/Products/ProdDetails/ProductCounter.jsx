@@ -9,7 +9,6 @@ import { useCart } from "../../../contexts/CartContextProvider";
 
 const ProductCounter = () => {
   const { productDetails, getProductDetails } = useProducts();
-
   const { addProductToCart, checkProductInCart } = useCart();
 
   const [count, setCount] = useState(1);

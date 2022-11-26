@@ -16,6 +16,14 @@ const ProductList = () => {
                 display: 'flex',
                 flexWrap: 'wrap',
                 justifyContent: 'space-around',
+                marginRight: '30px',
+                marginLeft: {
+                    xs: '30px',
+                    sm: '30px',
+                    md: '0',
+                    lg: '0',
+                    xl: '0',
+                },
             }}
         >
             {products.map((item) => (
