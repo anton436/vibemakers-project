@@ -16,137 +16,124 @@ import { useNavigate } from "react-router-dom";
 const navItems = ["USA", "Contact Us", "Corparate"];
 
 const theme = createTheme({
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 1024,
-      lg: 1200,
-      xl: 1536,
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            md: 1024,
+            lg: 1200,
+            xl: 1536,
+        },
     },
-  },
 });
 
 function UpNavbar(props) {
-  const navigate = useNavigate();
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+    const navigate = useNavigate();
+    const { window } = props;
+    const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      {/* <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
-            </Typography> */}
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+    const drawer = (
+        <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+            <Divider />
+            <List>
+                {navItems.map((item) => (
+                    <ListItem key={item} disablePadding>
+                        <ListItemButton sx={{ textAlign: "center" }}>
+                            <ListItemText primary={item} />
+                        </ListItemButton>{" "}
+                    </ListItem>
+                ))}
+            </List>
+        </Box>
+    );
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
-  return (
-    <Box sx={{ display: "flex", height: "35px" }}>
-      <AppBar
-        component="nav"
-        sx={{ backgroundColor: "#03234c", height: "35px" }}
-      >
-        <Toolbar
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            [theme.breakpoints.up("sm")]: {
-              minHeight: "35px",
-            },
-          }}
-        >
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", sm: "block" },
-              width: "33%",
-            }}
-          >
-            <Box
-              sx={{
-                display: "block",
-                [theme.breakpoints.down("md")]: {
-                  display: "none",
-                },
-              }}
-            >
-              <Box sx={{ display: "flex", marginLeft: "20px" }}>
-                <MailOutlineOutlinedIcon />
-
-                <Typography
-                  sx={{
-                    fontSize: "12px",
-                    margin: "6px 0 0 2px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => navigate("/auth")}
-                >
-                  Sign Up to Join FILA
-                </Typography>
-              </Box>
-            </Box>
-          </Typography>
-
-          <Typography
-            align="center"
-            sx={{
-              width: "33%",
-              [theme.breakpoints.down("sm")]: {
-                display: "none",
-              },
-              textAlign: "center",
-              fontSize: "13px",
-            }}
-          >
-            FREE STANDARD SHIPPING
-          </Typography>
-
-          <Box
-            sx={{
-              display: "flex",
-              width: "33%",
-              justifyContent: "flex-end",
-            }}
-          >
-            {navItems.map((item) => (
-              <Button
-                onClick={() => navigate("/auth")}
-                key={item}
+    return (
+        <Box sx={{ height: "35px" }}>
+            <AppBar
+                component="nav"
                 sx={{
-                  color: "#fff",
-                  fontSize: "10px",
-                  [theme.breakpoints.down("md")]: {
-                    display: "none",
-                  },
+                    position: "relative",
+                    backgroundColor: "#03234c",
+                    height: "35px",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    [theme.breakpoints.down("md")]: {
+                        justifyContent: "center",
+                    },
                 }}
-              >
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+            >
+                <Box
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        width: "20%",
+                        [theme.breakpoints.down("md")]: {
+                            display: "none",
+                        },
+                    }}
+                >
+                    <Box
+                        sx={{
+                            display: "flex",
+                            marginLeft: "20px",
+                            alignItems: "center",
+                        }}
+                    >
+                        <MailOutlineOutlinedIcon />
+                        <Typography
+                            sx={{
+                                fontSize: "12px",
+                                marginLeft: "5px",
+                            }}
+                        >
+                            Sign Up to Join FILA
+                        </Typography>
+                    </Box>
+                </Box>
+                <Typography
+                    sx={{
+                        width: "30%",
+                        fontSize: "10px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        [theme.breakpoints.down("sm")]: {
+                            width: "50%",
+                        },
+                    }}
+                >
+                    FREE STANDARD SHIPPING
+                </Typography>
+                <Box
+                    sx={{
+                        display: "flex",
+                        width: "20%",
+                        [theme.breakpoints.down("md")]: {
+                            display: "none",
+                        },
+                        justifyContent: "flex-end",
+                    }}
+                >
+                    {navItems.map((item) => (
+                        <Button
+                            key={item}
+                            sx={{
+                                color: "white",
+                                fontSize: "10px",
+                            }}
+                        >
+                            {item}
+                        </Button>
+                    ))}
+                </Box>
+            </AppBar>
+        </Box>
+    );
 }
 
 export default UpNavbar;
