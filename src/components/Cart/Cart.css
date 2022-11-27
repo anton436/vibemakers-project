@@ -27,20 +27,14 @@ table {
   display: flex;
   margin-top: 0;
 }
-.prices p {
-  display: inline;
-  font-weight: 700;
+.cart-price {
+font-weight: 600;
 }
 .subprice {
   font-weight: 700;
   margin-top: 0;
 }
-.ogprice {
-  text-decoration: line-through;
-}
-.newPrice {
-  color: red;
-}
+
 .remove {
   text-decoration: underline;
   margin-top: 7%;
@@ -231,8 +225,8 @@ td {
   text-decoration: underline;
   cursor: pointer;
 }
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 
 /* !адаптивка */

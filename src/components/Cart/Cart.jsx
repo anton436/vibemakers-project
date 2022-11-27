@@ -38,7 +38,6 @@ export default function Cart() {
             <div className="name-qty">
               <p className="name">{row.item.name}</p>
               <p className="qty">Qty: {row.count}</p>
-              <p className="sale">50% OFF | BIGGEST SALE</p>
             </div>
           </td>
           <td className="cart-desktop" valign="top">
@@ -60,8 +59,7 @@ export default function Cart() {
             </p>
           </td>
           <td valign="top" className="prices cart-desktop" align="center">
-            <p className="ogprice">${row.item.price}</p>{" "}
-            <p className="newPrice">${row.item.price / 2}</p>
+            <p className="cart-price">${row.item.price}</p>
           </td>
           <td className="cart-desktop" valign="top" align="right">
             <p className="subprice">${row.subPrice}</p>
@@ -72,31 +70,28 @@ export default function Cart() {
             <div className="name-qty">
               <p className="name">{row.item.name}</p>
               <p className="qty">Qty: {row.count}</p>
-              <p className="sale">50% OFF | BIGGEST SALE</p>
 
-              <div className="prices">
-                {" "}
-                <p className="ogprice">${row.item.price}</p>{" "}
-                <p className="newPrice">${row.item.price / 2}</p>
-              </div>
+              <p className="cart-price">${row.item.price}</p>
 
               <input
-              className="counter"
-              min={1}
-              max={100}
-              type="number"
-              value={row.count}
-              onChange={(e) => changeProductCount(e.target.value, row.item.id)}
-            />
-             <p
-              className="remove"
-              align="left"
-              sx={{ display: "block" }}
-              onClick={() => deleteCartProduct(row.item.id)}
-            >
-              Remove
-            </p>
-            <p className="subprice">Subtotal: ${row.subPrice}</p>
+                className="counter"
+                min={1}
+                max={100}
+                type="number"
+                value={row.count}
+                onChange={(e) =>
+                  changeProductCount(e.target.value, row.item.id)
+                }
+              />
+              <p
+                className="remove"
+                align="left"
+                sx={{ display: "block" }}
+                onClick={() => deleteCartProduct(row.item.id)}
+              >
+                Remove
+              </p>
+              <p className="subprice">Subtotal: ${row.subPrice}</p>
             </div>
           </td>
         </tr>
