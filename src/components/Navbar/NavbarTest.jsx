@@ -21,6 +21,8 @@ import { Input, InputAdornment } from "@mui/material";
 import NavbarHover from "./NavbarHover";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import Badge from "@mui/material/Badge";
+import { useCart } from "../../contexts/CartContextProvider";
+import { getCountProductsInCart } from "../../helpers/functions";
 
 const pages = ["New", "Shoes", "Men", "Women", "Tennis", "work", "WareHouse"];
 
@@ -33,7 +35,11 @@ function Navbar() {
         user: { email },
         handleLogout,
     } = useAuth();
-
+    const { addProductToCart } = useCart();
+    const [count, setCount] = React.useState(0);
+    React.useEffect(() => {
+        setCount(getCountProductsInCart);
+    }, [addProductToCart]);
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -61,7 +67,7 @@ function Navbar() {
 
     return (
         <AppBar
-            position="static"
+            position="sticky"
             sx={{ backgroundColor: "white", boxShadow: "none" }}
         >
             <Container maxWidth="xl">
@@ -80,6 +86,7 @@ function Navbar() {
                             letterSpacing: ".3rem",
                             color: "black",
                             textDecoration: "none",
+                            cursor: "pointer",
                         }}
                     >
                         <img
@@ -136,24 +143,28 @@ function Navbar() {
                                 <Button
                                     onClick={() => navigate("/admin")}
                                     textAlign="center"
+                                    color="inherit"
                                 >
                                     admin
                                 </Button>
                                 <Button
                                     onClick={() => navigate("/products")}
                                     textAlign="center"
+                                    color="inherit"
                                 >
                                     product
                                 </Button>
                                 <Button
                                     onClick={() => navigate("/aboutus")}
                                     textAlign="center"
+                                    color="inherit"
                                 >
                                     about us
                                 </Button>
                                 <Button
                                     onClick={() => navigate("/contactus")}
                                     textAlign="center"
+                                    color="inherit"
                                 >
                                     contact us
                                 </Button>
@@ -192,8 +203,9 @@ function Navbar() {
                     >
                         <Button
                             onClick={() => navigate("/admin")}
-                            onMouseEnter={hoverNav}
-                            sx={{ color: "black" }}
+                            sx={{
+                                color: "black",
+                            }}
                         >
                             admin
                         </Button>
@@ -206,14 +218,12 @@ function Navbar() {
                         </Button>
                         <Button
                             onClick={() => navigate("/aboutus")}
-                            onMouseEnter={hoverNav}
                             sx={{ color: "black" }}
                         >
                             About us
                         </Button>
                         <Button
                             onClick={() => navigate("/contactus")}
-                            onMouseEnter={hoverNav}
                             sx={{ color: "black" }}
                         >
                             contact us
@@ -230,7 +240,7 @@ function Navbar() {
                             </IconButton>
                         </Tooltip>
 
-                        <Tooltip title="Open settings">
+                        <Tooltip>
                             <IconButton
                                 onClick={handleOpenUserMenu}
                                 sx={{ p: 0, width: "40px" }}
@@ -239,9 +249,12 @@ function Navbar() {
                             </IconButton>
                         </Tooltip>
 
-                        <Tooltip title="Open settings">
-                            <IconButton sx={{ p: 0, width: "40px" }}>
-                                <Badge badgeContent={4} color="primary">
+                        <Tooltip>
+                            <IconButton
+                                onClick={() => navigate("/cart")}
+                                sx={{ p: 0, width: "40px" }}
+                            >
+                                <Badge badgeContent={count} color="primary">
                                     <LocalMallIcon />
                                 </Badge>
                             </IconButton>
@@ -270,7 +283,13 @@ function Navbar() {
                                     </Typography>
                                 </MenuItem>
                             ) : (
-                                <Link to="/auth">
+                                <Link
+                                    to="/auth"
+                                    style={{
+                                        textDecoration: "none ",
+                                        color: "black",
+                                    }}
+                                >
                                     <MenuItem onClick={handleLogout}>
                                         <Typography textAlign="center">
                                             login

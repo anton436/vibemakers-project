@@ -1,18 +1,18 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
-import { createTheme } from '@mui/material/styles';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
+import { createTheme } from "@mui/material/styles";
 
-const navItems = ['USA', 'Contact Us', 'Corparate'];
+const navItems = ["USA", "Contact Us", "Corparate"];
 
 const theme = createTheme({
     breakpoints: {
@@ -35,113 +35,100 @@ function UpNavbar(props) {
     };
 
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            {/* <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
-            </Typography> */}
+        <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
             <Divider />
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemButton sx={{ textAlign: "center" }}>
                             <ListItemText primary={item} />
-                        </ListItemButton>
+                        </ListItemButton>{" "}
                     </ListItem>
                 ))}
             </List>
         </Box>
     );
 
-    const container =
-        window !== undefined ? () => window().document.body : undefined;
-
     return (
-        <Box sx={{ display: 'flex', height: '35px' }}>
+        <Box sx={{ height: "35px" }}>
             <AppBar
                 component="nav"
-                sx={{ backgroundColor: '#03234c', height: '35px' }}
+                sx={{
+                    position: "relative",
+                    backgroundColor: "#03234c",
+                    height: "35px",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    [theme.breakpoints.down("md")]: {
+                        justifyContent: "center",
+                    },
+                }}
             >
-                <Toolbar
+                <Box
                     sx={{
-                        display: 'flex',
-                        [theme.breakpoints.up('sm')]: {
-                            minHeight: '35px',
+                        display: "flex",
+                        alignItems: "center",
+                        width: "20%",
+                        [theme.breakpoints.down("md")]: {
+                            display: "none",
                         },
                     }}
                 >
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{
-                            flexGrow: 1,
-                            display: { xs: 'none', sm: 'block' },
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                display: 'block',
-                                [theme.breakpoints.down('md')]: {
-                                    display: 'none',
-                                },
-                            }}
-                        >
-                            <Box sx={{ display: 'flex', marginLeft: '20px' }}>
-                                <MailOutlineOutlinedIcon />
-
-                                <Typography
-                                    sx={{
-                                        fontSize: '12px',
-                                        margin: '6px 0 0 2px',
-                                    }}
-                                >
-                                    Sign Up to Join FILA
-                                </Typography>
-                            </Box>
-                        </Box>
-                    </Typography>
-
-                    <Typography
-                        sx={{
-                            mr: 45,
-                            fontSize: '10px',
-                            [theme.breakpoints.up('md')]: {
-                                mr: 45,
-                            },
-                            [theme.breakpoints.down('md')]: {
-                                mr: 38,
-                            },
-                            [theme.breakpoints.down('lg')]: {
-                                mr: 45,
-                            },
-                            [theme.breakpoints.down('sm')]: {
-                                display: 'none',
-                            },
-                        }}
-                    >
-                        FREE STANDARD SHIPPING
-                    </Typography>
-
                     <Box
                         sx={{
-                            display: 'block',
+                            display: "flex",
+                            marginLeft: "20px",
+                            alignItems: "center",
                         }}
                     >
-                        {navItems.map((item) => (
-                            <Button
-                                key={item}
-                                sx={{
-                                    color: '#fff',
-                                    fontSize: '10px',
-                                    [theme.breakpoints.down('md')]: {
-                                        display: 'none',
-                                    },
-                                }}
-                            >
-                                {item}
-                            </Button>
-                        ))}
+                        <MailOutlineOutlinedIcon />
+                        <Typography
+                            sx={{
+                                fontSize: "12px",
+                                marginLeft: "5px",
+                            }}
+                        >
+                            Sign Up to Join FILA
+                        </Typography>
                     </Box>
-                </Toolbar>
+                </Box>
+                <Typography
+                    sx={{
+                        width: "30%",
+                        fontSize: "10px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        [theme.breakpoints.down("sm")]: {
+                            width: "50%",
+                        },
+                    }}
+                >
+                    FREE STANDARD SHIPPING
+                </Typography>
+                <Box
+                    sx={{
+                        display: "flex",
+                        width: "20%",
+                        [theme.breakpoints.down("md")]: {
+                            display: "none",
+                        },
+                        justifyContent: "flex-end",
+                    }}
+                >
+                    {navItems.map((item) => (
+                        <Button
+                            key={item}
+                            sx={{
+                                color: "white",
+                                fontSize: "10px",
+                            }}
+                        >
+                            {item}
+                        </Button>
+                    ))}
+                </Box>
             </AppBar>
         </Box>
     );
