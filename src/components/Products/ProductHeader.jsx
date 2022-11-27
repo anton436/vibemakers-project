@@ -46,8 +46,20 @@ const ProductHeader = () => {
                     align="center"
                     sx={{
                         position: 'absolute',
-                        fontSize: '40px',
+                        fontSize: {
+                            xs: 15,
+                            sm: 22,
+                            md: 25,
+                            lg: 50,
+                            xl: 75,
+                        },
                         top: '0',
+                        [theme.breakpoints.up('lg')]: {
+                            top: '-10%',
+                        },
+                        [theme.breakpoints.up('xs')]: {
+                            top: '-13%',
+                        },
                         right: '0',
                         left: '0',
                         lineHeight: '3',
@@ -60,16 +72,31 @@ const ProductHeader = () => {
                     align="center"
                     sx={{
                         position: 'absolute',
-                        fontSize: '18px',
+                        fontSize: {
+                            xs: 5,
+                            sm: 15,
+                            md: 18,
+                            lg: 22,
+                            xl: 30,
+                        },
                         right: '0',
                         left: '0',
                         bottom: '0',
                         top: '50%',
-                        [theme.breakpoints.up('md')]: {
-                            top: '60%',
+                        [theme.breakpoints.up('xs')]: {
+                            top: '50%',
                         },
                         [theme.breakpoints.up('sm')]: {
                             top: '65%',
+                        },
+                        [theme.breakpoints.up('md')]: {
+                            top: '60%',
+                        },
+                        [theme.breakpoints.up('lg')]: {
+                            top: '70%',
+                        },
+                        [theme.breakpoints.up('xl')]: {
+                            top: '60%',
                         },
                     }}
                 >

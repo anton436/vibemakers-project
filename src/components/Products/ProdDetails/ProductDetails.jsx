@@ -53,7 +53,7 @@ const ProductDetails = () => {
     }
 
     return (
-        <Grid sx={{ mb: "50px", mt: "50px", overflow: "auto " }}>
+        <Grid sx={{ mb: "50px", mt: "50px" }}>
             <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
                 <Grid
                     sx={{
@@ -88,7 +88,10 @@ const ProductDetails = () => {
                     </Button>
 
                     <Button
-                        onClick={() => deleteProduct(id)}
+                        onClick={() => {
+                            deleteProduct(id);
+                            navigate(`/products`);
+                        }}
                         variant="contained"
                         sx={{
                             backgroundColor: "red",
@@ -202,7 +205,7 @@ const ProductDetails = () => {
                     </Box>
 
                     <ProductCounter />
-                    <div>
+                    <Box>
                         <Box sx={{ width: "100%" }}>
                             <Accordion sx={{ width: "100%" }}>
                                 <AccordionSummary
@@ -257,7 +260,7 @@ const ProductDetails = () => {
                                 ></Typography>
                             </Box>
                         </Box>
-                    </div>
+                    </Box>
                 </Box>
             </Box>
         </Grid>

@@ -9,7 +9,8 @@ import { useCart } from "../../../contexts/CartContextProvider";
 
 const ProductCounter = () => {
     const { productDetails, getProductDetails } = useProducts();
-    const { checkProductInCart, addProductToCart } = useCart();
+    const { addProductToCart, checkProductInCart } = useCart();
+
     const [count, setCount] = useState(1);
     const increment = () => {
         setCount((prev) => (prev += 1));
@@ -42,27 +43,24 @@ const ProductCounter = () => {
                     }}
                 >
                     <div>
-                        <a href="#">
-                            <RemoveIcon
-                                className="remove_icon"
-                                onClick={() => decrement()}
-                                sx={{ marginRight: "6px" }}
-                            />
-                        </a>
+                        <RemoveIcon
+                            className="remove_icon"
+                            onClick={() => decrement()}
+                            sx={{ marginRight: "6px" }}
+                        />
                     </div>
                     <div>
                         <div>{count}</div>
                     </div>
                     <div>
-                        <a href="#">
-                            <AddIcon
-                                className="add_icon"
-                                onClick={increment}
-                                sx={{ marginLeft: "6px" }}
-                            />
-                        </a>
+                        <AddIcon
+                            className="add_icon"
+                            onClick={increment}
+                            sx={{ marginLeft: "6px" }}
+                        />
                     </div>
                 </Box>
+
                 {checkProductInCart(productDetails.id) ? (
                     <Button
                         variant="contained"
@@ -78,7 +76,7 @@ const ProductCounter = () => {
                             fontWeight: "600",
                         }}
                     >
-                        ADD TO BAG
+                        ALREADY IN BAG
                     </Button>
                 ) : (
                     <Button
@@ -95,7 +93,8 @@ const ProductCounter = () => {
                             fontWeight: "600",
                         }}
                     >
-                        remove from bag
+                        {" "}
+                        ADD TO BAG
                     </Button>
                 )}
             </Box>
