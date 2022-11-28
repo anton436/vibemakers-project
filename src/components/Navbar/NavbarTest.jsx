@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 // import AdbIcon from '@mui/icons-material/Adb';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import images from '../../images/fila.png';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonIcon from '@mui/icons-material/Person';
@@ -23,6 +23,7 @@ import { useAuth } from '../../contexts/AuthContextProvider';
 import Badge from '@mui/material/Badge';
 import { useCart } from '../../contexts/CartContextProvider';
 import { getCountProductsInCart } from '../../helpers/functions';
+import { ADMIN } from '../../helpers/consts';
 
 const pages = ['New', 'Shoes', 'Men', 'Women', 'Tennis', 'work', 'WareHouse'];
 
@@ -64,6 +65,18 @@ function Navbar() {
     setSearchState(!searchState);
   };
   const navigate = useNavigate();
+
+  //! SEARCH
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [search, setSearch] = React.useState(searchParams.get('q') || '');
+
+  React.useEffect(() => {
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
 
   return (
     <AppBar
@@ -135,13 +148,18 @@ function Navbar() {
                 }}
                 onClick={handleCloseNavMenu}
               >
-                <Button
-                  onClick={() => navigate('/admin')}
-                  sx={{ textAlign: 'center' }}
-                  color='inherit'
-                >
-                  admin
-                </Button>
+                {email === ADMIN ? (
+                  <Button
+                    onClick={() => navigate('/admin')}
+                    sx={{ textAlign: 'center' }}
+                    color='inherit'
+                  >
+                    admin
+                  </Button>
+                ) : (
+                  <></>
+                )}
+
                 <Button
                   onClick={() => navigate('/products')}
                   sx={{ textAlign: 'center' }}
@@ -191,14 +209,19 @@ function Navbar() {
               display: { xs: 'none', md: 'flex' },
             }}
           >
-            <Button
-              onClick={() => navigate('/admin')}
-              sx={{
-                color: 'black',
-              }}
-            >
-              admin
-            </Button>
+            {email === ADMIN ? (
+              <Button
+                onClick={() => navigate('/admin')}
+                sx={{
+                  color: 'black',
+                }}
+              >
+                admin
+              </Button>
+            ) : (
+              <></>
+            )}
+
             <Button
               onClick={() => navigate('/products')}
               onMouseEnter={hoverNav}
@@ -303,6 +326,8 @@ function Navbar() {
               fontSize: '25px',
               boxShadow: '0px 5px 10px -5px rgba(34, 60, 80, 0.6)',
             }}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             placeholder='Search'
             endAdornment={
               <InputAdornment

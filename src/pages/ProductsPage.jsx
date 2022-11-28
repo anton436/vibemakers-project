@@ -6,6 +6,7 @@ import ProductHeader from '../components/Products/ProductHeader';
 import ProductFilter from '../components/Products/ProductFilter';
 import ProductSortPagination from '../components/Products/ProductSortPagination';
 import { useProducts } from '../contexts/ProductContextProvider';
+import { useSearchParams } from 'react-router-dom';
 
 const ProductsPage = () => {
   const { products, getProducts } = useProducts();
@@ -23,6 +24,15 @@ const ProductsPage = () => {
     const end = begin + itemsPerPage;
     return products.slice(begin, end);
   }
+
+  //! SEARCH
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    getProducts();
+    setPage(1);
+  }, [searchParams]);
+  //! SEARCH
 
   return (
     <div>
